@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import BannerComponent from './BannerComponent'
 import SiteHeader from './HeaderComponent'
 
 class IndexContents extends Component {
@@ -6,6 +7,7 @@ class IndexContents extends Component {
         return(
             <div>
                 <SiteHeader />
+                <BannerComponent />
             </div>
         );
     }
