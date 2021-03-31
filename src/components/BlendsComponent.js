@@ -28,7 +28,7 @@ function BlendsComponent(){
             <div className="row" style={{ marginLeft: '7rem', marginRight: '7rem' }}>
                 <div className="col-md-4">
                     <Card style={blendCardSyle}>
-                        <Card.Img variant="top" src={enziClassicBlendImg} />
+                        <Card.Img variant="top" src={enziClassicBlendImg} style={{ width: '20rem' }}/>
                         <Card.Body>
                             <div className="" style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start' }}>
                                 <h5> Enzi Classic Mbeya <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span> </h5> 
@@ -59,7 +59,7 @@ function BlendsComponent(){
                 </div>
                 <div className="col-md-4 align-content-center">
                     <Card style={blendCardSyle}>
-                        <Card.Img variant="top" src={enziClassicBlendImg2} />
+                        <Card.Img variant="top" src={enziClassicBlendImg2} style={{ width: '20rem' }}/>
                         <Card.Body>
                         <div className="" style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start' }}>
                                 <h5> Enzi Kili  <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span> </h5> 
