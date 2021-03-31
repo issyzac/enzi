@@ -2,6 +2,7 @@ import {Navbar, Nav, Card} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'react-bootstrap/Image'
 import logo from '../images/logo.png'
+import logoWithName from '../images/logo-with-name.png'
 
 const navbarstyle = {
     height: '80px',
@@ -18,7 +19,7 @@ const brandStyle = {
 
 const logoStyle = {
     height: '60px',
-    widht: '60px'
+    widht: '40px'
 }
 
 function SiteHeader() {
@@ -30,8 +31,8 @@ function SiteHeader() {
                     <div className="col">
                         <Image src={logo} fluid style={logoStyle} />
                     </div>
-                    <div className="col d-flex flex-column justify-content-center" style={{ lineHeight: '0.9', paddingLeft: '0' }}>
-                        <p style={{ margin: '0' }}> Enzi Coffee <br/> Roasters </p>
+                    <div className="col d-flex flex-column justify-content-center" style={{ lineHeight: '0.9', paddingLeft: '0', textAlign: 'start' }}>
+                        <p style={{ margin: '0' }}> <span style={{ fontSize: '24px', fontFamily: 'Nunito', fontWeight: '900' }}> Enzi </span> <br/> Coffee Roasters </p>
                     </div>
                 </div>
             </Navbar.Brand>
