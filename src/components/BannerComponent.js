@@ -3,7 +3,8 @@ import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
 
 const bannerStyle = {
-    height: '700px'
+    marginTop: '80px',
+    marginBottom: '80px'
 }
 
 const bannerTextStyle ={
@@ -29,7 +30,7 @@ function BannerComponent(){
                     </div>
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '20px', fontFamily: 'poppins', fontWeight: '300' }}> 
-                            At <b>enzi</b> we love coffee and everything that is involved with it, we always go an
+                            At <b style={{ backgroundColor: '#202a44', paddingLeft: '5px', color: '#ffffff', marginRight: '5px' }}> enzi </b>  we love coffee and everything that is involved with it, we always go an
                             extra mile to make sure every sip of a cup is a unique experience for our customers </p>
                     </div>
                     <div style={{ textAlign: 'start' }}> 
