@@ -11,7 +11,8 @@ const bannerTextStyle ={
     fontFamily: 'Nunito',
     fontWeight: '700',
     fontSize: '50px',
-    color: '#202a44'
+    color: '#202a44',
+    textAlign: 'start'
 }
 
 const flagsStyle = {
@@ -25,8 +26,8 @@ function BannerComponent(){
         <div className="container" style={bannerStyle}>
             <div className="row">
                 <div className="col d-flex flex-column justify-content-center">
-                    <div className="" style={bannerTextStyle}>
-                        <p style={{ textAlign: 'start' }} >Coffee, Kahawa, Kaffee, Kofe, Café, Kopi</p>
+                    <div className="">
+                        <h4 style={bannerTextStyle}> Coffee, Kahawa, Kaffee, Kofe, Café, Kopi</h4>
                     </div>
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '20px', fontFamily: 'poppins', fontWeight: '300' }}> 
