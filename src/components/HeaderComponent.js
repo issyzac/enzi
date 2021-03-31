@@ -24,7 +24,7 @@ const logoStyle = {
 function SiteHeader() {
     return (
         <Card>
-            <Navbar bg="light" expand="lg" style={navbarstyle}>
+            <Navbar fixed="top" bg="light" expand="lg" style={navbarstyle}>
             <Navbar.Brand href="#home" style={brandStyle} className="d-flex flex-column justify-content-center">
                 <div className="row">
                     <div className="col">
