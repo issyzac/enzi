@@ -36,8 +36,9 @@ function GadgetComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col-4"></div>
-                    <div className="col-4"></div>
+                </div>
+                <div className="row d-flex flex-row justify-content-center">
+                    <Button variant="outline-primary" style={{ width: '150px', alignSelf: 'center', marginTop: '50px', marginBottom: '50px', fontFamily: 'Nunito' }}> All Gadgets </Button>
                 </div>
             </div>
         </div>
