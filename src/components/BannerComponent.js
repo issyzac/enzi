@@ -9,7 +9,8 @@ const bannerStyle = {
 const bannerTextStyle ={
     fontFamily: 'Nunito',
     fontWeight: '700',
-    fontSize: '50px'
+    fontSize: '50px',
+    color: '#202a44'
 }
 
 const flagsStyle = {
