@@ -24,7 +24,8 @@ const flagsStyle = {
 }
 
 const subtitleStyle = {
-    color: '#db7f3b'
+    color: '#202a44', //202a44 db7f3b  
+    fontWeight: '700'
 }
 
 function BlendsComponent(){ 
@@ -37,7 +38,7 @@ function BlendsComponent(){
                         <Card.Body>
                             <div className="" style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start' }}>
                                 <h5> Enzi Classic Mbeya <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span> </h5> 
-                                <p></p>
+                                <br />
                                 <div className="row" style={{ fontFamily: 'Nunito', fontWeight: '300', fontSize: '0.7em', textAlign: 'start' }}>
                                    <div className="col">
                                    <p> 
@@ -68,7 +69,7 @@ function BlendsComponent(){
                         <Card.Body>
                         <div className="" style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start' }}>
                                 <h5> Enzi Kili  <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span> </h5> 
-                                <p></p>
+                                <br />
                                 <div className="row" style={{ fontFamily: 'Nunito', fontWeight: '300', fontSize: '0.7em', textAlign: 'start' }}>
                                    <div className="col">
                                    <p> 
@@ -97,7 +98,7 @@ function BlendsComponent(){
                     <h1 style={{ fontFamily: 'Nunito' }}>
                         Explore our variety of blends made perfect for every moment
                     </h1>
-                    <Button variant="outline-primary" style={{ width: '150px', alignSelf: 'center', marginTop: '20px' }}> View All </Button>
+                    <Button variant="outline-primary" style={{ width: '150px', alignSelf: 'center', marginTop: '20px', fontFamily: 'Nunito' }}> View All </Button>
                 </div>
             </div>
         </div>
