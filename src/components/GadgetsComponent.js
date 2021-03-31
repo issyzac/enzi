@@ -6,7 +6,7 @@ import aeropress from '../images/gadgets/aeropress.jpg'
 
 function GadgetComponent() {
     return(
-        <div style={{ height: '500px' }}>
+        <div className="container">
             <div className="d-flex flex-row justify-content-center" style={{ marginTop: '50px' }}>
                 <h2 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Gadgets Shop </h2>
             </div>
