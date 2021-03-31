@@ -39,8 +39,10 @@ function SiteHeader() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">About</Nav.Link>
+                    <Nav.Link href="#home" active>Home</Nav.Link>
+                    <Nav.Link href="#about">About</Nav.Link>
+                    <Nav.Link href="#shop">Shop</Nav.Link>
+                    <Nav.Link href="#blog">Blog</Nav.Link>
                 </Nav>
                 
                 <FontAwesomeIcon icon="glass-cheers" />
