@@ -8,7 +8,7 @@ const footeLogoStyle = {
     alignSelf: 'center'
 }
 
-function Footer(){
+function FooterComponent(){
     return(
         <div className="footer">
             <div className="container">
@@ -74,4 +74,4 @@ function Footer(){
     )
 }
 
-export default Footer;
+export default FooterComponent;

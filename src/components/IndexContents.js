@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import BannerComponent from './BannerComponent'
 import BlendsComponent from './BlendsComponent'
-import Footer from './Footer'
+import FooterComponent from './FooterComponent'
 import GadgetComponent from './GadgetsComponent'
 import SiteHeader from './HeaderComponent'
 
@@ -13,7 +13,7 @@ class IndexContents extends Component {
                 <BannerComponent />
                 <BlendsComponent />
                 <GadgetComponent />
-                <Footer />
+                <FooterComponent />
             </div>
         );
     }
