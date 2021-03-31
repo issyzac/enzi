@@ -1,7 +1,12 @@
 import {Card, Button} from 'react-bootstrap'
-import enziClassicBlendImg from '../images/blends/ec001.png'
-import enziClassicBlendImg2 from '../images/blends/ec002.jpg'
 import Flags from 'country-flag-icons/react/3x2'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+//Images
+import enziClassicBlendImg2 from '../images/blends/ec002-0.png'
+import blendPlaceHolder1 from '../images/blends/blend-placeholder.png'
+import blendPlaceHolder2 from '../images/blends/blend-placeholder-two.png'
+
 
 const blendStyle = {
     backgroundColor: '#e8f5ff' //fff0e6 e8f5ff d6e6ff
@@ -28,7 +33,7 @@ function BlendsComponent(){
             <div className="row" style={{ marginLeft: '7rem', marginRight: '7rem' }}>
                 <div className="col-md-4">
                     <Card style={blendCardSyle}>
-                        <Card.Img variant="top" src={enziClassicBlendImg} style={{ width: '20rem' }}/>
+                        <Card.Img variant="top" src={blendPlaceHolder2} style={{ width: '20rem', alignSelf: 'center' }}/>
                         <Card.Body>
                             <div className="" style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start' }}>
                                 <h5> Enzi Classic Mbeya <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span> </h5> 
@@ -59,7 +64,7 @@ function BlendsComponent(){
                 </div>
                 <div className="col-md-4 align-content-center">
                     <Card style={blendCardSyle}>
-                        <Card.Img variant="top" src={enziClassicBlendImg2} style={{ width: '20rem' }}/>
+                        <Card.Img variant="top" src={blendPlaceHolder2} style={{ width: '20rem', alignSelf: 'center' }}/>
                         <Card.Body>
                         <div className="" style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start' }}>
                                 <h5> Enzi Kili  <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span> </h5> 
