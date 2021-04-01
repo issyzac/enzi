@@ -39,7 +39,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={aeropress} style={gadgetImageStyle}/>
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Aeropress</Card.Title>
-                                <Card.Title style={gadgetTextPriceStyle}>150,000 TSH</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>120,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
@@ -48,7 +48,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={grinder} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Hand Grinder</Card.Title>
-                                <Card.Title style={gadgetTextPriceStyle}>80,000 TSH</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>100,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
@@ -57,7 +57,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={moka} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Moka Pot</Card.Title>
-                                <Card.Title style={gadgetTextPriceStyle}>100,000 TSH</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>140,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
