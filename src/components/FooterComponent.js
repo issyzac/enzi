@@ -37,10 +37,11 @@ function FooterComponent(){
                     </div>
                     <div className="col-lg-2 col-md-3 col-sm-6">
                         <div className="footer__widget">
-                            <h6>Subscription</h6>
+                            <h6>Just For you</h6>
                             <ul>
                                 <li><a href="index.html#">Subscription Bundles</a></li>
                                 <li><a href="index.html#">Delivery</a></li>
+                                <li><a href="index.html#">Blog</a></li>
                             </ul>
                         </div>
                     </div>
