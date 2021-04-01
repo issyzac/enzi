@@ -28,7 +28,7 @@ const gadgetTextPriceStyle = {
 
 function GadgetComponent() {
     return(
-        <div className="container" style={{ }}>
+        <div className="container" id="shop">
             <div className="d-flex flex-row justify-content-center" style={{ marginTop: '50px' }}>
                 <h2 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Gadgets Shop </h2>
             </div>
