@@ -9,7 +9,7 @@ import blendPlaceHolder2 from '../images/blends/blend-placeholder-two.png'
 
 
 const blendStyle = {
-    backgroundColor: '#e8f5ff' //fff0e6 e8f5ff d6e6ff
+    backgroundColor: '#202a44' //fff0e6 e8f5ff d6e6ff
 }
 
 const blendCardSyle = {
@@ -53,7 +53,7 @@ function BlendsComponent(){
                     </div>
                 </div>
                 <div className="col-md-4 d-flex flex-column justify-content-center" style={{ padding: '3em' }}>
-                    <h1 style={{ fontFamily: 'Nunito' }}>
+                    <h1 style={{ fontFamily: 'Nunito', color: '#ffffff' }}>
                         Explore our variety of blends made perfect for every moment
                     </h1>
                     <Button variant="outline-primary" style={{ width: '150px', alignSelf: 'center', marginTop: '20px', fontFamily: 'Nunito' }}> View All </Button>
