@@ -4,35 +4,57 @@ import grinder from '../images/gadgets/handgrinder.jpeg'
 import electricGrinder from '../images/gadgets/electric-grinder.jpg'
 import aeropress from '../images/gadgets/aeropress.jpg'
 
+const gadgetCardStyle = {
+    marginBottom: '5rem',
+}
+
+const gadgetImageStyle = {
+    padding: '3rem',
+}
+
+const gadgetTextStyle = {
+    fontFamily: 'Nunito',
+    fontWeight: '300',
+    fontSize: '18px'
+}
+
 function GadgetComponent() {
     return(
-        <div className="container">
+        <div className="container" style={{ }}>
             <div className="d-flex flex-row justify-content-center" style={{ marginTop: '50px' }}>
                 <h2 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Gadgets Shop </h2>
             </div>
             <div className="container" style={{ marginTop: '5rem' }}>
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-4" style={gadgetCardStyle}>
                         <Card style={{  }}>
-                            <Card.Img variant="top" src={aeropress} />
+                            <Card.Img variant="top" src={aeropress} style={gadgetImageStyle}/>
                             <Card.Body>
-                                <Card.Title>Aeropress</Card.Title>
+                                <Card.Title style={gadgetTextStyle}>Aeropress</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4" style={gadgetCardStyle}>
                         <Card style={{  }}>
-                            <Card.Img variant="top" src={grinder} />
+                            <Card.Img variant="top" src={grinder} style={gadgetImageStyle} />
                             <Card.Body>
-                                <Card.Title>Hand Grinder</Card.Title>
+                                <Card.Title style={gadgetTextStyle}>Hand Grinder</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4" style={gadgetCardStyle}>
                         <Card style={{  }}>
-                            <Card.Img variant="top" src={moka} />
+                            <Card.Img variant="top" src={moka} style={gadgetImageStyle} />
                             <Card.Body>
-                                <Card.Title>Moka Pot</Card.Title>
+                                <Card.Title style={gadgetTextStyle}>Moka Pot</Card.Title>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-4" style={gadgetCardStyle}>
+                        <Card style={{  }}>
+                            <Card.Img variant="top" src={electricGrinder} style={gadgetImageStyle} />
+                            <Card.Body>
+                                <Card.Title style={gadgetTextStyle}>Electric Grinder</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
