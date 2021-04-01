@@ -39,7 +39,6 @@ function FooterComponent(){
                         <div className="footer__widget">
                             <h6>Subscription</h6>
                             <ul>
-                                <li><a href="index.html#">Contact Us</a></li>
                                 <li><a href="index.html#">Subscription Bundles</a></li>
                                 <li><a href="index.html#">Delivery</a></li>
                             </ul>
@@ -47,13 +46,10 @@ function FooterComponent(){
                     </div>
                     <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
                         <div className="footer__widget">
-                            <h6>NewLetter</h6>
+                            <h6>Contact</h6>
                             <div className="footer__newslatter">
-                                <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                                <form action="index.html#">
-                                    <input type="text" placeholder="Your email" />
-                                    <button type="submit"><span className="icon_mail_alt"></span></button>
-                                </form>
+                                <p><span>Phone</span> +255683321768 </p>
+                                <p><span>Email</span> enzicoffee@gmail.com </p>
                             </div>
                         </div>
                     </div>
