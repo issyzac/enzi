@@ -40,9 +40,8 @@ function FooterComponent(){
                             <h6>Subscription</h6>
                             <ul>
                                 <li><a href="index.html#">Contact Us</a></li>
-                                <li><a href="index.html#">Payment Methods</a></li>
-                                <li><a href="index.html#">Delivary</a></li>
-                                <li><a href="index.html#">Return & Exchanges</a></li>
+                                <li><a href="index.html#">Subscription Bundles</a></li>
+                                <li><a href="index.html#">Delivery</a></li>
                             </ul>
                         </div>
                     </div>
