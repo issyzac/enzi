@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'react-bootstrap/Image'
 import logo from '../images/logo.png'
 import logoWithName from '../images/logo-with-name.png'
+import { Link } from 'react-scroll';
 
 const navbarstyle = {
     height: '80px',
@@ -38,10 +39,18 @@ function SiteHeader() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home" active>Home</Nav.Link>
-                    <Nav.Link href="#about">About</Nav.Link>
-                    <Nav.Link href="#shop">Shop</Nav.Link>
-                    <Nav.Link href="#blog">Blog</Nav.Link>
+                    <Link activeClass="active" to="#" spy={true} smooth={true} duration={800}>
+                        <Nav.Link href="#">Home</Nav.Link>
+                    </Link>
+                    <Link activeClass="active" to="blends" spy={true} smooth={true} duration={800}>
+                        <Nav.Link href="#">About</Nav.Link>
+                    </Link>
+                    <Link activeClass="" to="shop" spy={true} smooth={true} duration={800}>
+                        <Nav.Link href="#">Shop</Nav.Link>
+                    </Link>
+                    <Link activeClass="" to="footer" spy={true} smooth={true} duration={800}>
+                        <Nav.Link href="#">Blog</Nav.Link>
+                    </Link>
                 </Nav>
                 
                 <FontAwesomeIcon icon="glass-cheers" />
