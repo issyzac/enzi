@@ -11,10 +11,12 @@ class IndexContents extends Component {
         return(
             <div>
                 <SiteHeader />
-                <BannerComponent />
-                <BlendsComponent />
-                <GadgetComponent />
-                <FooterComponent />
+                <div style={{ paddingTop: '80px' }}>
+                    <BannerComponent />
+                    <BlendsComponent />
+                    <GadgetComponent />
+                    <FooterComponent />
+                </div>
             </div>
         );
     }
