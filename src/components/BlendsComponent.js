@@ -30,7 +30,7 @@ const subtitleStyle = {
 
 function BlendsComponent(){ 
     return (
-        <div className="container-fluid" style={blendStyle}>
+        <div className="container-fluid" style={blendStyle} id="blends">
             <div className="row" style={{ marginLeft: '7rem', marginRight: '7rem' }}>
                 <div class="col-lg-4 col-md-6 col-sm-6" style={blendCardSyle}>
                     <div class="blog__item">
