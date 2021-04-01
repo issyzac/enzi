@@ -20,7 +20,7 @@ function FooterComponent(){
                                     <Image src={logoWhite} alt="Enzi logo"/>
                                 </a>
                             </div>
-                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                            <p>Our love and passion for coffee is what our community is all about.</p>
                             <a href="index.html#"><img src="img/payment.png" alt=""/></a>
                         </div>
                     </div>
