@@ -42,7 +42,7 @@ function SiteHeader() {
                     <Link activeClass="active" to="#home" spy={true} smooth={true} duration={800}>
                         <Nav.Link href="#">Home</Nav.Link>
                     </Link>
-                    <Link activeClass="active" to="blends" spy={true} smooth={true} duration={800}>
+                    <Link activeClass="" to="blends" spy={true} smooth={true} duration={800}>
                         <Nav.Link href="#">About</Nav.Link>
                     </Link>
                     <Link activeClass="" to="shop" spy={true} smooth={true} duration={800}>
