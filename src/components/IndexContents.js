@@ -6,6 +6,7 @@ import GadgetComponent from './GadgetsComponent'
 import SiteHeader from './HeaderComponent'
 
 class IndexContents extends Component {
+    
     render(){
         return(
             <div>
