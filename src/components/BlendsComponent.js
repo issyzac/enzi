@@ -36,7 +36,7 @@ function BlendsComponent(){
                     <div class="blog__item">
                         <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem' }}>
                             <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
-                                <span><img src={blendPlaceHolder2} alt="" /> 16 February 2020</span>
+                                <span><img src={blendPlaceHolder2} alt="" style={{ padding: '4rem' }} /> Enzi Mbeya</span>
                                 <h5 style={{ fontFamily: 'Nunito' }}> Enzi Classic Mbeya </h5>
                             <a href="index.html#">Order Now</a>
                         </div>
@@ -46,17 +46,17 @@ function BlendsComponent(){
                     <div class="blog__item">
                         <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem' }}>
                             <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
-                                <span><img src={blendPlaceHolder2} alt="" /> 16 February 2020</span>
+                                <span><img src={blendPlaceHolder2} alt="" style={{ padding: '4rem' }} /> Enzi Kili</span>
                                 <h5 style={{ fontFamily: 'Nunito' }}> Enzi Kili </h5>
                             <a href="index.html#">Order Now</a>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4 d-flex flex-column justify-content-center" style={{ padding: '3em' }}>
-                    <h1 style={{ fontFamily: 'Nunito', color: '#ffffff' }}>
+                    <h1 style={{ fontFamily: 'Nunito', color: '#ffffff', fontWeight: '700' }}>
                         Explore our variety of blends made perfect for every moment
                     </h1>
-                    <Button variant="outline-primary" style={{ width: '150px', alignSelf: 'center', marginTop: '20px', fontFamily: 'Nunito' }}> View All </Button>
+                    <Button variant="outline-light" style={{ width: '150px', alignSelf: 'center', marginTop: '20px', fontFamily: 'Nunito' }}> View All </Button>
                 </div>
             </div>
         </div>
