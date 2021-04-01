@@ -14,8 +14,16 @@ const gadgetImageStyle = {
 
 const gadgetTextStyle = {
     fontFamily: 'Nunito',
-    fontWeight: '300',
-    fontSize: '18px'
+    fontWeight: '500',
+    fontSize: '18px',
+    textAlign: 'start'
+}
+
+const gadgetTextPriceStyle = {
+    textAlign: 'start',
+    fontWeight: '700',
+    fontSize: '20px',
+    fontFamily: 'Nunito'
 }
 
 function GadgetComponent() {
@@ -31,6 +39,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={aeropress} style={gadgetImageStyle}/>
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Aeropress</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>150,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
@@ -39,6 +48,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={grinder} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Hand Grinder</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>80,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
@@ -47,6 +57,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={moka} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Moka Pot</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>100,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
@@ -55,6 +66,7 @@ function GadgetComponent() {
                             <Card.Img variant="top" src={electricGrinder} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Electric Grinder</Card.Title>
+                                <Card.Title style={gadgetTextPriceStyle}>200,000 TSH</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
