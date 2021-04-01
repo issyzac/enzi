@@ -39,7 +39,7 @@ function SiteHeader() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Link activeClass="active" to="#" spy={true} smooth={true} duration={800}>
+                    <Link activeClass="active" to="#home" spy={true} smooth={true} duration={800}>
                         <Nav.Link href="#">Home</Nav.Link>
                     </Link>
                     <Link activeClass="active" to="blends" spy={true} smooth={true} duration={800}>

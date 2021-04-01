@@ -23,7 +23,7 @@ const flagsStyle = {
 
 function BannerComponent(){
     return(
-        <div className="container" style={bannerStyle}>
+        <div id="#home" className="container" style={bannerStyle}>
             <div className="row">
                 <div className="col d-flex flex-column justify-content-center">
                     <div className="">
