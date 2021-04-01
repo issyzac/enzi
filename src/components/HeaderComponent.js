@@ -24,8 +24,7 @@ const logoStyle = {
 
 function SiteHeader() {
     return (
-        <Card>
-            <Navbar fixed="top" bg="light" expand="lg" style={navbarstyle}>
+        <Navbar fixed="top" bg="light" expand="lg" style={navbarstyle}>
             <Navbar.Brand href="#home" style={brandStyle} className="d-flex flex-column justify-content-center">
                 <div className="row">
                     <div className="col">
@@ -48,8 +47,7 @@ function SiteHeader() {
                 <FontAwesomeIcon icon="glass-cheers" />
 
             </Navbar.Collapse>
-            </Navbar>
-        </Card>
+        </Navbar>
     );
 }
 
