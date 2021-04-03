@@ -26,6 +26,19 @@ const gadgetTextPriceStyle = {
     fontFamily: 'Nunito'
 }
 
+const addtocartButtonStyle = {
+    border: '2px solid #202a44',
+    fontVariant: 'all-small-caps',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
+    borderRadius: '0px',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem'
+}
+
 function GadgetComponent() {
     return(
         <div className="container" id="shop">
@@ -40,6 +53,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Aeropress</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>120,000 TSH</Card.Title>
+                                <Button variant='outline-dark' style={addtocartButtonStyle} > Add to Cart </Button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -49,6 +63,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Hand Grinder</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>100,000 TSH</Card.Title>
+                                <Button variant='outline-dark' style={addtocartButtonStyle} > Add to Cart </Button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -58,6 +73,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Moka Pot</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>140,000 TSH</Card.Title>
+                                <Button variant='outline-dark' style={addtocartButtonStyle} > Add to Cart </Button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -67,6 +83,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Electric Grinder</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>200,000 TSH</Card.Title>
+                                <Button variant='outline-dark' style={addtocartButtonStyle} > Add to Cart </Button>
                             </Card.Body>
                         </Card>
                     </div>
