@@ -28,6 +28,23 @@ const subtitleStyle = {
     fontWeight: '700'
 }
 
+const enziButtonStyle = {
+    border: '2px solid #ffffff',
+    // color: '#ffffff',
+    alignSelf: 'center',
+    marginTop: '1rem',
+    fontVariant: 'all-small-caps',
+    width: '10rem',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
+    borderRadius: '0px',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem'
+  }
+
 function BlendsComponent(){ 
     return (
         <div className="container-fluid" style={blendStyle} id="blends">
@@ -56,7 +73,7 @@ function BlendsComponent(){
                     <h1 style={{ fontFamily: 'Nunito', color: '#ffffff', fontWeight: '700' }}>
                         Explore our variety of blends made perfect for every moment
                     </h1>
-                    <Button variant="outline-light" style={{ width: '150px', alignSelf: 'center', marginTop: '20px', fontFamily: 'Nunito' }}> View All </Button>
+                    <Button variant='outline-light' style={enziButtonStyle} > Shop Enzi </Button>
                 </div>
             </div>
         </div>
