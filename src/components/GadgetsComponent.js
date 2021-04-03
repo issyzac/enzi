@@ -67,7 +67,7 @@ function GadgetComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col-4" style={gadgetCardStyle}>
+                    {/* <div className="col-4" style={gadgetCardStyle}>
                         <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={moka} style={gadgetImageStyle} />
                             <Card.Body>
@@ -76,7 +76,7 @@ function GadgetComponent() {
                                 <Button variant='outline-dark' style={addtocartButtonStyle} > Add to Cart </Button>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </div> */}
                     <div className="col-4" style={gadgetCardStyle}>
                         <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={electricGrinder} style={gadgetImageStyle} />
@@ -88,8 +88,8 @@ function GadgetComponent() {
                         </Card>
                     </div>
                 </div>
-                <div className="row d-flex flex-row justify-content-center">
-                    <Button variant="outline-primary" style={{ width: '150px', alignSelf: 'center', marginTop: '50px', marginBottom: '50px', fontFamily: 'Nunito' }}> All Gadgets </Button>
+                <div className="row d-flex flex-row justify-content-center" style={{ marginBottom: '50px' }}>
+                    <Button variant='outline-dark' style={addtocartButtonStyle} > Shop All Coffeeware </Button>
                 </div>
             </div>
         </div>
