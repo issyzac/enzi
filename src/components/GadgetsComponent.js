@@ -9,18 +9,18 @@ const gadgetCardStyle = {
 }
 
 const gadgetImageStyle = {
-    padding: '3rem',
+    padding: '1rem',
 }
 
 const gadgetTextStyle = {
     fontFamily: 'Nunito',
     fontWeight: '500',
     fontSize: '18px',
-    textAlign: 'start'
+    textAlign: 'center'
 }
 
 const gadgetTextPriceStyle = {
-    textAlign: 'start',
+    textAlign: 'center',
     fontWeight: '700',
     fontSize: '20px',
     fontFamily: 'Nunito'
@@ -30,12 +30,12 @@ function GadgetComponent() {
     return(
         <div className="container" id="shop">
             <div className="d-flex flex-row justify-content-center" style={{ marginTop: '50px' }}>
-                <h2 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Gadgets Shop </h2>
+                <h2 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Coffeeware Shop </h2>
             </div>
             <div className="container" style={{ marginTop: '5rem' }}>
                 <div className="row">
                     <div className="col-4" style={gadgetCardStyle}>
-                        <Card style={{  }}>
+                        <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={aeropress} style={gadgetImageStyle}/>
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Aeropress</Card.Title>
@@ -44,7 +44,7 @@ function GadgetComponent() {
                         </Card>
                     </div>
                     <div className="col-4" style={gadgetCardStyle}>
-                        <Card style={{  }}>
+                        <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={grinder} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Hand Grinder</Card.Title>
@@ -53,7 +53,7 @@ function GadgetComponent() {
                         </Card>
                     </div>
                     <div className="col-4" style={gadgetCardStyle}>
-                        <Card style={{  }}>
+                        <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={moka} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Moka Pot</Card.Title>
@@ -62,7 +62,7 @@ function GadgetComponent() {
                         </Card>
                     </div>
                     <div className="col-4" style={gadgetCardStyle}>
-                        <Card style={{  }}>
+                        <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={electricGrinder} style={gadgetImageStyle} />
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Electric Grinder</Card.Title>
