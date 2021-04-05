@@ -54,7 +54,7 @@ function BlendsComponent(){
                         <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem' }}>
                             <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
                                 <span><img src={blendPlaceHolder2} alt="" style={{ padding: '4rem' }} /> Enzi Mbeya</span>
-                                <h5 style={{ fontFamily: 'Nunito' }}> Enzi Classic Mbeya </h5>
+                                <h5 style={{ fontFamily: 'Nunito' }}> Enzi Mbeya </h5>
                             <a href="index.html#">Order Now</a>
                         </div>
                     </div>
