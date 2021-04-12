@@ -4,6 +4,7 @@ import BlendsComponent from './BlendsComponent'
 import FooterComponent from './FooterComponent'
 import GadgetComponent from './GadgetsComponent'
 import SiteHeader from './HeaderComponent'
+import InstagramFeedsComponent from './InstagramFeedsComponent'
 
 class IndexContents extends Component {
     
@@ -11,10 +12,11 @@ class IndexContents extends Component {
         return(
             <div>
                 <SiteHeader />
-                <div style={{ paddingTop: '80px' }}>
+                <div style={{ paddingTop: '80px', backgroundColor: "#f7f7f7" }}>
                     <BannerComponent />
                     <BlendsComponent />
                     <GadgetComponent />
+                    <InstagramFeedsComponent />
                     <FooterComponent />
                 </div>
             </div>
