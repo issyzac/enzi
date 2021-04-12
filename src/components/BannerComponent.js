@@ -1,10 +1,12 @@
 import Image from 'react-bootstrap/Image'
 import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
+import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
 
 const bannerStyle = {
-    marginTop: '80px',
-    marginBottom: '80px'
+    marginTop: '150px',
+    marginBottom: '150px',
+    backgroundColor: '#f7f7f7'
 }
 
 const bannerTextStyle ={
@@ -43,7 +45,7 @@ function BannerComponent(){
                     </div>
                 </div>
                 <div className="col">
-                    <Image src={mokart} fluid />
+                    <Image src={blendMockupImage} fluid />
                 </div>
             </div>
         </div>
