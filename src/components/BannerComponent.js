@@ -27,7 +27,7 @@ function BannerComponent(){
     return(
         <div id="#home" className="container" style={bannerStyle}>
             <div className="row">
-                <div className="col d-flex flex-column justify-content-center">
+                <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center">
                     <div className="">
                         <h4 style={bannerTextStyle}> Coffee, Kahawa, Kaffee, Kofe, Café, Kopi</h4>
                     </div>
@@ -44,7 +44,7 @@ function BannerComponent(){
                         <Flags.RW title="Rwanda" style={flagsStyle}/>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-md-6 col-sm-12" style={{ marginTop: "5rems" }}>
                     <Image src={blendMockupImage} fluid />
                 </div>
             </div>
