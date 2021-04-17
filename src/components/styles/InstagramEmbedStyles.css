@@ -4,6 +4,18 @@
     color: '#202a44'
 }
 
+.js-powrMark {
+    visibility: collapse imp !important;
+}
+
+#appView > div.socialFeed.grid.pad-bottom-m > div.blog.js-powrMark.pad-m.pad-top-l.powrMark.text-center > a > img {
+    visibility: collapse !important;
+}
+
+#appView > div.socialFeed.grid.pad-bottom-m > div.blog.js-powrMark.pad-m.pad-top-l.powrMark.text-center {
+    visibility: hidden;
+}
+
 .subtitle {
     font-family: "Nunito";
     font-weight: "200";
