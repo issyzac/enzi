@@ -44,6 +44,7 @@ function BannerComponent(){
                         <Flags.RW title="Rwanda" style={flagsStyle}/>
                     </div>
                 </div>
+                <div className="d-md-none col-sm-12" style={{ height: '7rem'}}></div>
                 <div className="col-md-6 col-sm-12" style={{ marginTop: "5rems" }}>
                     <Image src={blendMockupImage} fluid />
                 </div>
