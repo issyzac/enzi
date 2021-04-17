@@ -4,8 +4,8 @@ import Flags from 'country-flag-icons/react/3x2'
 import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
 
 const bannerStyle = {
-    marginTop: '150px',
-    marginBottom: '150px',
+    paddingTop: '150px',
+    paddingBottom: '150px',
     backgroundColor: '#f7f7f7'
 }
 
