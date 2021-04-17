@@ -7,58 +7,12 @@ function InstagramFeedsComponent(){
             <div className="container">
                 <div style={{ marginBottom: '50px'}}>
                     <h1 className="title"> Stay Connected </h1>
-                    <h5 className="subtitle"> Follow us on Instagram </h5>
+                    <h5 className="subtitle"> Here's what's in our social media <a href="https://www.instagram.com/enzicoffee/"> @enzicoffee </a> </h5>
                 </div>
-                <div className="row">
-                    <div className="col-md-4">
-                            <div style={{  }}>
-                                <InstagramEmbed
-                                    url='https://www.instagram.com/p/CNBJ7yLDSkH/'
-                                    clientAccessToken='460297381974247|65bce5f9f05540a62db19a1515839948'
-                                    hideCaption={true}
-                                    maxWidth={150}
-                                    containerTagName='div'
-                                    injectScript
-                                    onLoading={() => {}}
-                                    onSuccess={() => {}}
-                                    onAfterRender={() => {}}
-                                    onFailure={() => {}}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div style={{  }}>
-                                <InstagramEmbed
-                                    url='https://www.instagram.com/p/CMSbFSXDGQ5/'
-                                    clientAccessToken='460297381974247|65bce5f9f05540a62db19a1515839948'
-                                    hideCaption={true}
-                                    maxWidth={150}
-                                    containerTagName='div'
-                                    injectScript
-                                    onLoading={() => {}}
-                                    onSuccess={() => {}}
-                                    onAfterRender={() => {}}
-                                    onFailure={() => {}}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div style={{  }}>
-                                <InstagramEmbed
-                                    url='https://www.instagram.com/p/CL6VIXrDOWn/'
-                                    clientAccessToken='460297381974247|65bce5f9f05540a62db19a1515839948'
-                                    hideCaption={true}
-                                    maxWidth={150}
-                                    containerTagName='div'
-                                    injectScript
-                                    onLoading={() => {}}
-                                    onSuccess={() => {}}
-                                    onAfterRender={() => {}}
-                                    onFailure={() => {}}
-                                />
-                            </div>
-                        </div>
-                </div>
+                <div class="powr-instagram-feed" id="7c1c4dd2_1618667600"></div>
+                <script src="https://www.powr.io/powr.js?platform=react">
+                </script>
+
             </div>
         </div>
     )
