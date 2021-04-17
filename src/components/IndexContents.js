@@ -12,8 +12,10 @@ class IndexContents extends Component {
         return(
             <div>
                 <SiteHeader />
-                <div style={{ paddingTop: '80px', backgroundColor: "#f7f7f7" }}>
-                    <BannerComponent />
+                <div style={{ paddingTop: '80px', backgroundColor: "#ffffff" }}>
+                    <div style={{ backgroundColor: "#f7f7f7" }}>
+                        <BannerComponent />
+                    </div>
                     <BlendsComponent />
                     <GadgetComponent />
                     <InstagramFeedsComponent />
