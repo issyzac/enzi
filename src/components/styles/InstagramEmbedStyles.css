@@ -1,4 +1,15 @@
-.Embed .Feedback {
+.title {
+    font-family: "Nunito";
+    font-weight: '700' !important;
+    color: '#202a44'
+}
+
+.subtitle {
+    font-family: "Nunito";
+    font-weight: "200";
+}
+
+.Embed {
     display: none !important;
 }
 
