@@ -3,12 +3,14 @@ import './styles/InstagramEmbedStyles.css'
 
 function InstagramFeedsComponent(){
     return(
-        <div className="container-fluid" style={{ backgroundColor: '#bb906b', paddingTop: '5rem', paddingBottom: '5rem' }}>
+        <div className="container-fluid" style={{ backgroundColor: '#f7f7f7', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <div className="container">
+                <div style={{ marginBottom: '50px'}}>
+                    <h1 className="title"> Stay Connected </h1>
+                    <h5 className="subtitle"> Follow us on Instagram </h5>
+                </div>
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-9">
-                        <div className="col-md-3">
+                    <div className="col-md-4">
                             <div style={{  }}>
                                 <InstagramEmbed
                                     url='https://www.instagram.com/p/CNBJ7yLDSkH/'
@@ -24,7 +26,7 @@ function InstagramFeedsComponent(){
                                 />
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div style={{  }}>
                                 <InstagramEmbed
                                     url='https://www.instagram.com/p/CMSbFSXDGQ5/'
@@ -40,7 +42,7 @@ function InstagramFeedsComponent(){
                                 />
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div style={{  }}>
                                 <InstagramEmbed
                                     url='https://www.instagram.com/p/CL6VIXrDOWn/'
@@ -56,7 +58,6 @@ function InstagramFeedsComponent(){
                                 />
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
