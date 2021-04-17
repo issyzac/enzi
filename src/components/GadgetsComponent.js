@@ -43,7 +43,7 @@ function GadgetComponent() {
     return(
         <div className="container" id="shop">
             <div className="d-flex flex-row justify-content-center" style={{ marginTop: '50px' }}>
-                <h2 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Coffeeware Shop </h2>
+                <h1 style={{ fontFamily: 'Nunito', fontWeight: '700', color: "#202a44", }}> Coffeeware Shop </h1>
             </div>
             <div className="container" style={{ marginTop: '5rem' }}>
                 <div className="row">
@@ -88,9 +88,9 @@ function GadgetComponent() {
                         </Card>
                     </div>
                 </div>
-                <div className="row d-flex flex-row justify-content-center" style={{ marginBottom: '50px' }}>
+                {/* <div className="row d-flex flex-row justify-content-center" style={{ marginBottom: '50px' }}>
                     <Button variant='outline-dark' style={addtocartButtonStyle} > Shop All Coffeeware </Button>
-                </div>
+                </div> */}
             </div>
         </div>
     )
