@@ -47,7 +47,7 @@ function GadgetComponent() {
             </div>
             <div className="container" style={{ marginTop: '5rem' }}>
                 <div className="row">
-                    <div className="col-4" style={gadgetCardStyle}>
+                    <div className="col-md-4 col-sm-12 col-xs-12" style={gadgetCardStyle}>
                         <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={aeropress} style={gadgetImageStyle}/>
                             <Card.Body>
@@ -57,7 +57,7 @@ function GadgetComponent() {
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col-4" style={gadgetCardStyle}>
+                    <div className="col-md-4 col-sm-12 col-xs-12" style={gadgetCardStyle}>
                         <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={grinder} style={gadgetImageStyle} />
                             <Card.Body>
@@ -77,7 +77,7 @@ function GadgetComponent() {
                             </Card.Body>
                         </Card>
                     </div> */}
-                    <div className="col-4" style={gadgetCardStyle}>
+                    <div className="col-md-4 col-xs-12" style={gadgetCardStyle}>
                         <Card style={{ border: '0' }}>
                             <Card.Img variant="top" src={electricGrinder} style={gadgetImageStyle} />
                             <Card.Body>

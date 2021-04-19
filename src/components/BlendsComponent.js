@@ -48,33 +48,39 @@ const enziButtonStyle = {
 function BlendsComponent(){ 
     return (
         <div className="container-fluid" style={blendStyle} id="blends">
-            <div className="row" style={{ marginLeft: '7rem', marginRight: '7rem' }}>
-                <div class="col-lg-4 col-md-6 col-sm-6" style={blendCardSyle}>
-                    <div class="blog__item">
-                        <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem', backgroundColor: '#f7f7f7' }}>
-                            <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
-                                <span><img src={blendPlaceHolder} alt="" /> Enzi Mbeya</span>
-                                <h5 style={{ fontFamily: 'Nunito' }}> Enzi Mbeya </h5>
-                            <a href="index.html#">Order Now</a>
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col-md-10">
+                    <div className="row">
+                        <div class="col-md-4 col-sm-12" style={blendCardSyle}>
+                            <div class="blog__item">
+                                <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem', backgroundColor: '#f7f7f7' }}>
+                                    <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
+                                        <span><img src={blendPlaceHolder} alt="" /> Enzi Mbeya</span>
+                                        <h5 style={{ fontFamily: 'Nunito' }}> Enzi Mbeya </h5>
+                                    <a href="index.html#">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12" style={blendCardSyle}>
+                            <div class="blog__item">
+                                <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem', backgroundColor: '#f7f7f7' }}>
+                                    <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
+                                        <span><img src={blendPlaceHolder} alt=""/> Enzi Kili</span>
+                                        <h5 style={{ fontFamily: 'Nunito' }}> Enzi Kili </h5>
+                                    <a href="index.html#">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4 col-sm-12 d-flex flex-column justify-content-center" style={{ padding: '3em' }}>
+                            <h1 style={{ fontFamily: 'Nunito', color: '#ffffff', fontWeight: '700' }}>
+                                Explore our variety of blends made perfect for every moment
+                            </h1>
+                            <Button variant='outline-light' style={enziButtonStyle} > Shop Enzi </Button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6" style={blendCardSyle}>
-                    <div class="blog__item">
-                        <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem', backgroundColor: '#f7f7f7' }}>
-                            <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
-                                <span><img src={blendPlaceHolder} alt=""/> Enzi Kili</span>
-                                <h5 style={{ fontFamily: 'Nunito' }}> Enzi Kili </h5>
-                            <a href="index.html#">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-4 d-flex flex-column justify-content-center" style={{ padding: '3em' }}>
-                    <h1 style={{ fontFamily: 'Nunito', color: '#ffffff', fontWeight: '700' }}>
-                        Explore our variety of blends made perfect for every moment
-                    </h1>
-                    <Button variant='outline-light' style={enziButtonStyle} > Shop Enzi </Button>
-                </div>
+                <div className="col-md-1"></div>
             </div>
         </div>
     )
