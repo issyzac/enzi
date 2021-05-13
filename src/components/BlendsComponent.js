@@ -58,7 +58,7 @@ function BlendsComponent(){
                                     <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
                                         <span><img src={blendPlaceHolder} alt="" /> Enzi Mbeya</span>
                                         <h5 style={{ fontFamily: 'Nunito' }}> Enzi Mbeya </h5>
-                                    <a href="index.html#">Order Now</a>
+                                    <a href="https://wa.me/255683321768">Order Now</a>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ function BlendsComponent(){
                                     <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
                                         <span><img src={blendPlaceHolder} alt=""/> Enzi Kili</span>
                                         <h5 style={{ fontFamily: 'Nunito' }}> Enzi Kili </h5>
-                                    <a href="index.html#">Order Now</a>
+                                    <a href="https://wa.me/255683321768">Order Now</a>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ function BlendsComponent(){
                             <h1 style={{ fontFamily: 'Nunito', color: '#ffffff', fontWeight: '700' }}>
                                 Explore our variety of blends made perfect for every moment
                             </h1>
-                            <Button variant='outline-light' style={enziButtonStyle} > Shop Enzi </Button>
+                            <Button variant='outline-light' href="https://wa.me/255683321768" style={enziButtonStyle} > Shop Enzi </Button>
                         </div>
                     </div>
                 </div>

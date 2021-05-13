@@ -53,7 +53,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Aeropress</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>120,000 TSH</Card.Title>
-                                <Button variant='outline-dark' style={addtocartButtonStyle} > Buy Now </Button>
+                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={addtocartButtonStyle} > Buy Now </Button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -63,7 +63,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Hand Grinder</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>100,000 TSH</Card.Title>
-                                <Button variant='outline-dark' style={addtocartButtonStyle} > Buy Now </Button>
+                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={addtocartButtonStyle} > Buy Now </Button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -83,7 +83,7 @@ function GadgetComponent() {
                             <Card.Body>
                                 <Card.Title style={gadgetTextStyle}>Electric Grinder</Card.Title>
                                 <Card.Title style={gadgetTextPriceStyle}>200,000 TSH</Card.Title>
-                                <Button variant='outline-dark' style={addtocartButtonStyle} > Buy Now </Button>
+                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={addtocartButtonStyle} > Buy Now </Button>
                             </Card.Body>
                         </Card>
                     </div>
