@@ -39,7 +39,7 @@ function BannerComponent(){
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '20px', fontFamily: 'poppins', fontWeight: '300', marginTop: '3rems' }}> 
                             At <b style={{ backgroundColor: '#202a44', paddingLeft: '5px', color: '#ffffff', marginRight: '5px' }}> enzi </b>  we love coffee and everything that is involved with it, we always go an
-                            extra mile to make sure every sip of a cup is a unique experience for our customers </p>
+                            extra mile to make sure every sip of a cup is an unforgetable experience for our customers </p>
                     </div>
                     <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
