@@ -2,10 +2,11 @@ import Image from 'react-bootstrap/Image'
 import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
 import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
+import { Button } from "react-bootstrap";
 
 const bannerStyle = {
     paddingTop: '50px',
-    paddingBottom: '100px',
+    paddingBottom: '120px',
     backgroundColor: '#f7f7f7'
 }
 
@@ -23,6 +24,24 @@ const flagsStyle = {
     marginRight: '20px'
 }
 
+const enziButtonStyle = {
+    border: '2px solid #202a44',
+    color: '#202a44',
+    // alignSelf: 'center',
+    marginBottom: '1rem',
+    marginRight: '1rem',
+    fontVariant: 'all-small-caps',
+    width: '10rem',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
+    borderRadius: '0px',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem'
+  }
+
 function BannerComponent(){
     return(
         <div id="#home" className="container" style={bannerStyle}>
@@ -37,17 +56,22 @@ function BannerComponent(){
                         <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month </h4>
                     </div>
                     <div className="">
-                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Nunito', fontWeight: '300', marginTop: '3rems' }}> 
+                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Inter, sans-serif', fontWeight: '500', marginTop: '3rems' }}> 
                             Select your favorite coffee, tell us where to bring it and thats it! 
                         </p>
                     </div>
-                    <div style={{ textAlign: 'start' }}> 
+
+                    <div style={{ alignSelf: 'start' }}>
+                    <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Sign Up </Button>
+                    <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy Now </Button>
+                    </div>
+                    {/* <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
                         <Flags.UG title="Uganda" style={flagsStyle}/>
                         <Flags.ET title="Ethiopia" style={flagsStyle}/>
                         <Flags.KE title="Kenya" style={flagsStyle}/>
                         <Flags.RW title="Rwanda" style={flagsStyle}/>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="d-md-none col-sm-12" style={{ height: '7rem'}}></div>
                 <div className="col-md-6 col-sm-12 d-md-block d-sm-none d-none" style={{ marginTop: "5rems" }}>
