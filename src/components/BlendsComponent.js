@@ -56,8 +56,8 @@ function BlendsComponent(){
                             <div class="blog__item">
                                 <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem', backgroundColor: '#f7f7f7' }}>
                                     <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
-                                        <span><img src={blendPlaceHolder} alt="" /> Enzi Mbeya</span>
-                                        <h5 style={{ fontFamily: 'Nunito' }}> Enzi Mbeya </h5>
+                                        <span><img src={blendPlaceHolder} alt="" /> Enzi</span>
+                                        <h5 style={{ fontFamily: 'Nunito' }}> Enzi </h5>
                                     <a href="https://wa.me/255683321768">Order Now</a>
                                 </div>
                             </div>
@@ -66,8 +66,8 @@ function BlendsComponent(){
                             <div class="blog__item">
                                 <div class="blog__item__text"  style={{ fontFamily: 'Nunito', fontWeight: '700', fontSize: '1.5em', textAlign: 'start', paddingBottom: '3rem', backgroundColor: '#f7f7f7' }}>
                                     <span> <Flags.TZ title="Tanzania" style={flagsStyle}/> </span>
-                                        <span><img src={blendPlaceHolder} alt=""/> Enzi Kili</span>
-                                        <h5 style={{ fontFamily: 'Nunito' }}> Enzi Kili </h5>
+                                        <span><img src={blendPlaceHolder} alt=""/> Enzi Lite</span>
+                                        <h5 style={{ fontFamily: 'Nunito' }}> Enzi Lite </h5>
                                     <a href="https://wa.me/255683321768">Order Now</a>
                                 </div>
                             </div>
