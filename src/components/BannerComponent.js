@@ -10,7 +10,7 @@ const bannerStyle = {
 }
 
 const bannerTextStyle ={
-    fontFamily: 'Nunito',
+    fontFamily: 'Poppins',
     fontWeight: '700',
     fontSize: '50px',
     color: '#202a44',
@@ -34,12 +34,12 @@ function BannerComponent(){
 
                 <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center" style={{ marginTop: '5rem' }}>
                     <div className="">
-                        <h4 style={bannerTextStyle}> Coffee, Kahawa, Kaffee, Kofe, Café, Kopi</h4>
+                        <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month </h4>
                     </div>
                     <div className="">
-                        <p style={{ textAlign: 'start', fontSize: '20px', fontFamily: 'poppins', fontWeight: '300', marginTop: '3rems' }}> 
-                            At <b style={{ backgroundColor: '#202a44', paddingLeft: '5px', color: '#ffffff', marginRight: '5px' }}> enzi </b>  we love coffee and everything that is involved with it, we always go an
-                            extra mile to make sure every sip of a cup is an unforgetable experience for our customers </p>
+                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Nunito', fontWeight: '300', marginTop: '3rems' }}> 
+                            Select your favorite coffee, tell us where to bring it and thats it! 
+                        </p>
                     </div>
                     <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
