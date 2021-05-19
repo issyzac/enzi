@@ -9,6 +9,8 @@ const navbarstyle = {
     height: '80px',
     fontFamily: 'Nunito',
     fontWeight: '700',
+    borderBottom: "0.5px solid #202a44",
+
 }
 
 const brandStyle = {
