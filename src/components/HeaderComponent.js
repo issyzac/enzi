@@ -32,7 +32,8 @@ function SiteHeader() {
                         <Image src={logo} fluid style={logoStyle} />
                     </div>
                     <div className="col d-flex flex-column justify-content-center" style={{ lineHeight: '0.9', paddingLeft: '0', textAlign: 'start' }}>
-                        <p style={{ margin: '0' }}> <span style={{ fontSize: '24px', fontFamily: 'Nunito', fontWeight: '900' }}> Enzi </span> <br/> <b> Coffee Roastery </b> </p>
+                        <p style={{ margin: '0' }}> <span style={{ fontSize: '32px', fontFamily: 'Nunito', fontWeight: '500' }}> enzi </span> <br/> 
+                        <b style={{ fontWeight: '300', fontFamily: 'Nunito' }}> Coffee Roastery </b> </p>
                     </div>
                 </div>
             </Navbar.Brand>
