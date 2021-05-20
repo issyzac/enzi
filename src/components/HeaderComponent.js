@@ -28,14 +28,14 @@ const logoStyle = {
 function SiteHeader() {
     return (
         <Navbar fixed="top" bg="light" expand="lg" style={navbarstyle}>
-            <Navbar.Brand href="#home" style={brandStyle} className="d-flex flex-column justify-content-center">
+            <Navbar.Brand href="/" style={brandStyle} className="d-flex flex-column justify-content-center">
                 <div className="row">
                     <div className="col">
                         <Image src={logo} fluid style={logoStyle} />
                     </div>
                     <div className="col d-flex flex-column justify-content-center" style={{ lineHeight: '0.9', paddingLeft: '0', textAlign: 'start' }}>
                         <p style={{ margin: '0' }}> <span style={{ fontSize: '32px', fontFamily: 'Nunito', fontWeight: '500' }}> enzi </span> <br/> 
-                        <b style={{ fontWeight: '300', fontFamily: 'Nunito' }}> Coffee Roastery </b> </p>
+                        <b style={{ fontWeight: '700', fontFamily: 'Nunito', fontSize: '18px' }}> Coffee Roastery </b> </p>
                     </div>
                 </div>
             </Navbar.Brand>
