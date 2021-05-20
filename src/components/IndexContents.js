@@ -8,6 +8,9 @@ import InstagramFeedsComponent from './InstagramFeedsComponent'
 
 class IndexContents extends Component {
     
+    mainColor = '#202a44';
+    accentColor = '#db7f3b';
+
     render(){
         return(
             <div>
