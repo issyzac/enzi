@@ -3,6 +3,9 @@ import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
 import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
 import { Button } from "react-bootstrap";
+import "./styles/EnziButton.css"
+
+import { Link } from "react-router-dom";
 
 const bannerStyle = {
     paddingTop: '50px',
@@ -35,7 +38,26 @@ const enziButtonStyle = {
     fontFamily: 'Nunito',
     fontWeight: '700',
     fontSize: '1.2rem',
-    borderRadius: '0px',
+    borderRadius: '5px',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem'
+  }
+
+  const signupButtonStyle = {
+    border: '2px solid #db7f3b',
+    borderRadius: '5px',
+    color: '#202a44',
+    backgroundColor: '#db7f3b',
+    // alignSelf: 'center',
+    marginBottom: '1rem',
+    marginRight: '1rem',
+    fontVariant: 'all-small-caps',
+    width: '10rem',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
     paddingLeft: '2rem',
     paddingRight: '2rem',
     paddingTop: '0.5rem',
@@ -53,7 +75,7 @@ function BannerComponent(){
 
                 <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center" style={{ marginTop: '5rem' }}>
                     <div className="">
-                        <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month </h4>
+                        <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month! </h4>
                     </div>
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Inter, sans-serif', fontWeight: '500', marginTop: '3rems' }}> 
@@ -62,8 +84,10 @@ function BannerComponent(){
                     </div>
 
                     <div style={{ alignSelf: 'start' }}>
-                    <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Sign Up </Button>
-                    <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy Now </Button>
+                        <Link to="subscribe">
+                            <Button id="sign-up-botton" variant='outline-light' href="https://wa.me/255683321768" style={signupButtonStyle} > Sign Up </Button>
+                        </Link>
+                        <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy Now </Button>
                     </div>
                     {/* <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
