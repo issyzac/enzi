@@ -20,7 +20,7 @@ class IndexContents extends Component {
                         <BannerComponent />
                     </div>
                     <BlendsComponent />
-                    <GadgetComponent />
+                    {/* <GadgetComponent /> */}
                     <InstagramFeedsComponent />
                     <FooterComponent />
                 </div>
