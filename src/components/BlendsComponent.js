@@ -63,37 +63,27 @@ function BlendsComponent(){
                             <Carousel style={{ padding: '50px' }}>
                                 <Carousel.Item>
                                     <img
-                                    className="d-block w-100"
-                                    src={moka}
-                                    alt="First slide"
-                                    />
-                                    <Carousel.Caption>
-
-                                    </Carousel.Caption>
+                                        className="d-block w-100"
+                                        src={moka}
+                                        alt="First slide" />
+                                    <Carousel.Caption> </Carousel.Caption>
                                 </Carousel.Item>
 
                                 <Carousel.Item>
                                     <img
-                                    className="d-block w-100"
-                                    src={grinder}
-                                    alt="Second slide"
-                                    />
-
-                                    <Carousel.Caption>
-                                    
-                                    </Carousel.Caption>
+                                        className="d-block w-100"
+                                        src={grinder}
+                                        alt="Second slide"/>
+                                    <Carousel.Caption></Carousel.Caption>
                                 </Carousel.Item>
 
                                 <Carousel.Item>
                                     <img
-                                    className="d-block w-100"
-                                    src={aeropress}
-                                    alt="Third slide"
-                                    />
+                                        className="d-block w-100"
+                                        src={aeropress}
+                                        alt="Third slide"/>
 
-                                    <Carousel.Caption>
-                                    
-                                    </Carousel.Caption>
+                                    <Carousel.Caption></Carousel.Caption>
                                 </Carousel.Item>
                                 </Carousel>
                         </div>
