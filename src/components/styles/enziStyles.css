@@ -5,3 +5,20 @@
 .thumb {
     display: none !important;
 }
+
+.enzi-button {
+    border: '2px solid #db7f3b';
+    border-radius: 5px;
+    color: '#202a44';
+    margin-bottom: '1rem';
+    margin-right: '1rem';
+    padding-left: '2rem';
+    padding-right: '2rem';
+    padding-bottom: '0.5rem';
+    padding-top: '0.5rem';
+    font-variant: small-caps;
+    width: '10rem';
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: '0.5rem' !important;
+}
