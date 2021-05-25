@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 
 // Import Pages
-import Index from './pages/Index';
-import SubscriptionPage from './pages/SubscriptionPage'
+import Index from './pages/HomePage/Index';
+import SubscriptionPage from './pages/SubscriptionPage/Index.js';
 
 // Import styles and resources
 import 'bootstrap/dist/css/bootstrap.min.css';
