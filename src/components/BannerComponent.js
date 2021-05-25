@@ -85,9 +85,9 @@ function BannerComponent(){
 
                     <div style={{ alignSelf: 'start' }}>
                         <Link to="subscribe">
-                            <Button id="sign-up-botton" variant='outline-light' href="https://wa.me/255683321768" style={signupButtonStyle} > Sign Up </Button>
+                            <Button id="sign-up-botton" variant='outline-light' href="https://wa.me/255683321768" style={signupButtonStyle} > Join Now </Button>
                         </Link>
-                        <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy Now </Button>
+                        <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy </Button>
                     </div>
                     {/* <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
