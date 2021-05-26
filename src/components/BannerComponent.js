@@ -78,8 +78,8 @@ function BannerComponent(){
                         <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month! </h4>
                     </div>
                     <div className="">
-                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Inter, sans-serif', fontWeight: '500', marginTop: '3rems' }}> 
-                            Select your favorite coffee, tell us where to bring it and thats it! 
+                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Spartan', fontWeight: '500', marginTop: '3rems' }}> 
+                            Select your favorite coffee, tell us where to bring it and leave the rest to us! 
                         </p>
                     </div>
 
