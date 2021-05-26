@@ -63,7 +63,7 @@ function ChooseGadgetComponent({url}){
                                     Dont have any gadget? Check out our gadget store for some great deals on coffeewares!
                                 </p>
                                 <div style={{ marginTop: '1rem', textAlign: 'start' }}>
-                                    <Link  to="/gadgetsware" style={{ textDecoration: 'none' }}>
+                                    <Link  to="/gadgetsware" style={{ textDecoration: 'none', width: '250px' }}>
                                         <div id="shop-gadget-button" className="shop-gadget-button"> Shop Gadgets </div>
                                     </Link>
                                 </div>
@@ -79,17 +79,17 @@ function ChooseGadgetComponent({url}){
 function GadgetItem({name, icon, url}){
     return(
         <div className="col-md-6 col-sm-12"> 
-            <Link to={`${url}/texture`}>
-                <Button variant='outline-dark' style={enziButtonStyle} > 
+            <Link to={`${url}/texture`} id="enzi-link">
+                <div className="sub-select-btn" > 
                     <div className="row">
                         <div className="col-md-2">
                             <Image src={icon} fluid width="50px"/>
                         </div>
                         <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                            <h4 style={textStyle}> {name} </h4>
+                            <span className="sub-select-btn-text"> {name} </span>
                         </div>
                     </div>    
-                </Button> 
+                </div> 
             </Link>
         </div>
     )
