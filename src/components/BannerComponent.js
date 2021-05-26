@@ -2,15 +2,19 @@ import Image from 'react-bootstrap/Image'
 import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
 import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
+import { Button } from "react-bootstrap";
+import "./styles/EnziButton.css"
+
+import { Link } from "react-router-dom";
 
 const bannerStyle = {
     paddingTop: '50px',
-    paddingBottom: '100px',
+    paddingBottom: '120px',
     backgroundColor: '#f7f7f7'
 }
 
 const bannerTextStyle ={
-    fontFamily: 'Nunito',
+    fontFamily: 'Poppins',
     fontWeight: '700',
     fontSize: '50px',
     color: '#202a44',
@@ -23,6 +27,43 @@ const flagsStyle = {
     marginRight: '20px'
 }
 
+const enziButtonStyle = {
+    border: '2px solid #202a44',
+    color: '#202a44',
+    // alignSelf: 'center',
+    marginBottom: '1rem',
+    marginRight: '1rem',
+    fontVariant: 'all-small-caps',
+    width: '10rem',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
+    borderRadius: '5px',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem'
+  }
+
+  const signupButtonStyle = {
+    border: '2px solid #db7f3b',
+    borderRadius: '5px',
+    color: '#202a44',
+    backgroundColor: '#db7f3b',
+    // alignSelf: 'center',
+    marginBottom: '1rem',
+    marginRight: '1rem',
+    fontVariant: 'all-small-caps',
+    width: '10rem',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem'
+  }
+
 function BannerComponent(){
     return(
         <div id="#home" className="container" style={bannerStyle}>
@@ -34,20 +75,27 @@ function BannerComponent(){
 
                 <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center" style={{ marginTop: '5rem' }}>
                     <div className="">
-                        <h4 style={bannerTextStyle}> Coffee, Kahawa, Kaffee, Kofe, Café, Kopi</h4>
+                        <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month! </h4>
                     </div>
                     <div className="">
-                        <p style={{ textAlign: 'start', fontSize: '20px', fontFamily: 'poppins', fontWeight: '300', marginTop: '3rems' }}> 
-                            At <b style={{ backgroundColor: '#202a44', paddingLeft: '5px', color: '#ffffff', marginRight: '5px' }}> enzi </b>  we love coffee and everything that is involved with it, we always go an
-                            extra mile to make sure every sip of a cup is an unforgetable experience for our customers </p>
+                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Spartan', fontWeight: '500', marginTop: '3rems' }}> 
+                            Select your favorite coffee, tell us where to bring it and leave the rest to us! 
+                        </p>
                     </div>
-                    <div style={{ textAlign: 'start' }}> 
+
+                    <div style={{ alignSelf: 'start' }}>
+                        <Link to="subscribe">
+                            <Button id="sign-up-botton" variant='outline-light' href="https://wa.me/255683321768" style={signupButtonStyle} > Join Now </Button>
+                        </Link>
+                        <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy </Button>
+                    </div>
+                    {/* <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
                         <Flags.UG title="Uganda" style={flagsStyle}/>
                         <Flags.ET title="Ethiopia" style={flagsStyle}/>
                         <Flags.KE title="Kenya" style={flagsStyle}/>
                         <Flags.RW title="Rwanda" style={flagsStyle}/>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="d-md-none col-sm-12" style={{ height: '7rem'}}></div>
                 <div className="col-md-6 col-sm-12 d-md-block d-sm-none d-none" style={{ marginTop: "5rems" }}>

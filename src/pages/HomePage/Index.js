@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import IndexContents from '../components/IndexContents'
+import IndexContents from '../../components/IndexContents'
 
 class Index extends Component {
     render(){
