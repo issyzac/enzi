@@ -32,3 +32,37 @@
     width: 250px;
     padding-bottom: 1rem;
 }
+
+#enzi-link {
+    text-decoration: none;
+}
+
+.sub-select-btn {
+    border: 1px solid #202a44;
+    color: #202a44;
+    align-self: start;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    font-variant: all-small-caps;
+    font-family: Nunito;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+.sub-select-btn:hover {
+    border: 1px solid #202a44;
+    background-color: #202a44;
+    color: #db7f3b;
+}
+
+.sub-select-btn-text {
+    font-family: Spartan;
+    font-size: 24px;
+    font-weight: 400;
+}
