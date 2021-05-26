@@ -1,4 +1,6 @@
 import { Button, Image } from "react-bootstrap";
+import { Link, useRouteMatch } from 'react-router-dom'
+
 import aeropress from '../res/aeropress.png';
 import frenchpress from '../res/frenchpress.png';
 import electricDrip from '../res/coffee-machine-drip.png';
@@ -32,113 +34,79 @@ const enziButtonStyle = {
     fontSize: '22px'
   }
 
-function ChooseGadgetComponent(){
+  const shopGadgetButtonStyle = {
+    border: '1px solid #db7f3b',
+    color: '#ffffff',
+    backgroundColor: '#db7f3b',
+    alignSelf: 'start',
+    marginBottom: '1rem',
+    marginRight: '1rem',
+    fontVariant: 'all-small-caps',
+    fontFamily: 'Nunito',
+    fontWeight: '700',
+    fontSize: '1.2rem',
+    borderRadius: '2px',
+    paddingLeft: '3rem',
+    paddingRight: '3rem',
+    paddingTop: '1rem',
+    paddingBottom: '1rem'
+  }
+
+function ChooseGadgetComponent({url}){
+
+    let match = useRouteMatch();
+
     return(
         <div className="container-fluid" style={{ paddingTop: '7rem', paddingBottom: '5rem' }}>
             <div className="container">
                 <div style={{ marginBottom: '50px'}}>
                     <p className="title" style={{ fontFamily: 'Inter', fontWeight: '900', color: '#202a44', fontSize: '72px', textAlign: 'start', lineHeight: '5rem'}}> 
                         How do you usually make your coffee? </p>
-                        <div className="row">
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={aeropress} fluid width="50px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <h4 style={textStyle}> Aeropress </h4>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={frenchpress} fluid width="90px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> Frenchpress/Plunger </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={electricDrip} fluid width="40px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> Electric Drip Machine </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={mokaPot} fluid width="150px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> Moka Pot </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={chemex} fluid width="150px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> Chemex </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={v60} fluid width="150px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> V60 </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            <Image src={esspressoMachine} fluid width="150px"/>
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> Esspresso Machine </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
-                            </div>
-                            <div className="col-md-6 col-sm-12"> 
-                                <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > 
-                                    <div className="row">
-                                        <div className="col-md-2">
-                                            {/* <Image src={mokaPot} fluid width="150px" /> */}
-                                        </div>
-                                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
-                                            <p style={textStyle}> I Simply Boil! </p>
-                                        </div>
-                                    </div>    
-                                </Button> 
+                        <div className="row">  
+                            <GadgetItem name="Aeropress" icon={aeropress} url={url} />
+                            <GadgetItem name="Frenchpress/Plunger" icon={frenchpress} url={url} />
+                            <GadgetItem name="Moka Pot" icon={mokaPot} url={url} />
+                            <GadgetItem name="Electric Drip Machine" icon={electricDrip} url={url} />
+                            <GadgetItem name="Chemex" icon={chemex} url={url} />
+                            <GadgetItem name="V60" icon={v60} url={url} />
+                            <GadgetItem name="Esspresso Machine" icon={esspressoMachine} url={url} />
+                            <GadgetItem name="I Simply Boil!" icon="" url={url} />
+                        </div>
+
+                        <div className="row" style={{ marginTop: '3rem' }}>
+                            <div className="col-md-12">
+                                <p className="subtitle" style={{ fontFamily: 'Spartan', fontWeight: '300', marginTop: '5rem', fontSize: '40px', textAlign: 'start', lineHeight: '3rem' }}> 
+                                    Dont have any gadget? Checkout what we have for you!
+                                </p>
+                                <div style={{ marginTop: '1rem', textAlign: 'start' }}>
+                                    <Link to="/gadgetsware">
+                                        <Button variant='primary' style={shopGadgetButtonStyle} > Shop Gadgets </Button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                 </div>
             </div>
+        </div>
+    )
+}
+
+
+function GadgetItem({name, icon, url}){
+    return(
+        <div className="col-md-6 col-sm-12"> 
+            <Link to={`${url}/texture`}>
+                <Button variant='outline-dark' style={enziButtonStyle} > 
+                    <div className="row">
+                        <div className="col-md-2">
+                            <Image src={icon} fluid width="50px"/>
+                        </div>
+                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
+                            <h4 style={textStyle}> {name} </h4>
+                        </div>
+                    </div>    
+                </Button> 
+            </Link>
         </div>
     )
 }
