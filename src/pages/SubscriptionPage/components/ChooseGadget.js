@@ -1,6 +1,8 @@
 import { Button, Image } from "react-bootstrap";
 import { Link, useRouteMatch } from 'react-router-dom'
 
+import '../styles/SubStyle.css';
+
 import aeropress from '../res/aeropress.png';
 import frenchpress from '../res/frenchpress.png';
 import electricDrip from '../res/coffee-machine-drip.png';
@@ -34,24 +36,6 @@ const enziButtonStyle = {
     fontSize: '22px'
   }
 
-  const shopGadgetButtonStyle = {
-    border: '1px solid #db7f3b',
-    color: '#ffffff',
-    backgroundColor: '#db7f3b',
-    alignSelf: 'start',
-    marginBottom: '1rem',
-    marginRight: '1rem',
-    fontVariant: 'all-small-caps',
-    fontFamily: 'Nunito',
-    fontWeight: '700',
-    fontSize: '1.2rem',
-    borderRadius: '2px',
-    paddingLeft: '3rem',
-    paddingRight: '3rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem'
-  }
-
 function ChooseGadgetComponent({url}){
 
     let match = useRouteMatch();
@@ -76,11 +60,11 @@ function ChooseGadgetComponent({url}){
                         <div className="row" style={{ marginTop: '3rem' }}>
                             <div className="col-md-12">
                                 <p className="subtitle" style={{ fontFamily: 'Spartan', fontWeight: '300', marginTop: '5rem', fontSize: '40px', textAlign: 'start', lineHeight: '3rem' }}> 
-                                    Dont have any gadget? Checkout what we have for you!
+                                    Dont have any gadget? Check out our gadget store for some great deals on coffeewares!
                                 </p>
                                 <div style={{ marginTop: '1rem', textAlign: 'start' }}>
-                                    <Link to="/gadgetsware">
-                                        <Button variant='primary' style={shopGadgetButtonStyle} > Shop Gadgets </Button>
+                                    <Link  to="/gadgetsware" style={{ textDecoration: 'none' }}>
+                                        <div id="shop-gadget-button" className="shop-gadget-button"> Shop Gadgets </div>
                                     </Link>
                                 </div>
                             </div>
