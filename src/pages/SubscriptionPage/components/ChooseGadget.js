@@ -37,10 +37,15 @@ function ChooseGadgetComponent({url}){
                                 <p className="subtitle" style={{ fontFamily: 'Spartan', fontWeight: '300', marginTop: '5rem', fontSize: '40px', textAlign: 'start', lineHeight: '3rem' }}> 
                                     Dont have any gadget? Check out our gadget store for some great deals on coffeewares!
                                 </p>
-                                <div style={{ marginTop: '1rem', textAlign: 'start' }}>
-                                    <Link  to="/gadgetsware" style={{ textDecoration: 'none', width: '250px' }}>
-                                        <div id="shop-gadget-button" className="shop-gadget-button"> Shop Gadgets </div>
-                                    </Link>
+                                <div className="row">
+                                    <div className="col-md-3">
+                                    <div style={{ marginTop: '1rem', textAlign: 'start' }}>
+                                        <Link  to="/gadgetsware" style={{ textDecoration: 'none', width: '250px' }}>
+                                            <div id="shop-gadget-button" className="shop-gadget-button"> Shop Gadgets </div>
+                                        </Link>
+                                    </div>
+                                    </div>
+                                    <div className="col-md"></div>
                                 </div>
                             </div>
                         </div>
