@@ -23,13 +23,13 @@ function SubscriptionPage(){
                             <ChooseGadgetComponent url={match.path} />
                         </Route>
                         <Route path={`${match.path}/texture`}>
-                            <ChooseTexture />
+                            <ChooseTexture url={match.path} />
                         </Route>
-                        <Route path={`${match.path}/gadgets`}>
-                            <ChooseBlend />
+                        <Route path={`${match.path}/blend`}>
+                            <ChooseBlend url={match.path} />
                         </Route>
-                        <Route path={`${match.path}/gadgets`}>
-                            <ChooseAmount />
+                        <Route path={`${match.path}/amount`}>
+                            <ChooseAmount url={match.path} />
                         </Route>
                     </Switch>
                 </div>
