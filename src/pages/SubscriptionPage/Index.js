@@ -6,6 +6,7 @@ import ChooseGadgetComponent from "./components/ChooseGadget";
 import ChooseTexture from './components/ChooseTexture';
 import ChooseBlend from './components/ChooseBlend';
 import ChooseAmount from './components/ChooseAmount';
+import ContactInfo from './components/ContactInfo';
 
 function SubscriptionPage(){
 
@@ -30,6 +31,9 @@ function SubscriptionPage(){
                         </Route>
                         <Route path={`${match.path}/amount`}>
                             <ChooseAmount url={match.path} />
+                        </Route>
+                        <Route path={`${match.path}/contact`}>
+                            <ContactInfo url={match.path} />
                         </Route>
                     </Switch>
                 </div>
