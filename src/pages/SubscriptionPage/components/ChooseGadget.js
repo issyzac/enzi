@@ -3,13 +3,13 @@ import { Link, useRouteMatch } from 'react-router-dom'
 
 import '../styles/SubStyle.css';
 
-import aeropress from '../res/aeropress.png';
-import frenchpress from '../res/frenchpress.png';
-import electricDrip from '../res/coffee-machine-drip.png';
-import mokaPot from '../res/moka-pot.png';
-import v60 from '../res/v60.png';
-import chemex from '../res/chemex.png';
-import esspressoMachine from '../res/esspresso-machine.png';
+import aeropress from '../res/gadgets/aeropress.svg';
+import frenchpress from '../res/gadgets/french-press.svg';
+import electricDrip from '../res/gadgets/coffee-maker.svg';
+import mokaPot from '../res/gadgets/moka-pot.svg';
+import v60 from '../res/gadgets/pour-over.svg';
+import chemex from '../res/gadgets/chemex.svg';
+import esspressoMachine from '../res/gadgets/espresso-machine.svg';
 
 function ChooseGadgetComponent({url}){
 
@@ -60,12 +60,12 @@ function GadgetItem({name, icon, url}){
     return(
         <div className="col-md-6 col-sm-12"> 
             <Link to={`${url}/texture`} id="enzi-link">
-                <div className="sub-select-btn" > 
-                    <div className="row">
-                        <div className="col-md-2">
-                            <Image src={icon} fluid width="50px"/>
+                <div className="sub-select-btn" style={{ paddingTop: '2rem', paddingBottom: '2rem' }} > 
+                    <div className="row" style={{  display: 'flex', alignContent: 'center', justifyItems: 'center', height: '5rem' }}>
+                        <div className="col-md-3">
+                            <Image src={icon} fluid/>
                         </div>
-                        <div className="col-md-10" style={{ textAlign: 'center', height: '100%' }}>
+                        <div className="col-md-9" style={{ display: 'flex', alignItems: 'center'}}>
                             <span className="sub-select-btn-text"> {name} </span>
                         </div>
                     </div>    
