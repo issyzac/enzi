@@ -46,13 +46,10 @@ function SiteHeader() {
                         <Nav.Link href="#">Home</Nav.Link>
                     </Link>
                     <Link activeClass="" to="blends" spy={true} smooth={true} duration={800}>
-                        <Nav.Link href="#">About</Nav.Link>
+                        <Nav.Link href="#">Coffeewares</Nav.Link>
                     </Link>
-                    <Link activeClass="" to="shop" spy={true} smooth={true} duration={800}>
-                        <Nav.Link href="#">Shop</Nav.Link>
-                    </Link>
-                    <Link activeClass="" to="footer" spy={true} smooth={true} duration={800}>
-                        <Nav.Link href="#">Blog</Nav.Link>
+                    <Link activeClass="" to="connect" spy={true} smooth={true} duration={800}>
+                        <Nav.Link href="#">Connect</Nav.Link>
                     </Link>
                 </Nav>
                 
