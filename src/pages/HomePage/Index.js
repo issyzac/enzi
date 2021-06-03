@@ -1,12 +1,15 @@
-import {Component} from 'react'
+import React from 'react'
 import IndexContents from '../../components/IndexContents'
+import { useUserReference } from '../../contexts/SubscriptionContext';
 
-class Index extends Component {
-    render(){
-        return(
-            <IndexContents />
-        )
-    }
+function Index(){
+
+    const uur = useUserReference()
+    console.log("USEREF : User reference at Index, value : "+uur)
+
+    return(
+        <IndexContents />
+    )
 }
 
 export default Index;
