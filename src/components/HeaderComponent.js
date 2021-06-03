@@ -4,6 +4,9 @@ import Image from 'react-bootstrap/Image'
 import logo from '../images/logo.png'
 import logoWithName from '../images/logo-with-name.png'
 import { Link } from 'react-scroll';
+import firebase from '../Firestore.js';
+
+import React, {useState} from 'react';
 
 const navbarstyle = {
     height: '80px',
@@ -26,6 +29,7 @@ const logoStyle = {
 }
 
 function SiteHeader() {
+
     return (
         <Navbar fixed="top" bg="light" expand="lg" style={navbarstyle}>
             <Navbar.Brand href="/" style={brandStyle} className="d-flex flex-column justify-content-center">
