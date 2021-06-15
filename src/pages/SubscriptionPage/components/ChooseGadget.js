@@ -18,10 +18,7 @@ import firebase from '../../../Firestore.js';
 
 function ChooseGadgetComponent({url}){
 
-    let match = useRouteMatch();
-
     const user  = useUser()
-    const updateUser = useUserUpdate()
 
     const subscription = useSubscription()
     const updateSubscription = useSubscriptionUpdate()
