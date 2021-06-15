@@ -1,11 +1,20 @@
+import React, {useState} from 'react';
+import { Button } from "react-bootstrap";
+import { Link, Redirect } from "react-router-dom";
+
 import Image from 'react-bootstrap/Image'
 import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
 import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
-import { Button } from "react-bootstrap";
 import "./styles/EnziButton.css"
 
-import { Link } from "react-router-dom";
+import firebase from '../Firestore.js';
+
+import Cookies from 'js-cookie';
+
+import { UserReferenceCookieTag } from '../utils/constants.js';
+
+import { useUser, useUserUpdate } from '../contexts/SubscriptionContext';
 
 const bannerStyle = {
     paddingTop: '50px',
@@ -45,27 +54,66 @@ const enziButtonStyle = {
     paddingBottom: '0.5rem'
   }
 
-  const signupButtonStyle = {
-    border: '2px solid #db7f3b',
-    borderRadius: '5px',
-    color: '#202a44',
-    backgroundColor: '#db7f3b',
-    // alignSelf: 'center',
-    marginBottom: '1rem',
-    marginRight: '1rem',
-    fontVariant: 'all-small-caps',
-    width: '10rem',
-    fontFamily: 'Nunito',
-    fontWeight: '700',
-    fontSize: '1.2rem',
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
-    paddingTop: '0.5rem',
-    paddingBottom: '0.5rem'
-  }
+const signupButtonStyle = {
+border: '2px solid #db7f3b',
+borderRadius: '5px',
+color: '#202a44',
+backgroundColor: '#db7f3b',
+// alignSelf: 'center',
+marginBottom: '1rem',
+marginRight: '1rem',
+fontVariant: 'all-small-caps',
+width: '10rem',
+fontFamily: 'Nunito',
+fontWeight: '700',
+fontSize: '1.2rem',
+paddingLeft: '2rem',
+paddingRight: '2rem',
+paddingTop: '0.5rem',
+paddingBottom: '0.5rem'
+}
 
 function BannerComponent(){
+
+    const db = firebase.firestore();
+
+    const user = useUser()
+    const updateUser = useUserUpdate()
+
+    const userReference = user.userReference
+
+    const userReferenceCookie = Cookies.get(UserReferenceCookieTag)
+
+    const [proceed, setProceed] = useState(false);
+
+    const startSubscription = () => {
+
+        if (userReferenceCookie == undefined || userReferenceCookie == null){
+            db.collection("users").add({}).then((ref) => {
+                
+                //Update app state with the new user reference ID
+                user.userReference = ref.id
+                updateUser(user)
+
+                // Persist the reference ID using cookie
+                Cookies.set(UserReferenceCookieTag, ref.id)
+
+                setProceed(true);
+            });
+        }else{
+            const docRef = db.collection("users").doc(userReferenceCookie);
+            docRef.set({"hasRef": "True"});
+
+            //Update app state with the new user reference ID
+            user.userReference = userReferenceCookie
+            updateUser(user)
+            
+            setProceed(true);
+        }
+    }
+
     return(
+        proceed ? <Redirect to="subscribe" /> :
         <div id="#home" className="container" style={bannerStyle}>
             <div className="row">
 
@@ -84,9 +132,9 @@ function BannerComponent(){
                     </div>
 
                     <div style={{ alignSelf: 'start' }}>
-                        <Link to="subscribe">
-                            <Button id="sign-up-botton" variant='outline-light' href="https://wa.me/255683321768" style={signupButtonStyle} > Join Now </Button>
-                        </Link>
+                        
+                        <Button id="sign-up-botton" variant='outline-light' style={signupButtonStyle} onClick={ startSubscription } > Join Now </Button>
+                        
                         <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy </Button>
                     </div>
                     {/* <div style={{ textAlign: 'start' }}> 
