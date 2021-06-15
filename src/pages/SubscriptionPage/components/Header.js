@@ -8,7 +8,9 @@ import firebase from '../../../Firestore.js';
 import Cookies from 'js-cookie';
 
 import React, { useState } from 'react';
-import { useUserReference } from "../../../contexts/SubscriptionContext";
+import { useUser, useUserUpdate, useSubscription, useSubscriptionUpdate } from "../../../contexts/SubscriptionContext";
+
+import SubscriptionKeys from '../../../utils/constants'
 
 
 const enziButtonStyle = {
@@ -28,29 +30,35 @@ const enziButtonStyle = {
     paddingBottom: '1rem'
   }
 
-const urCookie = Cookies.get('user-reference-cookie');
+const urCookie = Cookies.get('user-reference-cookie')
 
 function HeaderComponent(){
 
-    const userReference = useUserReference();
+    const user = useUser()
+    const subscription = useSubscription()
+    const updateSubscription = useSubscriptionUpdate()
 
-    console.log("USEREF: loading header component, value : "+userReference);
+    console.log("USEREF: loading header component, value : "+user.userReference)
 
-    const [proceedToGadgets, setProceedToGadgets] = useState(false);
+    const [proceedToGadgets, setProceedToGadgets] = useState(false)
 
-    const db = firebase.firestore();
+    const db = firebase.firestore()
 
-    let match = useRouteMatch();
+    let match = useRouteMatch()
+
+    const userReference = user.userReference
 
     const getStartedWithSubscription = () => {
 
-        console.log("USEREF: In another component => "+userReference);
-
-        if ((urCookie != null || urCookie != undefined) || userReference != null) {
-            console.log("Called before the button inside if statement");
-            const userId = urCookie == null ? userReference : urCookie;
+        if (userReference != null && userReference != undefined) {
+            const userId = userReference;
             const docRef = db.collection("users").doc(userId);
-            docRef.update({"gotStarted": "True"});
+            docRef.update({ "started-subscription" : true});
+
+            //Update subscription flow state
+            subscription.startedSubscription = true
+            updateSubscription(subscription)
+
             setProceedToGadgets(true);
         }
     }
