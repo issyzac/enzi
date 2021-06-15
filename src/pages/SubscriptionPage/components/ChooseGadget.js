@@ -23,7 +23,7 @@ function ChooseGadgetComponent({url}){
     const subscription = useSubscription()
     const updateSubscription = useSubscriptionUpdate()
 
-    const [proceedToTexture, setProceedToTexture] = useState(false)
+    const [toTexture, setToTexture] = useState(false)
 
     const db = firebase.firestore()
 
@@ -36,7 +36,7 @@ function ChooseGadgetComponent({url}){
             subscription.gadget = name
             updateSubscription(subscription)
 
-            setProceedToTexture(true)
+            setToTexture(true)
         }
     }
 
@@ -66,7 +66,7 @@ function ChooseGadgetComponent({url}){
     }
 
     return(
-        proceedToTexture ? <Redirect to={`${url}/texture`} /> :
+        toTexture ? <Redirect to={`${url}/texture`} /> :
         <div className="container-fluid" style={{ paddingTop: '7rem', paddingBottom: '5rem' }}>
             <div className="container">
                 <div style={{ marginBottom: '50px'}}>
