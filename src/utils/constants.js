@@ -1,5 +1,5 @@
 export const UserReferenceCookieTag = 'user-reference-cookie';
 
-export default function CookiesConstant(){
-    
+export const SubscriptionKeys = {
+    StartedSubscriptionKey: 'started-subscription'
 }
