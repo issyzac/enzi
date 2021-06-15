@@ -1,18 +1,20 @@
+import React, {useState} from 'react';
+import { Button } from "react-bootstrap";
+import { Link, Redirect } from "react-router-dom";
+
 import Image from 'react-bootstrap/Image'
 import mokart from '../images/banner/mokart.png'
 import Flags from 'country-flag-icons/react/3x2'
 import blendMockupImage from '../images/blends/blend-mokup-slant.jpeg'
-import { Button } from "react-bootstrap";
 import "./styles/EnziButton.css"
-import { UserReferenceCookieTag } from '../utils/constants.js';
 
 import firebase from '../Firestore.js';
-import React, {useState} from 'react';
-
-import { Link, Redirect } from "react-router-dom";
 
 import Cookies from 'js-cookie';
-import { useUserReference, useUserReferenceUpdate } from '../contexts/SubscriptionContext';
+
+import { UserReferenceCookieTag } from '../utils/constants.js';
+
+import { useUser, useUserUpdate } from '../contexts/SubscriptionContext';
 
 const bannerStyle = {
     paddingTop: '50px',
@@ -75,11 +77,12 @@ function BannerComponent(){
 
     const db = firebase.firestore();
 
-    const userReference = useUserReference()
+    const user = useUser()
+    const updateUser = useUserUpdate()
+
+    const userReference = user.userReference
 
     const userReferenceCookie = Cookies.get(UserReferenceCookieTag)
-
-    const setUserReference = useUserReferenceUpdate()
 
     const [proceed, setProceed] = useState(false);
 
@@ -87,9 +90,12 @@ function BannerComponent(){
 
         if (userReferenceCookie == undefined || userReferenceCookie == null){
             db.collection("users").add({}).then((ref) => {
-                setUserReference(ref.id)
+                
+                //Update app state with the new user reference ID
+                user.userReference = ref.id
+                updateUser(user)
 
-                // Persist the reference ID using cookie because somehow the state is not persisted if the user refreshes the page
+                // Persist the reference ID using cookie
                 Cookies.set(UserReferenceCookieTag, ref.id)
 
                 setProceed(true);
@@ -97,7 +103,11 @@ function BannerComponent(){
         }else{
             const docRef = db.collection("users").doc(userReferenceCookie);
             docRef.set({"hasRef": "True"});
-            setUserReference(userReferenceCookie)
+
+            //Update app state with the new user reference ID
+            user.userReference = userReferenceCookie
+            updateUser(user)
+            
             setProceed(true);
         }
     }
