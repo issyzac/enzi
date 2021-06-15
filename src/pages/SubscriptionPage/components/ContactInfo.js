@@ -3,8 +3,15 @@ import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 
 import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
 import '../styles/SubStyle.css'
+import { useSubscription, useUser, useUserUpdate } from '../../../contexts/SubscriptionContext';
 
 function ContactInfo(){
+
+    const subscription = useSubscription()
+    
+    const user = useUser()
+    const updateUser = useUserUpdate()
+
     return(
         <div className="container-fluid" style={{ paddingTop: '4rem', paddingBottom: '5rem' }}> 
             <div className="container">
@@ -108,9 +115,9 @@ function ContactInfo(){
                                         <Image src={blendMockupImage} />
                                     </div>
                                     <div className="col-md-6" style={{textAlign: 'start', paddingTop: '2rem' }}>
-                                        <span> Enzi Lite </span>< br />
-                                        <span> Whole Beans </span>< br />
-                                        <span> 2 Bags per Delivery </span>< br />
+                                        <span> { subscription.blend } </span>< br />
+                                        <span> { subscription.texture } </span>< br />
+                                        <span> { subscription.amount } </span>< br />
                                     </div>
                                     <div className="col-md-3" style={{ textAlign: 'end', fontSize: '14px', paddingTop: '2rem' }}>
                                         <span> 35,000 TSH </span>< br />
