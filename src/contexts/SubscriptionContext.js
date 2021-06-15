@@ -1,195 +1,89 @@
 import React, { useContext, useState } from 'react'
 
-const UserReferenceContext = React.createContext()
-const UserReferenceUpdateContext = React.createContext()
+const UserContext = React.createContext()
+const UserUpdateContext = React.createContext()
 
-const StartSubscriptionContext = React.createContext()
-const StartSubscriptionUpdateContext = React.createContext()
-
-const GadgetContext = React.createContext()
-const GadgetUpdateContext = React.createContext()
-
-const TextureContext = React.createContext()
-const TextureUpdateContext = React.createContext()
-
-const BlendContext = React.createContext()
-const BlendUpdateContext = React.createContext()
-
-const AmountContext = React.createContext()
-const AmountUpdateContext = React.createContext()
+const SubscriptionFlowContext = React.createContext()
+const SubscriptionFlowUpdateContext = React.createContext()
 
 /**
- * User Reference
+ * Expose: User Hook
  */
-export function useUserReference() {
-    return useContext(UserReferenceContext)
+export function useUser(){
+    return useContext(UserContext)
 }
-export function  useUserReferenceUpdate() {
-    return useContext(UserReferenceUpdateContext)
+export function useUserUpdate() {
+    return useContext(UserUpdateContext)
 }
 
 
 /**
- * Start Subscription
+ * Expose: Subscription Flow Hook
  */
-export function useStartSubscription(){
-    return useContext(StartSubscriptionContext)
+export function useSubscription() {
+    return useContext(SubscriptionFlowContext)
 }
-export function useStartSubscriptionUpdate() {
-    return useContext(StartSubscriptionUpdateContext)
-}
-
-
-/**
- * Gadgets Stage
- */
-export function useGadget() {
-    return useContext(GadgetContext)
-}
-export function useGadgetUpdate(){
-    return useContext(GadgetUpdateContext)
-}
-
-/**
- * Texture Stage
- */
-export function useTexture(){
-    return useContext(TextureContext)
-}
-export function useTextureUpdate() {
-    return useContext(TextureUpdateContext)
-}
-
-/**
- * Blend Stage
- */
-export function useBlend() {
-    return useContext(BlendContext)
-}
-export function useBlendUpdate(){
-    return useContext(BlendUpdateContext)
-}
-
-/**
- * Amount Stage
- */
-export function useAmount() {
-    return useContext(AmountContext)
-}
-export function useAmoutUpdate(){
-    return useContext(AmountUpdateContext)
+export function useSubscriptionUpdate(){
+    return useContext(SubscriptionFlowUpdateContext)
 }
 
 export function SubscriptionProvider({ children }) {
  
-    const [ userReferenceId, setReferenceId ] = useState()
-    const [ startedSubscription, setStartedSubscription ] = useState(false)
-    const [ gadget, setGadget ] = useState()
-    const [ texture, setTexture ] = useState()
-    const [ blend, setBlend ] = useState()
-    const [ amount, setAmount ] = useState()
+    const usr = {
+        userReference: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        address: '',
+        city: ''
+    };
 
-    const [ shippingEmail, setShippingEmail ] = useState()
-
-    function setReference(ref){
-        console.log("USEREF: Updated reference in context, value : "+ref);
-        setReferenceId(ref)
+    const sub = {
+        startedSubscription: false,
+        gadget: '',
+        texture: '',
+        blend: '',
+        amount: ''
     }
 
-    function setStarted(started){
-        setStartedSubscription(started)
+    const [ user, setUser] = useState(usr)
+    const [ subscription, setSubscription ] = useState(sub)
+
+    function updateUser(user) {
+        setUser(user)
     }
 
-    function updateGadget(gadget){
-        setGadget(gadget)
+    function updateSubscription(subscription){
+        setSubscription(subscription)
     }
 
-    function updateTexture(texture) {
-        setTexture(texture)
-    }
-
-    function updateBlend(blend) {
-        setBlend(blend)
-    }
-
-    function updateAmount(amount) {
-        setAmount(amount)
-    }
-
-    function WithGadgetContext({children}){
+    
+    function WithUserContext({children}){
         return (
-            <GadgetContext.Provider value={gadget}>
-                <GadgetUpdateContext.Provider value={updateGadget}>
+            <UserContext.Provider value={user}>
+                <UserUpdateContext.Provider value={updateUser}>
                     {children}
-                </GadgetUpdateContext.Provider>
-            </GadgetContext.Provider>
+                </UserUpdateContext.Provider>
+            </UserContext.Provider>
         )
     }
 
-    function WithStartedSubscriptionContext({children}){
-        return(
-            <StartSubscriptionContext.Provider value={startedSubscription}>
-                <StartSubscriptionUpdateContext.Provider value={setStarted}>
+    function WithSubscriptionContext({children}){
+        return (
+            <SubscriptionFlowContext.Provider value={subscription}>
+                <SubscriptionFlowUpdateContext.Provider value={updateSubscription}>
                     {children}
-                </StartSubscriptionUpdateContext.Provider>
-            </StartSubscriptionContext.Provider>
-        )
-    }
-
-    function WithUserReferenceContext({children}){
-        return(
-            <UserReferenceContext.Provider value={userReferenceId}>
-                <UserReferenceUpdateContext.Provider value={setReference}>
-                    {children}
-                </UserReferenceUpdateContext.Provider>
-            </UserReferenceContext.Provider>
-        )
-    }
-
-    function WithTextureContext({children}){
-        return(
-            <TextureContext.Provider value={texture}>
-                <TextureUpdateContext.Provider value={updateTexture}>
-                    {children}
-                </TextureUpdateContext.Provider>
-            </TextureContext.Provider>
-        )
-    }
-
-    function WithBlendContext({children}){
-        return(
-            <BlendContext.Provider value={blend}>
-                <BlendUpdateContext.Provider value={updateBlend}>
-                    {children}
-                </BlendUpdateContext.Provider>
-            </BlendContext.Provider>
-        )
-    }
-
-    function WithAmountContext({children}) {
-        return(
-            <AmountContext.Provider value={amount}>
-                <AmountUpdateContext.Provider value={updateAmount}>
-                    {children}
-                </AmountUpdateContext.Provider>
-            </AmountContext.Provider>
+                </SubscriptionFlowUpdateContext.Provider>
+            </SubscriptionFlowContext.Provider>
         )
     }
 
     return (
-        <WithUserReferenceContext>
-            <WithStartedSubscriptionContext>
-                <WithGadgetContext>
-                    <WithTextureContext>
-                        <WithBlendContext>
-                            <WithAmountContext>
-                                {children}
-                            </WithAmountContext>
-                        </WithBlendContext> 
-                    </WithTextureContext>
-                </WithGadgetContext>
-            </WithStartedSubscriptionContext>
-        </WithUserReferenceContext>
+        <WithUserContext>
+            <WithSubscriptionContext>
+                {children}
+            </WithSubscriptionContext>
+        </WithUserContext>
     )
-
 }
