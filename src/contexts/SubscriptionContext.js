@@ -4,37 +4,80 @@ const UserReferenceContext = React.createContext()
 const UserReferenceUpdateContext = React.createContext()
 
 const StartSubscriptionContext = React.createContext()
-const GadgetContext = React.createContext()
-const TextureContext = React.createContext()
-const BlendContext = React.createContext()
-const AmountContext = React.createContext()
+const StartSubscriptionUpdateContext = React.createContext()
 
+const GadgetContext = React.createContext()
+const GadgetUpdateContext = React.createContext()
+
+const TextureContext = React.createContext()
+const TextureUpdateContext = React.createContext()
+
+const BlendContext = React.createContext()
+const BlendUpdateContext = React.createContext()
+
+const AmountContext = React.createContext()
+const AmountUpdateContext = React.createContext()
+
+/**
+ * User Reference
+ */
 export function useUserReference() {
     return useContext(UserReferenceContext)
 }
-
 export function  useUserReferenceUpdate() {
     return useContext(UserReferenceUpdateContext)
 }
 
+
+/**
+ * Start Subscription
+ */
 export function useStartSubscription(){
     return useContext(StartSubscriptionContext)
 }
+export function useStartSubscriptionUpdate() {
+    return useContext(StartSubscriptionUpdateContext)
+}
 
+
+/**
+ * Gadgets Stage
+ */
 export function useGadget() {
     return useContext(GadgetContext)
 }
+export function useGadgetUpdate(){
+    return useContext(GadgetUpdateContext)
+}
 
+/**
+ * Texture Stage
+ */
 export function useTexture(){
     return useContext(TextureContext)
 }
+export function useTextureUpdate() {
+    return useContext(TextureUpdateContext)
+}
 
+/**
+ * Blend Stage
+ */
 export function useBlend() {
     return useContext(BlendContext)
 }
+export function useBlendUpdate(){
+    return useContext(BlendUpdateContext)
+}
 
+/**
+ * Amount Stage
+ */
 export function useAmount() {
     return useContext(AmountContext)
+}
+export function useAmoutUpdate(){
+    return useContext(AmountUpdateContext)
 }
 
 export function SubscriptionProvider({ children }) {
@@ -57,39 +100,96 @@ export function SubscriptionProvider({ children }) {
         setStartedSubscription(started)
     }
 
-    function setSelectedGadget(gadget){
+    function updateGadget(gadget){
         setGadget(gadget)
     }
 
-    function setSelectedTexture(texture) {
+    function updateTexture(texture) {
         setTexture(texture)
     }
 
-    function setSelectedBlend(blend) {
+    function updateBlend(blend) {
         setBlend(blend)
     }
 
-    function setSelectedAmount(am) {
-        setAmount(am)
+    function updateAmount(amount) {
+        setAmount(amount)
+    }
+
+    function WithGadgetContext({children}){
+        return (
+            <GadgetContext.Provider value={gadget}>
+                <GadgetUpdateContext.Provider value={updateGadget}>
+                    {children}
+                </GadgetUpdateContext.Provider>
+            </GadgetContext.Provider>
+        )
+    }
+
+    function WithStartedSubscriptionContext({children}){
+        return(
+            <StartSubscriptionContext.Provider value={startedSubscription}>
+                <StartSubscriptionUpdateContext.Provider value={setStarted}>
+                    {children}
+                </StartSubscriptionUpdateContext.Provider>
+            </StartSubscriptionContext.Provider>
+        )
+    }
+
+    function WithUserReferenceContext({children}){
+        return(
+            <UserReferenceContext.Provider value={userReferenceId}>
+                <UserReferenceUpdateContext.Provider value={setReference}>
+                    {children}
+                </UserReferenceUpdateContext.Provider>
+            </UserReferenceContext.Provider>
+        )
+    }
+
+    function WithTextureContext({children}){
+        return(
+            <TextureContext.Provider value={texture}>
+                <TextureUpdateContext.Provider value={updateTexture}>
+                    {children}
+                </TextureUpdateContext.Provider>
+            </TextureContext.Provider>
+        )
+    }
+
+    function WithBlendContext({children}){
+        return(
+            <BlendContext.Provider value={blend}>
+                <BlendUpdateContext.Provider value={updateBlend}>
+                    {children}
+                </BlendUpdateContext.Provider>
+            </BlendContext.Provider>
+        )
+    }
+
+    function WithAmountContext({children}) {
+        return(
+            <AmountContext.Provider value={amount}>
+                <AmountUpdateContext.Provider value={updateAmount}>
+                    {children}
+                </AmountUpdateContext.Provider>
+            </AmountContext.Provider>
+        )
     }
 
     return (
-        <UserReferenceContext.Provider value={userReferenceId}>
-            <UserReferenceUpdateContext.Provider value={setReference}>
-                <StartSubscriptionContext.Provider value={startedSubscription}>
-                    <GadgetContext.Provider value={gadget}>
-                        <TextureContext.Provider value={texture}>
-                            <BlendContext.Provider value={blend}>
-                                <AmountContext.Provider value={amount}>
-                                    {children}
-                                </AmountContext.Provider>
-                            </BlendContext.Provider>
-                        </TextureContext.Provider>
-                    </GadgetContext.Provider>
-                </StartSubscriptionContext.Provider>                
-            </UserReferenceUpdateContext.Provider>
-        </UserReferenceContext.Provider>
+        <WithUserReferenceContext>
+            <WithStartedSubscriptionContext>
+                <WithGadgetContext>
+                    <WithTextureContext>
+                        <WithBlendContext>
+                            <WithAmountContext>
+                                {children}
+                            </WithAmountContext>
+                        </WithBlendContext> 
+                    </WithTextureContext>
+                </WithGadgetContext>
+            </WithStartedSubscriptionContext>
+        </WithUserReferenceContext>
     )
 
 }
-
