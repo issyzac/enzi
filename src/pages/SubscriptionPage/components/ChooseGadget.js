@@ -25,19 +25,13 @@ function ChooseGadgetComponent({url}){
 
     const [toTexture, setToTexture] = useState(false)
 
-    const db = firebase.firestore()
-
     const captureGadget = (name) => {
-        if (user.userReference != null && user.userReference != undefined) {
-            const userId = user.userReference;
-            const docRef = db.collection("users").doc(userId);
-            docRef.update({ "gadget" : name});
-            
-            subscription.gadget = name
-            updateSubscription(subscription)
 
-            setToTexture(true)
-        }
+        subscription.gadget = name
+        updateSubscription(subscription)
+
+        setToTexture(true)
+
     }
 
     function GadgetItem({name, icon, url}){
