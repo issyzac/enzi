@@ -38,29 +38,16 @@ function HeaderComponent(){
     const subscription = useSubscription()
     const updateSubscription = useSubscriptionUpdate()
 
-    console.log("USEREF: loading header component, value : "+user.userReference)
-
     const [proceedToGadgets, setProceedToGadgets] = useState(false)
-
-    const db = firebase.firestore()
 
     let match = useRouteMatch()
 
-    const userReference = user.userReference
-
     const getStartedWithSubscription = () => {
+        //Update subscription flow state
+        subscription.startedSubscription = true
+        updateSubscription(subscription)
 
-        if (userReference != null && userReference != undefined) {
-            const userId = userReference;
-            const docRef = db.collection("users").doc(userId);
-            docRef.update({ "started-subscription" : true});
-
-            //Update subscription flow state
-            subscription.startedSubscription = true
-            updateSubscription(subscription)
-
-            setProceedToGadgets(true);
-        }
+        setProceedToGadgets(true);
     }
 
     return(
