@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 
 import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
@@ -8,7 +8,7 @@ import { useSubscription, useUser, useUserUpdate } from '../../../contexts/Subsc
 
 import firebase from '../../../Firestore.js'; 
 
-function ContactInfo(){
+function ContactInfo({url}){
 
     const subscription = useSubscription()
     
@@ -57,6 +57,8 @@ function ContactInfo(){
     }
 
     return(
+        toCheckout ? <Redirect to={`${url}/checkout`} /> 
+        : 
         <div className="container-fluid" style={{ paddingTop: '4rem', paddingBottom: '5rem' }}> 
             <div className="container">
                 <div style={{ marginBottom: '50px'}}>
