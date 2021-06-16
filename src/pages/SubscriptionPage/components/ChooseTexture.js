@@ -20,8 +20,6 @@ function ChooseTexture({url}){
 
     const [toBlend, setToBlend ] = useState(false)
 
-    const db = firebase.firestore()
-
     const captureTexture = (texture) => {
         // Update app state with the new amount
         subscription.texture = texture
