@@ -12,6 +12,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SubscriptionProvider } from './contexts/SubscriptionContext';
+import ShopIndex from './pages/Shop/ShopIndex';
 
 library.add(fab, faCheckSquare, faCoffee)
 
@@ -24,6 +25,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Index} />  
             <Route path="/subscribe" component={SubscriptionPage} />
+            <Route path="/shop" component={ShopIndex} />
           </Switch>
         </div>
       </Router>
