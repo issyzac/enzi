@@ -19,6 +19,20 @@ function BuyCoffee(){
         )
     }
 
+    function HeaderSection(){
+        return(
+            <>
+                <h2 style={{ fontFamily: 'Poppins', fontWeight: '900', marginTop: '3rem', fontSize: '3rem', textAlign: 'start' }}>
+                    Freshly Roasted Coffee
+                </h2>
+                <h4 style={{ textAlign: 'start', fontSize: '1rem', fontFamily: 'Inter', 
+                    marginTop: '1rem', marginBottom: '1rem', fontWeight: '700', }}>
+                    <b> 10,000/= <span style={{ marginLeft: '10px', marginRight: '10px', color: '#202a44' }}> | </span> 250grams</b>
+                </h4>
+            </>
+        )
+    }
+
     return (
         <div className="container-fluid" style={{ backgroundColor: '#f5f5f5f5', paddingTop: '1rem'}}>
             <div className="container">
@@ -27,12 +41,7 @@ function BuyCoffee(){
                         <Image src={blendMockupImage} fluid />
                     </div>
                     <div className="col-md-5">
-                        <h2 style={{ fontFamily: 'Poppins', fontWeight: '900', marginTop: '3rem', fontSize: '3rem', textAlign: 'start' }}>
-                            Freshly Roasted Coffee
-                        </h2>
-                        <h4 style={{ textAlign: 'start', fontSize: '1rem', fontFamily: 'Poppins', marginTop: '1rem', marginBottom: '1rem', fontWeight: '200', }}>
-                            <b> 10,000/= <span style={{ marginLeft: '10px', marginRight: '10px', color: '#202a44' }}> | </span> 250grams</b>
-                        </h4>
+                        <HeaderSection />
                         <BlendSection />
                     </div>
                 </div>
