@@ -4,6 +4,7 @@ import FooterComponent from '../../components/FooterComponent'
 import SiteHeader from '../../components/HeaderComponent'
 import BuyCoffee from './BuyCoffee'
 import BuyGadget from './BuyGadget'
+import CheckoutShop from './Checkout'
 
 function ShopIndex({url}){
 
@@ -12,13 +13,16 @@ function ShopIndex({url}){
     return(
         <div>
             <SiteHeader />
-            <div style={{ paddingTop: '80px', backgroundColor: "#f5f5f5", height: '90vh' }}>
+            <div style={{ paddingTop: '80px', backgroundColor: "#f5f5f5" }}>
                 <Switch>
                     <Route exact path={`${match.path}/coffee`}>
                         <BuyCoffee url={match.path} />
                     </Route>
                     <Route exact path={`${match.path}/gadgets`}>
                         <BuyGadget url={match.path} />
+                    </Route>
+                    <Route exact path={`${match.path}/checkout`}>
+                        <CheckoutShop url={match.path} />
                     </Route>
                 </Switch>
             </div>
