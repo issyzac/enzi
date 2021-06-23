@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { enziButtonStyle } from '../../utils/CustomStyles'
 
 import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 
@@ -16,22 +17,6 @@ const quantityStyle = {
     ...blendStyle,
     height: '70px',
 }
-
-const enziButtonStyle = {
-    // border: '0.2px solid #202a44 #',
-    border: '0.2px solid #f5f5f5',
-    color: '#202a44',
-    width: '100%',
-    height: '100%',
-    fontFamily: 'Nunito',
-    fontWeight: '700',
-    fontSize: '1.2rem',
-    borderRadius: '5px',
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
-    paddingTop: '0.5rem',
-    paddingBottom: '0.5rem'
-  }
 
   const enziButtonStyleSelected = {
       ...enziButtonStyle,
@@ -168,7 +153,7 @@ function BuyCoffee(){
 
     function CheckoutButton(){
         return(
-            <Link  to="/gadgetsware" style={{ textDecoration: 'none', width: '250px', marginTop: '2rem'}}>
+            <Link  to="/shop/checkout" style={{ textDecoration: 'none', width: '250px', marginTop: '2rem'}}>
                 <div id="shop-gadget-button" className="shop-gadget-button"> Checkout </div>
             </Link>
         )

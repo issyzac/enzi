@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
@@ -16,6 +16,10 @@ export default function CheckoutShop({url}){
             
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return(
         <div className="container-fluid" style={{ paddingTop: '3rem', paddingBottom: '5rem', backgroundColor: '#fff' }}>
