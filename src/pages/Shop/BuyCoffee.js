@@ -12,11 +12,15 @@ const blendStyle = {
     borderRadius: '10px'
 }
 
+const quantityStyle = {
+    ...blendStyle,
+    height: '70px',
+}
+
 const enziButtonStyle = {
-    // border: '0.2px solid #202a44',
-    border: '0.2px solid lightgrey',
+    // border: '0.2px solid #202a44 #',
+    border: '0.2px solid #f5f5f5',
     color: '#202a44',
-    fontVariant: 'all-small-caps',
     width: '100%',
     height: '100%',
     fontFamily: 'Nunito',
@@ -31,13 +35,14 @@ const enziButtonStyle = {
 
   const enziButtonStyleSelected = {
       ...enziButtonStyle,
-      border: "1px solid 202a44"
+      border: "3px solid 202a44"
   }
 
 function BuyCoffee(){
 
     const [blendSelection, setBlendSelection] = useState(0)
-    const [amount, setAmount] = useState(1)
+    const [grindSelection, setGrindSelection] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
     function HeaderSection(){
         return(
@@ -49,6 +54,7 @@ function BuyCoffee(){
                     marginTop: '1rem', marginBottom: '1rem', fontWeight: '700', }}>
                     <b> 10,000/= <span style={{ marginLeft: '10px', marginRight: '10px', color: '#202a44' }}> | </span> 250grams</b>
                 </h4>
+                
             </>
         )
     }
@@ -64,14 +70,16 @@ function BuyCoffee(){
             return(
                 <div className="col-md-6" style={{ padding: '0px' }}>
                     <Button onClick={handleBlendSelection} variant='outline-dark' style={ blendSelection == blendCode ? enziButtonStyleSelected : enziButtonStyle }>
-                        {name}
+                        <span style={{ fontFamily: 'Poppins', fontSize: '25px' }}>
+                            {name}
+                        </span>
                     </Button>
                 </div>
             )
         }
 
         return(
-            <div className="container-fluid" style={{ paddingLeft: '0px', marginTop: '2rem' }}> 
+            <div className="container-fluid" style={{ paddingLeft: '0px', marginTop: '1rem' }}> 
             <h3 style={{ textAlign: 'start', fontFamily: 'Poppins', fontSize: '16px', fontWeight: '200' }}> Blend </h3>
                 <div className="row" style={blendStyle}>
                     <BlendItem blendCode={0} name="Enzi" />
@@ -81,19 +89,76 @@ function BuyCoffee(){
         )
     }
 
+    function BlendDescription(){
+        return(
+            <div style={{ marginTop: '1rem' }}>
+                <p style={{ textAlign: 'start', fontFamily: 'Inter', fontWeight: '500', fontSize: '16px' }}>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        )
+    }
+
+    function GrindSelection(){
+
+        function GrindItem({ grindCode, name }){
+
+            function handleGrindSelection(e){
+                setGrindSelection(grindCode)
+            }
+
+            return(
+                <div className="col-md-6" style={{ padding: '0px' }}>
+                    <Button onClick={handleGrindSelection} variant='outline-dark' style={ grindSelection == grindCode ? enziButtonStyleSelected : enziButtonStyle }>
+                        <span style={{ fontFamily: 'Poppins', fontSize: '25px' }}>
+                            {name}
+                        </span>
+                    </Button>
+                </div>
+            )
+        }
+
+        return(
+            <div className="container-fluid" style={{ paddingLeft: '0px', marginTop: '2rem' }}> 
+            <h3 style={{ textAlign: 'start', fontFamily: 'Poppins', fontSize: '16px', fontWeight: '200' }}> Grind </h3>
+                <div className="row" style={blendStyle}>
+                    <GrindItem grindCode={0} name="Whole" />
+                    <GrindItem grindCode={1} name="Ground" />
+                </div>
+            </div>
+        )
+    }
+
     function QuantitySelection(){
+
+        function reduceQuantity() {
+            if (quantity > 1) {
+                setQuantity(quantity-1)
+            }
+        }
+
+        function increaseQuantity(){
+            setQuantity(quantity+1)
+        }
+
         return(
             <div className="container-fluid" style={{ paddingLeft: '0px', paddingRight: '0px', marginTop: '2rem' }}> 
             <h3 style={{ textAlign: 'start', fontFamily: 'Poppins', fontSize: '16px', fontWeight: '200' }}> Quantity </h3>
-                <div className="row" style={blendStyle}>
-                    <div className="col-md-6" style={{ padding: '0px' }}>
-                        <Button variant='outline-dark' style={enziButtonStyle}>
-                            1 Bag
+                <div className="row" style={quantityStyle}>
+                    <div className="col-md-4" style={{ padding: '0px' }}>
+                        <Button variant='outline-dark' onClick={reduceQuantity} style={enziButtonStyle}>
+                            -
                         </Button>
+                    </div>
+                    <div className="col-md-4">
+                        <div style={{ verticalAlign: 'middle', textAlign: 'center', lineHeight: '70px', fontFamily: 'Poppins', fontWeight: '500' }}>
+                            { quantity == 1 ? quantity+" Bag" : quantity+" Bags"}
+                        </div>
                     </div> 
-                    <div className="col-md-6" style={{ padding: '0px' }}>
-                        <Button variant='outline-dark' style={enziButtonStyle}>
-                            3 Bags
+                    <div className="col-md-4" style={{ padding: '0px' }}>
+                        <Button variant='outline-dark' onClick={increaseQuantity} style={enziButtonStyle}>
+                            +
                         </Button>
                     </div> 
                 </div>
@@ -110,7 +175,7 @@ function BuyCoffee(){
     }
 
     return (
-        <div className="container-fluid" style={{ backgroundColor: '#f5f5f5f5', paddingTop: '1rem'}}>
+        <div className="container-fluid" style={{ backgroundColor: '#f5f5f5f5', paddingTop: '1rem', paddingBottom: '5rem'}}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-7" style={{ height: '500px'}}>
@@ -118,7 +183,11 @@ function BuyCoffee(){
                     </div>
                     <div className="col-md-5">
                         <HeaderSection />
-                        <BlendSection />
+                        <div style={{ paddingTop: '1rem', paddingBottom: '1rem', paddingLeft: '1rem', backgroundColor: 'rgb(232 232 232)', borderRadius: '5px' }}>
+                            <BlendSection />
+                            <BlendDescription />
+                        </div>
+                        <GrindSelection />
                         <QuantitySelection />
                         <div style={{ height: '50px' }}></div>
                         <CheckoutButton />
