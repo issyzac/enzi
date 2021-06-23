@@ -135,7 +135,9 @@ function BannerComponent(){
                         
                         <Button id="sign-up-botton" variant='outline-light' style={signupButtonStyle} onClick={ startSubscription } > Join Now </Button>
                         
-                        <Button variant='outline-dark' href="https://wa.me/255683321768" style={enziButtonStyle} > Buy </Button>
+                        <Link to="/shop/coffee">
+                            <Button variant='outline-dark' style={enziButtonStyle} > Buy </Button>
+                        </Link>
                     </div>
                     {/* <div style={{ textAlign: 'start' }}> 
                         <Flags.TZ title="Tanzania" style={flagsStyle}/>
