@@ -226,7 +226,7 @@ export default function CheckoutShop({url}){
     }
 
     return(
-        toDone ? <Redirect to={`${url}/`} /> : 
+        toDone ? <Redirect to={`${url}/completed`} /> : 
         <div className="container-fluid" style={{ paddingTop: '3rem', paddingBottom: '5rem', backgroundColor: '#fff' }}>
             <div className="container" style={{ marginBottom: '50px' }}>
                 <p className="title" style={{ marginBottom: '6rem', fontFamily: 'Inter', fontWeight: '900', color: '#202a44', 
