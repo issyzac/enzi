@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Image } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { enziButtonStyle } from '../../utils/CustomStyles'
+import { useSelectedCoffee, useUpdateCoffeeSelected } from '../../contexts/ShopContext'
 
 import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 
@@ -23,11 +24,31 @@ const quantityStyle = {
       border: "3px solid 202a44"
   }
 
-function BuyCoffee(){
+function BuyCoffee({url}){
 
     const [blendSelection, setBlendSelection] = useState(0)
     const [grindSelection, setGrindSelection] = useState(0)
     const [quantity, setQuantity] = useState(1)
+    const [proceed, setProceed] = useState(false)
+
+    const coffeeSelected = useSelectedCoffee()
+    const updateSelectedCoffee = useUpdateCoffeeSelected()
+
+    const saveSelectedCoffee = () => {
+
+        // Capture selected coffee variables
+        let blend = blendSelection == 0 ? "Enzi" : "Enzi Lite"
+        let grind = grindSelection == 0 ? "Whole" : "Ground"
+        coffeeSelected.blend = blend
+        coffeeSelected.grind = grind
+        coffeeSelected.quantity = quantity
+
+        //Update the state of selected Coffee
+        updateSelectedCoffee(coffeeSelected)
+
+        setProceed(true)
+
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -157,13 +178,14 @@ function BuyCoffee(){
 
     function CheckoutButton(){
         return(
-            <Link  to="/shop/checkout" style={{ textDecoration: 'none', width: '250px', marginTop: '2rem'}}>
+            <Link onClick={saveSelectedCoffee} style={{ textDecoration: 'none', width: '250px', marginTop: '2rem'}}>
                 <div id="shop-gadget-button" className="shop-gadget-button"> Checkout </div>
             </Link>
         )
     }
 
     return (
+        proceed ? <Redirect to={`${url}/checkout`} /> :  
         <div className="container-fluid" style={{ backgroundColor: '#f5f5f5f5', paddingTop: '1rem', paddingBottom: '5rem'}}>
             <div className="container">
                 <div className="row">
