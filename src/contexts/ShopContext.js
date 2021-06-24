@@ -37,6 +37,7 @@ export function ShopProvider({children}){
     }
 
     const deliveryInformation = {
+        userReference: '',
         email: '',
         phone: '',
         fullName: '',
