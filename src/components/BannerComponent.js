@@ -80,13 +80,28 @@ function BannerComponent(){
     const user = useUser()
     const updateUser = useUserUpdate()
 
+    const subscribeButton = "subscribe"
+    const buyBotton = "buy"
+
     const userReference = user.userReference
 
     const userReferenceCookie = Cookies.get(UserReferenceCookieTag)
 
     const [proceed, setProceed] = useState(false);
+    const [nextScreen, setNextScreen] = useState("")
 
-    const startSubscription = () => {
+    const handleBannerAction = (e) => {
+
+        console.log("bucks", "Target : ", e.target.name);
+
+        switch(e.target.name){
+            case subscribeButton:
+                setNextScreen("subscribe")
+                break
+            case buyBotton:
+                setNextScreen("/shop/coffee")
+                break
+        }
 
         if (userReferenceCookie == undefined || userReferenceCookie == null){
             db.collection("users").add({}).then((ref) => {
@@ -97,7 +112,7 @@ function BannerComponent(){
 
                 // Persist the reference ID using cookie
                 Cookies.set(UserReferenceCookieTag, ref.id)
-
+                
                 setProceed(true);
             });
         }else{
@@ -113,7 +128,8 @@ function BannerComponent(){
     }
 
     return(
-        proceed ? <Redirect to="subscribe" /> :
+        // If 1 Redirect to subscription page
+        proceed ? <Redirect to={nextScreen} /> :
         <div id="#home" className="container" style={bannerStyle}>
             <div className="row">
 
@@ -133,10 +149,10 @@ function BannerComponent(){
 
                     <div style={{ alignSelf: 'start' }}>
                         
-                        <Button id="sign-up-botton" variant='outline-light' style={signupButtonStyle} onClick={ startSubscription } > Join Now </Button>
+                        <Button id="sign-up-botton" name={subscribeButton} variant='outline-light' style={signupButtonStyle} onClick={handleBannerAction} > Join Now </Button>
                         
-                        <Link to="/shop/coffee">
-                            <Button variant='outline-dark' style={enziButtonStyle} > Buy </Button>
+                        <Link >
+                            <Button variant='outline-dark' name={buyBotton} style={enziButtonStyle} onClick={handleBannerAction} > Buy </Button>
                         </Link>
                     </div>
                     {/* <div style={{ textAlign: 'start' }}> 
