@@ -20,6 +20,7 @@ export default function CheckoutShop({url}){
         if (form.checkValidity() === false){    
             event.stopPropagation()
         }else{
+
             const email = form[0].value
             const phoneNumber = form[1].value
 
@@ -32,6 +33,8 @@ export default function CheckoutShop({url}){
             deliveryInformation.fullName = fullName
             deliveryInformation.address = address
             deliveryInformation.city = city
+
+            console.log("bucks", deliveryInformation);
 
             updateDeliveryInformation(deliveryInformation)
 
