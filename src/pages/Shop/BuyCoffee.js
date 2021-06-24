@@ -19,34 +19,36 @@ const quantityStyle = {
     height: '70px',
 }
 
-  const enziButtonStyleSelected = {
-      ...enziButtonStyle,
-      border: "3px solid 202a44"
-  }
+const enziButtonStyleSelected = {
+    ...enziButtonStyle,
+    border: "3px solid 202a44"
+}
 
 function BuyCoffee({url}){
 
     const [blendSelection, setBlendSelection] = useState(0)
     const [grindSelection, setGrindSelection] = useState(0)
     const [quantity, setQuantity] = useState(1)
-    const [proceed, setProceed] = useState(false)
+    const [toCheckout, setToCheckout] = useState(false)
 
     const coffeeSelected = useSelectedCoffee()
     const updateSelectedCoffee = useUpdateCoffeeSelected()
 
-    const saveSelectedCoffee = () => {
+    console.log("bucks : ", coffeeSelected);
+    console.log("bucks", url)
 
-        // Capture selected coffee variables
-        let blend = blendSelection == 0 ? "Enzi" : "Enzi Lite"
-        let grind = grindSelection == 0 ? "Whole" : "Ground"
-        coffeeSelected.blend = blend
+    const saveSelectedCoffee = ({mGrind, mQuantity}) => {
+
+        console.log("bucks", "saving selected coffee ")
+
+        let grind = mGrind == 0 ? "Whole" : "Ground"
         coffeeSelected.grind = grind
         coffeeSelected.quantity = quantity
 
         //Update the state of selected Coffee
         updateSelectedCoffee(coffeeSelected)
 
-        setProceed(true)
+        setToCheckout(true)
 
     }
 
@@ -74,7 +76,11 @@ function BuyCoffee({url}){
         function BlendItem({ blendCode, name }){
 
             function handleBlendSelection(e){
+
                 setBlendSelection(blendCode)
+
+                coffeeSelected.blend = blendCode === 0 ? "Enzi" : "Enzi Lite"
+                updateSelectedCoffee(coffeeSelected)
             }
 
             return(
@@ -115,6 +121,9 @@ function BuyCoffee({url}){
         function GrindItem({ grindCode, name }){
 
             function handleGrindSelection(e){
+                coffeeSelected.grind = grindCode == 0 ? "Whole" : "Ground"
+                updateSelectedCoffee(coffeeSelected)
+                
                 setGrindSelection(grindCode)
             }
 
@@ -144,12 +153,16 @@ function BuyCoffee({url}){
 
         function reduceQuantity() {
             if (quantity > 1) {
-                setQuantity(quantity-1)
+                let q = quantity-1
+                setQuantity(q)
+                coffeeSelected.quantity = q
             }
         }
 
         function increaseQuantity(){
-            setQuantity(quantity+1)
+            let q = quantity+1
+            coffeeSelected.quantity = q
+            setQuantity(q)
         }
 
         return(
@@ -177,15 +190,22 @@ function BuyCoffee({url}){
     }
 
     function CheckoutButton(){
+
+        function handleCheckout(e){
+            e.preventDefault()
+            saveSelectedCoffee(grindSelection, quantity)
+        }
+
         return(
-            <Link onClick={saveSelectedCoffee} style={{ textDecoration: 'none', width: '250px', marginTop: '2rem'}}>
+            <Link onClick={handleCheckout} style={{ textDecoration: 'none', width: '250px', marginTop: '2rem'}}>
                 <div id="shop-gadget-button" className="shop-gadget-button"> Checkout </div>
             </Link>
         )
     }
 
     return (
-        proceed ? <Redirect to={`${url}/checkout`} /> :  
+        toCheckout ? <Redirect to={`${url}/checkout`} /> 
+        :  
         <div className="container-fluid" style={{ backgroundColor: '#f5f5f5f5', paddingTop: '1rem', paddingBottom: '5rem'}}>
             <div className="container">
                 <div className="row">
