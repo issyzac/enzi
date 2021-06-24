@@ -3,13 +3,16 @@ import { Link, Redirect } from 'react-router-dom';
 import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 
-import { useSelectedCoffee } from '../../contexts/ShopContext'
+import { useSelectedCoffee, useDeliveryInformation, useUpdateDeliveryInformation } from '../../contexts/ShopContext'
 
 export default function CheckoutShop({url}){
 
     const [validated, setValidated] = useState(false)
+    const [toDone, setToDone] = useState(false)
 
     const selectedCoffee = useSelectedCoffee()
+    const deliveryInformation = useDeliveryInformation()
+    const updateDeliveryInformation = useUpdateDeliveryInformation()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -17,7 +20,23 @@ export default function CheckoutShop({url}){
         if (form.checkValidity() === false){    
             event.stopPropagation()
         }else{
-            
+            const email = form[0].value
+            const phoneNumber = form[1].value
+
+            const fullName = form[2].value
+            const address = form[3].value
+            const city = form[4].value
+
+            deliveryInformation.email = email
+            deliveryInformation.phone = phoneNumber
+            deliveryInformation.fullName = fullName
+            deliveryInformation.address = address
+            deliveryInformation.city = city
+
+            updateDeliveryInformation(deliveryInformation)
+
+            setToDone(true)
+
         }
     }
 
@@ -108,7 +127,6 @@ export default function CheckoutShop({url}){
             )
         }
 
-
         /**
          * SUBMIT button Element
          */
@@ -136,9 +154,79 @@ export default function CheckoutShop({url}){
                 <SubmitButton />
             </Form>
           )
-      }
+    }
+
+    function OrderSummarySection(){
+        return(
+            <div className="cointainer" style={{ border: '1px solid #ced4da', borderRadius: '5px', textAlign: 'start', padding: '1rem', backgroundColor: '#f7f7f7' }}>
+                <span style={{ 
+                        fontSize: '16px',
+                        textAlign: 'start',
+                        fontFamily: 'Spartan',
+                        color: '#202a44',
+                        fontWeight: '500',
+                        marginTop: '2rem',
+                        marginBottom: '2rem'
+                    }}>
+                        Your Order Summary
+                </span>
+                <div className="row" style={{ fontFamily: 'Nunito' }}>
+                    <div className="col-md-3" style={{ alignContent: 'center', paddingTop: '2rem', paddingBottom: '2rem' }}>
+                        <Image src={blendMockupImage} />
+                    </div>
+                    <div className="col-md-6" style={{textAlign: 'start', paddingTop: '2rem' }}>
+                        <span> { selectedCoffee.blend } </span>< br />
+                        <span> { selectedCoffee.grind } </span>< br />
+                        <span> { selectedCoffee.quantity } </span>< br />
+                    </div>
+                    <div className="col-md-3" style={{ textAlign: 'end', fontSize: '14px', paddingTop: '2rem' }}>
+                        <span> 35,000 TSH </span>< br />
+                    </div>
+                </div>
+                
+                {/* Line */}
+                <div style={{ height: '.1rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
+
+                <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px' }}>
+                    <div className="col-md-9"> Subtotal </div>
+                    <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
+                        <span> 35, 000TSH </span>
+                    </div>
+                </div>
+
+                <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem' }}>
+                    <div className="col-md-9"> Shipping </div>
+                    <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
+                        <span> -- </span>
+                    </div>
+                </div>
+
+                {/* Line */}
+                <div style={{ height: '.05rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
+
+                <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem' }}>
+                    <div className="col-md-9"> Total </div>
+                    <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
+                        <span> 35,000 TSH </span>
+                    </div>
+                </div>
+
+                {/* Line */}
+                <div style={{ height: '.05rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
+
+                <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem', marginBottom: '1rem' }}>
+                    <div className="col-md-7"> To be Paid </div>
+                    <div className="col-md-5" style={{ fontSize: '16px', textAlign: 'end', fontWeight: '700', color: '#db7f3b'  }}> 
+                        <span> 35,000 TSH </span>
+                    </div>
+                </div>
+
+            </div>
+        )
+    }
 
     return(
+        toDone ? <Redirect to={`${url}/`} /> : 
         <div className="container-fluid" style={{ paddingTop: '3rem', paddingBottom: '5rem', backgroundColor: '#fff' }}>
             <div className="container" style={{ marginBottom: '50px' }}>
                 <p className="title" style={{ marginBottom: '6rem', fontFamily: 'Inter', fontWeight: '900', color: '#202a44', 
@@ -164,70 +252,7 @@ export default function CheckoutShop({url}){
                     <div className="col-md-1" style={{ backgroundColor: '' }}></div>
                     
                     <div className="col-md-5">
-                        <div className="cointainer" style={{ border: '1px solid #ced4da', borderRadius: '5px', textAlign: 'start', padding: '1rem', backgroundColor: '#f7f7f7' }}>
-                            <span style={{ 
-                                    fontSize: '16px',
-                                    textAlign: 'start',
-                                    fontFamily: 'Spartan',
-                                    color: '#202a44',
-                                    fontWeight: '500',
-                                    marginTop: '2rem',
-                                    marginBottom: '2rem'
-                                }}>
-                                    Your Order Summary
-                            </span>
-                            <div className="row" style={{ fontFamily: 'Nunito' }}>
-                                <div className="col-md-3" style={{ alignContent: 'center', paddingTop: '2rem', paddingBottom: '2rem' }}>
-                                    <Image src={blendMockupImage} />
-                                </div>
-                                <div className="col-md-6" style={{textAlign: 'start', paddingTop: '2rem' }}>
-                                    {/* <span> { subscription.blend } </span>< br />
-                                    <span> { subscription.texture } </span>< br />
-                                    <span> { subscription.amount } </span>< br /> */}
-                                </div>
-                                <div className="col-md-3" style={{ textAlign: 'end', fontSize: '14px', paddingTop: '2rem' }}>
-                                    <span> 35,000 TSH </span>< br />
-                                </div>
-                            </div>
-                            
-                            {/* Line */}
-                            <div style={{ height: '.1rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
-
-                            <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px' }}>
-                                <div className="col-md-9"> Subtotal </div>
-                                <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
-                                    <span> 35, 000TSH </span>
-                                </div>
-                            </div>
-
-                            <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem' }}>
-                                <div className="col-md-9"> Shipping </div>
-                                <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
-                                    <span> -- </span>
-                                </div>
-                            </div>
-
-                            {/* Line */}
-                            <div style={{ height: '.05rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
-
-                            <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem' }}>
-                                <div className="col-md-9"> Total </div>
-                                <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
-                                    <span> 35,000 TSH </span>
-                                </div>
-                            </div>
-
-                            {/* Line */}
-                            <div style={{ height: '.05rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
-
-                            <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem', marginBottom: '1rem' }}>
-                                <div className="col-md-7"> To be Paid </div>
-                                <div className="col-md-5" style={{ fontSize: '16px', textAlign: 'end', fontWeight: '700', color: '#db7f3b'  }}> 
-                                    <span> 35,000 TSH </span>
-                                </div>
-                            </div>
-
-                        </div>
+                        <OrderSummarySection />
                     </div>
 
                 </div>
