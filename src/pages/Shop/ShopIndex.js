@@ -3,6 +3,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom'
 import FooterComponent from '../../components/FooterComponent'
 import SiteHeader from '../../components/HeaderComponent'
 import { ShopProvider } from '../../contexts/ShopContext'
+import OrderCompleteComponent from '../SharedComponents/OrderCompleteComponent'
 import BuyCoffee from './BuyCoffee'
 import BuyGadget from './BuyGadget'
 import CheckoutShop from './Checkout'
@@ -24,6 +25,9 @@ function ShopIndex({url}){
                     </Route>
                     <Route exact path={`${match.path}/checkout`}>
                         <CheckoutShop url={match.path} />
+                    </Route>
+                    <Route exact path={`${match.path}/completed`}>
+                        <OrderCompleteComponent message="Order Received!" />
                     </Route>
                 </Switch>
             </div>
