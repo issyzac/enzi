@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { enziButtonStyle } from '../../utils/CustomStyles'
@@ -28,6 +28,10 @@ function BuyCoffee(){
     const [blendSelection, setBlendSelection] = useState(0)
     const [grindSelection, setGrindSelection] = useState(0)
     const [quantity, setQuantity] = useState(1)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     function HeaderSection(){
         return(
