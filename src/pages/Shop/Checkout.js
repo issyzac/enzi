@@ -3,9 +3,13 @@ import { Link, Redirect } from 'react-router-dom';
 import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 
+import { useSelectedCoffee } from '../../contexts/ShopContext'
+
 export default function CheckoutShop({url}){
 
     const [validated, setValidated] = useState(false)
+
+    const selectedCoffee = useSelectedCoffee()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -20,6 +24,119 @@ export default function CheckoutShop({url}){
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])
+
+
+      /**
+       * This section captures user delivery and contact information
+       */
+      function FormSection(){
+
+        /**
+         * Client Contact Information sub section
+         */
+        function ContactSection(){
+            return(
+                <div>
+                    <Form.Group as={Row} controlId="formBasicEmail">
+                        <Form.Label column sm="3"> Email </Form.Label>
+                        <Col sm="9">
+                            <Form.Control
+                                placeholder="someone@email.com" 
+                                style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
+                        </Col>
+                        <Form.Control.Feedback type="invalid">
+                            Please provide an email to reach you.
+                        </Form.Control.Feedback>
+                    </Form.Group>
+
+                    <Form.Group as={Row} controlId="formBasicPhone" style={{ marginBottom: '4rem' }}>
+                        <Form.Label column sm="3"> Phone </Form.Label>
+                        <Col sm="9">
+                            <Form.Control 
+                                required 
+                                placeholder="255683321768" 
+                                style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
+                        </Col>
+                    </Form.Group>
+                </div>
+            )
+        }
+
+        /**
+         * Delivery Information Section
+         */
+        function DeliverySection(){
+            return(
+                <>
+                    <span style={{ 
+                        fontSize: '24px', textAlign: 'start', alignContent: 'start', fontFamily: 'Spartan', color: '#202a44', fontWeight: '500',paddingTop: '4rem',}}>
+                        How can we reach you!
+                    </span>
+                    {/* Full Name */}
+                    <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '2rem' }}>
+                        <Form.Label column sm="3"> Full Name </Form.Label>
+                        <Col sm="9">
+                            <Form.Control 
+                                type="text" 
+                                placeholder="Full Name" 
+                                style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                        </Col>
+                    </Form.Group>
+
+                    {/* Address */}
+                    <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
+                        <Form.Label column sm="3"> Address </Form.Label>
+                        <Col sm="9">
+                            <Form.Control 
+                                type="text" 
+                                placeholder="Address" 
+                                style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                        </Col>
+                    </Form.Group>
+
+                    {/* City */}
+                    <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
+                        <Form.Label column sm="3"> City </Form.Label>
+                        <Col sm="9">
+                            <Form.Control 
+                                type="text" 
+                                placeholder="City" 
+                                style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                        </Col>
+                    </Form.Group>
+                </>
+            )
+        }
+
+
+        /**
+         * SUBMIT button Element
+         */
+        function SubmitButton(){
+            return(
+                <div>
+                    <div className="row" style={{ marginTop: '4rem'}}>
+                        <div className="col-md-7"> </div>
+                        <div className="col-md-5" style={{ padding: '0px !important' }}>
+                            <Button type="submit" style={{ textDecoration: 'none', backgroundColor: '#fff', borderColor: '#fff', width: '100%', padding: '0px'}}>
+                                <div id="shop-gadget-button" className="shop-gadget-button"> 
+                                    <span style={{ fontSize: '16px' }}> Checkout </span>
+                                </div>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+          return(
+            <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ marginTop: '2rem', fontFamily: 'Spartan' }} >
+                <ContactSection />
+                <DeliverySection />
+                <SubmitButton />
+            </Form>
+          )
+      }
 
     return(
         <div className="container-fluid" style={{ paddingTop: '3rem', paddingBottom: '5rem', backgroundColor: '#fff' }}>
@@ -41,79 +158,7 @@ export default function CheckoutShop({url}){
                         }}>
                             Let us contact you!
                         </span>
-
-                        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ marginTop: '2rem', fontFamily: 'Spartan' }} >
-                            <Form.Group as={Row} controlId="formBasicEmail">
-                                <Form.Label column sm="3"> Email </Form.Label>
-                                <Col sm="9">
-                                    <Form.Control
-                                        placeholder="someone@email.com" 
-                                        style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
-                                </Col>
-                                <Form.Control.Feedback type="invalid">
-                                    Please provide an email to reach you.
-                                </Form.Control.Feedback>
-                            </Form.Group>
-
-                            <Form.Group as={Row} controlId="formBasicPhone" style={{ marginBottom: '4rem' }}>
-                                <Form.Label column sm="3"> Phone </Form.Label>
-                                <Col sm="9">
-                                    <Form.Control 
-                                        required 
-                                        placeholder="255683321768" 
-                                        style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
-                                </Col>
-                            </Form.Group>
-
-                            <span style={{ 
-                                fontSize: '24px', textAlign: 'start', alignContent: 'start', fontFamily: 'Spartan', color: '#202a44', fontWeight: '500',paddingTop: '4rem',}}>
-                                How can we reach you!
-                            </span>
-                            {/* Full Name */}
-                            <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '2rem' }}>
-                                <Form.Label column sm="3"> Full Name </Form.Label>
-                                <Col sm="9">
-                                    <Form.Control 
-                                        type="text" 
-                                        placeholder="Full Name" 
-                                        style={{ paddingTop: '30px', paddingBottom: '30px' }} />
-                                </Col>
-                            </Form.Group>
-
-                            {/* Address */}
-                            <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
-                                <Form.Label column sm="3"> Address </Form.Label>
-                                <Col sm="9">
-                                    <Form.Control 
-                                        type="text" 
-                                        placeholder="Address" 
-                                        style={{ paddingTop: '30px', paddingBottom: '30px' }} />
-                                </Col>
-                            </Form.Group>
-
-                            {/* City */}
-                            <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
-                                <Form.Label column sm="3"> City </Form.Label>
-                                <Col sm="9">
-                                    <Form.Control 
-                                        type="text" 
-                                        placeholder="City" 
-                                        style={{ paddingTop: '30px', paddingBottom: '30px' }} />
-                                </Col>
-                            </Form.Group>
-
-                            <div className="row" style={{ marginTop: '4rem'}}>
-                                <div className="col-md-7"> </div>
-                                <div className="col-md-5" style={{ padding: '0px !important' }}>
-                                    <Button type="submit" style={{ textDecoration: 'none', backgroundColor: '#fff', borderColor: '#fff', width: '100%', padding: '0px'}}>
-                                        <div id="shop-gadget-button" className="shop-gadget-button"> 
-                                            <span style={{ fontSize: '16px' }}> Checkout </span>
-                                        </div>
-                                    </Button>
-                                </div>
-                            </div>
-
-                        </Form>
+                        <FormSection />
                     </div>  
 
                     <div className="col-md-1" style={{ backgroundColor: '' }}></div>
