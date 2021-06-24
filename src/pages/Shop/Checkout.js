@@ -4,15 +4,24 @@ import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 
 import { useSelectedCoffee, useDeliveryInformation, useUpdateDeliveryInformation } from '../../contexts/ShopContext'
+import { useUser } from '../../contexts/SubscriptionContext'
+
+import firebase from '../../Firestore' 
 
 export default function CheckoutShop({url}){
+
+    const db = firebase.firestore()
 
     const [validated, setValidated] = useState(false)
     const [toDone, setToDone] = useState(false)
 
+    let coffeeOrder = { }
+
     const selectedCoffee = useSelectedCoffee()
     const deliveryInformation = useDeliveryInformation()
     const updateDeliveryInformation = useUpdateDeliveryInformation()
+
+    const user = useUser()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -38,9 +47,20 @@ export default function CheckoutShop({url}){
 
             updateDeliveryInformation(deliveryInformation)
 
+            //Combine selected coffee and deliver information into a single object
+            coffeeOrder = {selectedCoffee, deliveryInformation}
+
+            submitOrderDetails()
+
             setToDone(true)
 
         }
+    }
+
+    function submitOrderDetails(){
+        const userId = user.userReference;
+        const docRef = db.collection("users").doc(userId);
+        docRef.update({coffeeOrder});
     }
 
     useEffect(() => {
