@@ -8,7 +8,7 @@ import ChooseTexture from './components/ChooseTexture';
 import ChooseBlend from './components/ChooseBlend';
 import ChooseAmount from './components/ChooseAmount';
 import ContactInfo from './components/ContactInfo';
-import Checkout from './components/Checkout';
+import OrderCompleteComponent from '../SharedComponents/OrderCompleteComponent';
 
 export default function SubscriptionPage(){
 
@@ -38,7 +38,7 @@ export default function SubscriptionPage(){
                         <ContactInfo url={match.path} />
                     </Route>
                     <Route path={`${match.path}/checkout`}>
-                        <Checkout url={match.path} />
+                        <OrderCompleteComponent message=" Subscription Received!" />
                     </Route>
                 </Switch>
             </div>
