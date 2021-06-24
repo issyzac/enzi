@@ -1,18 +1,64 @@
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react'
+import { Link, Redirect } from 'react-router-dom';
 import { Form, Button, Row , Col, Image } from 'react-bootstrap';
 
 import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
 import '../styles/SubStyle.css'
 import { useSubscription, useUser, useUserUpdate } from '../../../contexts/SubscriptionContext';
 
-function ContactInfo(){
+import firebase from '../../../Firestore.js'; 
+
+function ContactInfo({url}){
 
     const subscription = useSubscription()
     
+    const [validated, setValidated] = useState(false)
+    const [toCheckout, setToCheckout] = useState(false)
+
     const user = useUser()
     const updateUser = useUserUpdate()
 
+    const db = firebase.firestore()
+    
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const form = event.target
+        if (form.checkValidity() === false){    
+            event.stopPropagation()
+        }else{
+            const email = form[0].value
+            const phone = form[1].value
+            const firstName = form[2].value
+            const lastName = form[3].value
+            const address = form[4].value
+            const city = form[5].value
+
+            user.email = email
+            user.firstName = firstName
+            user.lastName = lastName
+            user.phone = phone
+            user.address = address
+            user.city = city
+
+            updateUser(user)
+
+            submitUserDetails()
+
+
+            setToCheckout(true)
+
+        }
+    }
+
+    function submitUserDetails(){
+        const userId = user.userReference;
+        const docRef = db.collection("users").doc(userId);
+        docRef.update({user, subscription});
+    }
+
     return(
+        toCheckout ? <Redirect to={`${url}/checkout`} /> 
+        : 
         <div className="container-fluid" style={{ paddingTop: '4rem', paddingBottom: '5rem' }}> 
             <div className="container">
                 <div style={{ marginBottom: '50px'}}>
@@ -35,18 +81,26 @@ function ContactInfo(){
                                 Delivery Information
                             </span>
 
-                            <Form style={{ marginTop: '2rem', fontFamily: 'Spartan' }}>
+                            <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ marginTop: '2rem', fontFamily: 'Spartan' }} >
                                 <Form.Group as={Row} controlId="formBasicEmail">
                                     <Form.Label column sm="3"> Email </Form.Label>
                                     <Col sm="9">
-                                        <Form.Control placeholder="someone@email.com" style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
+                                        <Form.Control
+                                            placeholder="someone@email.com" 
+                                            style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
                                     </Col>
+                                    <Form.Control.Feedback type="invalid">
+                                        Please provide an email to reach you.
+                                    </Form.Control.Feedback>
                                 </Form.Group>
 
                                 <Form.Group as={Row} controlId="formBasicPhone">
                                     <Form.Label column sm="3"> Phone </Form.Label>
                                     <Col sm="9">
-                                        <Form.Control placeholder="255683321768" style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
+                                        <Form.Control 
+                                            required 
+                                            placeholder="255683321768" 
+                                            style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
                                     </Col>
                                 </Form.Group>
 
@@ -54,7 +108,10 @@ function ContactInfo(){
                                 <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '3rem' }}>
                                     <Form.Label column sm="3"> First Name </Form.Label>
                                     <Col sm="9">
-                                        <Form.Control type="text" placeholder="First Name" style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                                        <Form.Control 
+                                            type="text" 
+                                            placeholder="First Name" 
+                                            style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
                                 </Form.Group>
 
@@ -62,7 +119,10 @@ function ContactInfo(){
                                 <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
                                     <Form.Label column sm="3"> Last Name </Form.Label>
                                     <Col sm="9">
-                                        <Form.Control type="text" placeholder="Last Name" style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                                        <Form.Control 
+                                            type="text" 
+                                            placeholder="Last Name" 
+                                            style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
                                 </Form.Group>
 
@@ -70,7 +130,10 @@ function ContactInfo(){
                                 <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
                                     <Form.Label column sm="3"> Address </Form.Label>
                                     <Col sm="9">
-                                        <Form.Control type="text" placeholder="Address" style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                                        <Form.Control 
+                                            type="text" 
+                                            placeholder="Address" 
+                                            style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
                                 </Form.Group>
 
@@ -78,21 +141,25 @@ function ContactInfo(){
                                 <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
                                     <Form.Label column sm="3"> City </Form.Label>
                                     <Col sm="9">
-                                        <Form.Control type="text" placeholder="City" style={{ paddingTop: '30px', paddingBottom: '30px' }} />
+                                        <Form.Control 
+                                            type="text" 
+                                            placeholder="City" 
+                                            style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
                                 </Form.Group>
 
-                            </Form>
-                            <div className="row" style={{ marginTop: '4rem'}}>
-                                <div className="col-md-7"> </div>
-                                <div className="col-md-5" style={{ padding: '0px !important' }}>
-                                    <Link  to="/gadgetsware" style={{ textDecoration: 'none'}}>
-                                        <div id="shop-gadget-button" className="shop-gadget-button"> 
-                                            <span style={{ fontSize: '16px' }}> Checkout </span>
-                                        </div>
-                                    </Link>
+                                <div className="row" style={{ marginTop: '4rem'}}>
+                                    <div className="col-md-7"> </div>
+                                    <div className="col-md-5" style={{ padding: '0px !important' }}>
+                                        <Button type="submit" style={{ textDecoration: 'none', backgroundColor: '#fff', borderColor: '#fff'}}>
+                                            <div id="shop-gadget-button" className="shop-gadget-button"> 
+                                                <span style={{ fontSize: '16px' }}> Checkout </span>
+                                            </div>
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
+
+                            </Form>
                         </div>  
 
                         <div className="col-md-1" style={{ backgroundColor: '' }}></div>
