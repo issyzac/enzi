@@ -37,7 +37,11 @@ export function ShopProvider({children}){
     }
 
     const deliveryInformation = {
-
+        email: '',
+        phone: '',
+        fullName: '',
+        address: '',
+        city: ''
     }
 
     const [coffeeSelected, setCoffeeSelected] = useState(coffee)
