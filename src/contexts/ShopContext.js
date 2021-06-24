@@ -33,7 +33,7 @@ export function ShopProvider({children}){
     const coffee = {
         blend: '',
         grind: '',
-        quantity: 0
+        quantity: 1
     }
 
     const deliveryInformation = {
