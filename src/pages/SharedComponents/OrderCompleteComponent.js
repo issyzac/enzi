@@ -19,7 +19,7 @@ const enziButtonStyle = {
     paddingBottom: '1rem'
   }
 
-function Checkout({url}) {
+export default function OrderCompleteComponent({message}){
     return(
         <div className="container-fluid" style={{ paddingTop: '7rem', paddingBottom: '5rem' }}>
             <div className="container">
@@ -33,7 +33,7 @@ function Checkout({url}) {
                             textAlign: 'start', 
                             lineHeight: '5rem'}}>
 
-                        Subscription Received!
+                        {message}
 
                     </p>
                     <p className="subtitle" style={{ fontFamily: 'Spartan', fontWeight: '300', marginTop: '5rem', fontSize: '40px', textAlign: 'start', lineHeight: '3rem' }}> 
@@ -48,5 +48,3 @@ function Checkout({url}) {
         </div>
     )
 }
-
-export default Checkout
