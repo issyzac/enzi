@@ -44,6 +44,7 @@ function BuyCoffee({url}){
         let grind = mGrind == 0 ? "Whole" : "Ground"
         coffeeSelected.grind = grind
         coffeeSelected.quantity = quantity
+        coffeeSelected.price = (quantity*10000)
 
         //Update the state of selected Coffee
         updateSelectedCoffee(coffeeSelected)
