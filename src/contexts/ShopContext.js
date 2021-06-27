@@ -34,7 +34,7 @@ export function ShopProvider({children}){
         blend: 'Enzi',
         grind: 'Whole',
         quantity: 1,
-        price: 0
+        price: 10000
     }
 
     const deliveryInformation = {
