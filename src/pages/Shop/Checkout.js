@@ -42,13 +42,18 @@ export default function CheckoutShop({url}){
             deliveryInformation.fullName = fullName
             deliveryInformation.address = address
             deliveryInformation.city = city
+            deliveryInformation.userReference = user.userReference
 
-            console.log("bucks", deliveryInformation);
+            console.log("bucks", deliveryInformation)
 
             updateDeliveryInformation(deliveryInformation)
 
             //Combine selected coffee and deliver information into a single object
-            coffeeOrder = {selectedCoffee, deliveryInformation}
+            coffeeOrder = {
+                selectedCoffee, 
+                deliveryInformation,
+                orderDate: new Date()
+            }
 
             submitOrderDetails()
 
@@ -58,9 +63,9 @@ export default function CheckoutShop({url}){
     }
 
     function submitOrderDetails(){
-        const userId = user.userReference;
-        const docRef = db.collection("users").doc(userId);
-        docRef.update({coffeeOrder});
+        //const userId = user.userReference
+        //const docRef = db.collection("users").doc(userId)
+        db.collection("coffee-orders").add({coffeeOrder})
     }
 
     useEffect(() => {
@@ -203,19 +208,12 @@ export default function CheckoutShop({url}){
                         <span> { selectedCoffee.quantity } </span>< br />
                     </div>
                     <div className="col-md-3" style={{ textAlign: 'end', fontSize: '14px', paddingTop: '2rem' }}>
-                        <span> 35,000 TSH </span>< br />
+                        <span> { selectedCoffee.price } TSH </span>< br />
                     </div>
                 </div>
                 
                 {/* Line */}
                 <div style={{ height: '.1rem', backgroundColor: '#ced4da', marginTop: '1rem', marginBottom: '1rem' }}></div>
-
-                <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px' }}>
-                    <div className="col-md-9"> Subtotal </div>
-                    <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
-                        <span> 35, 000TSH </span>
-                    </div>
-                </div>
 
                 <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem' }}>
                     <div className="col-md-9"> Shipping </div>
@@ -230,7 +228,7 @@ export default function CheckoutShop({url}){
                 <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem' }}>
                     <div className="col-md-9"> Total </div>
                     <div className="col-md-3" style={{ fontSize: '14px', textAlign: 'end'  }}> 
-                        <span> 35,000 TSH </span>
+                        <span> { selectedCoffee.price } TSH </span>
                     </div>
                 </div>
 
@@ -240,7 +238,7 @@ export default function CheckoutShop({url}){
                 <div className="row" style={{ fontFamily: 'Nunito', fontSize: '14px', marginTop: '1rem', marginBottom: '1rem' }}>
                     <div className="col-md-7"> To be Paid </div>
                     <div className="col-md-5" style={{ fontSize: '16px', textAlign: 'end', fontWeight: '700', color: '#db7f3b'  }}> 
-                        <span> 35,000 TSH </span>
+                        <span> {selectedCoffee.price} TSH </span>
                     </div>
                 </div>
 
