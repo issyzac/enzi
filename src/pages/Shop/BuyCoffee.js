@@ -24,6 +24,10 @@ const enziButtonStyleSelected = {
     border: "3px solid 202a44"
 }
 
+const enziBlendDescription = "Rich chocolaty flavour and mix of balanced fruty aroma roasted just enough to give you the kick you need to start your day "
+
+const enziLiteBlendDescription = "Enzi Lite will give you a fruity balanced easy flavor to enjoy your cup of coffee anytime of the day"
+
 function BuyCoffee({url}){
 
     const [blendSelection, setBlendSelection] = useState(0)
@@ -110,8 +114,7 @@ function BuyCoffee({url}){
         return(
             <div style={{ marginTop: '1rem' }}>
                 <p style={{ textAlign: 'start', fontFamily: 'Inter', fontWeight: '500', fontSize: '16px' }}>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    { blendSelection === 0 ? enziBlendDescription : enziLiteBlendDescription }
                 </p>
             </div>
         )
