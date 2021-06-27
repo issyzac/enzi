@@ -4,7 +4,8 @@ import { Link, Redirect } from 'react-router-dom'
 import { enziButtonStyle } from '../../utils/CustomStyles'
 import { useSelectedCoffee, useUpdateCoffeeSelected } from '../../contexts/ShopContext'
 
-import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
+import enziBlendMockup from '../../images/blends/blend-mokup-straight.jpeg'
+import enziLiteBlendMockup from '../../images/blends/blend-mokup-slant.jpeg'
 
 const blendStyle = {
     border: "1px solid lightgrey",
@@ -214,7 +215,7 @@ function BuyCoffee({url}){
             <div className="container">
                 <div className="row">
                     <div className="col-md-7" style={{ height: '500px'}}>
-                        <Image src={blendMockupImage} fluid />
+                        <Image src={ blendSelection === 0 ? enziBlendMockup : enziLiteBlendMockup } fluid />
                     </div>
                     <div className="col-md-5">
                         <HeaderSection />
