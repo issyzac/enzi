@@ -4,7 +4,8 @@ import { Link, Redirect } from 'react-router-dom'
 import { enziButtonStyle } from '../../utils/CustomStyles'
 import { useSelectedCoffee, useUpdateCoffeeSelected } from '../../contexts/ShopContext'
 
-import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
+import enziBlendMockup from '../../images/blends/blend-mokup-straight.jpeg'
+import enziLiteBlendMockup from '../../images/blends/blend-mokup-slant.jpeg'
 
 const blendStyle = {
     border: "1px solid lightgrey",
@@ -23,6 +24,10 @@ const enziButtonStyleSelected = {
     ...enziButtonStyle,
     border: "3px solid 202a44"
 }
+
+const enziBlendDescription = "Rich chocolaty flavour and mix of balanced fruty aroma roasted just enough to give you the kick you need to start your day "
+
+const enziLiteBlendDescription = "Enzi Lite will give you a fruity balanced easy flavor to enjoy your cup of coffee anytime of the day"
 
 function BuyCoffee({url}){
 
@@ -44,6 +49,7 @@ function BuyCoffee({url}){
         let grind = mGrind == 0 ? "Whole" : "Ground"
         coffeeSelected.grind = grind
         coffeeSelected.quantity = quantity
+        coffeeSelected.price = (quantity*10000)
 
         //Update the state of selected Coffee
         updateSelectedCoffee(coffeeSelected)
@@ -109,8 +115,7 @@ function BuyCoffee({url}){
         return(
             <div style={{ marginTop: '1rem' }}>
                 <p style={{ textAlign: 'start', fontFamily: 'Inter', fontWeight: '500', fontSize: '16px' }}>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    { blendSelection === 0 ? enziBlendDescription : enziLiteBlendDescription }
                 </p>
             </div>
         )
@@ -210,7 +215,7 @@ function BuyCoffee({url}){
             <div className="container">
                 <div className="row">
                     <div className="col-md-7" style={{ height: '500px'}}>
-                        <Image src={blendMockupImage} fluid />
+                        <Image src={ blendSelection === 0 ? enziBlendMockup : enziLiteBlendMockup } fluid />
                     </div>
                     <div className="col-md-5">
                         <HeaderSection />

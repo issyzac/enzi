@@ -31,9 +31,10 @@ export function useUpdateDeliveryInformation(){
 export function ShopProvider({children}){
     
     const coffee = {
-        blend: '',
-        grind: '',
-        quantity: 1
+        blend: 'Enzi',
+        grind: 'Whole',
+        quantity: 1,
+        price: 10000
     }
 
     const deliveryInformation = {
