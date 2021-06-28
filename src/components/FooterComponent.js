@@ -16,22 +16,22 @@ function FooterComponent(){
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer__about d-flex flex-column justify-content-center">
                             <div className="footer__logo" style={footeLogoStyle}>
-                                <a href="index.html#">
+                                <a href="#">
                                     <Image src={logoWhite} alt="Enzi logo"/>
                                 </a>
                             </div>
                             <p>Our love and passion for coffee is what our community is all about.</p>
-                            <a href="index.html#"><img src="img/payment.png" alt=""/></a>
+                            <a href="#"><img src="img/payment.png" alt=""/></a>
                         </div>
                     </div>
                     <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
                         <div className="footer__widget">
                             <h6>Shop</h6>
                             <ul>
-                                <li><a href="index.html#">Coffee</a></li>
-                                <li><a href="index.html#">Brewing Gadgets</a></li>
-                                <li><a href="index.html#">Enzi Merch</a></li>
-                                <li><a href="index.html#">Sale</a></li>
+                                <li><a href="#">Coffee</a></li>
+                                <li><a href=" #">Brewing Gadgets</a></li>
+                                <li><a href=" #">Enzi Merch</a></li>
+                                <li><a href=" #">Sale</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,9 +39,9 @@ function FooterComponent(){
                         <div className="footer__widget">
                             <h6>Just For you</h6>
                             <ul>
-                                <li><a href="index.html#">Subscription Bundles</a></li>
-                                <li><a href="index.html#">Delivery</a></li>
-                                <li><a href="index.html#">Blog</a></li>
+                                <li><a href=" #">Subscription Bundles</a></li>
+                                <li><a href=" #">Delivery</a></li>
+                                <li><a href=" #">Blog</a></li>
                             </ul>
                         </div>
                     </div>
