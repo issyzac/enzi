@@ -139,7 +139,7 @@ function BannerComponent(){
 
                 <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center" style={{ marginTop: '5rem' }}>
                     <div className="">
-                        <h4 style={bannerTextStyle}> Subscribe and relax, we deliver every month! </h4>
+                        <h4 style={bannerTextStyle}> Subscribe and relax, fresh coffee every month! </h4>
                     </div>
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Spartan', fontWeight: '500', marginTop: '3rems' }}> 
