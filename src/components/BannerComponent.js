@@ -109,12 +109,17 @@ function BannerComponent(){
         if (userReferenceCookie == undefined || userReferenceCookie == null){
             db.collection("users").add({}).then((ref) => {
                 
-                console.log("teamo", "New")
-
                 const docRef = db.collection("users").doc(ref).collection(path);
                 const today = Date()
-                docRef.add({"visit-date": today}).then((subref) => {
-                    user.subscriptionReference = subref.id
+                docRef.add({"visit-date": today}).then((nref) => {
+
+                    if (path == "shop"){
+                        //If user is shopping the update the shop reference instead of subscription reference
+                        user.shopReference = nref.id
+                    }else {
+                        user.subscriptionReference = nref.id
+                    }
+
                     user.userReference = ref.id
                     updateUser(user)
 
@@ -126,17 +131,18 @@ function BannerComponent(){
             });
         }else{
 
-            console.log("teamo", "Existing")
-
             const docRef = db.collection("users").doc(userReferenceCookie).collection(path);
             const today = Date()
-            docRef.add({"visit-date": today}).then((ref) => {
-                user.subscriptionReference = ref.id
+            docRef.add({"visit-date": today}).then((nref) => {
+
+                if (path == "shop"){
+                    //If user is shopping the update the shop reference instead of subscription reference
+                    user.shopReference = nref.id
+                }else {
+                    user.subscriptionReference = nref.id
+                }
                 user.userReference = userReferenceCookie
                 updateUser(user)
-            
-                console.log("teamo", "done")
-                console.log("teamo", user)
 
                 setProceed(true);
             });
