@@ -93,7 +93,9 @@ function BannerComponent(){
 
     const handleBannerAction = (e) => {
 
-        switch(e.target.name){
+        let buttonClicked = e.target.name
+
+        switch(buttonClicked){
             case subscribeButton:
                 setNextScreen("subscribe")
                 break
@@ -102,27 +104,48 @@ function BannerComponent(){
                 break
         }
 
+        let path = buttonClicked == "buy" ? "shop" : "subscription"
+
         if (userReferenceCookie == undefined || userReferenceCookie == null){
             db.collection("users").add({}).then((ref) => {
                 
-                //Update app state with the new user reference ID
-                user.userReference = ref.id
-                updateUser(user)
+                const docRef = db.collection("users").doc(ref).collection(path);
+                const today = Date()
+                docRef.add({"visit-date": today}).then((nref) => {
 
-                // Persist the reference ID using cookie
-                Cookies.set(UserReferenceCookieTag, ref.id)
-                
-                setProceed(true);
+                    if (path == "shop"){
+                        //If user is shopping the update the shop reference instead of subscription reference
+                        user.shopReference = nref.id
+                    }else {
+                        user.subscriptionReference = nref.id
+                    }
+
+                    user.userReference = ref.id
+                    updateUser(user)
+
+                    // Persist the reference ID using cookie
+                    Cookies.set(UserReferenceCookieTag, ref.id)
+                    
+                    setProceed(true);
+                });
             });
         }else{
-            const docRef = db.collection("users").doc(userReferenceCookie);
-            docRef.set({"visited-before": true});
 
-            //Update app state with the new user reference ID
-            user.userReference = userReferenceCookie
-            updateUser(user)
-            
-            setProceed(true);
+            const docRef = db.collection("users").doc(userReferenceCookie).collection(path);
+            const today = Date()
+            docRef.add({"visit-date": today}).then((nref) => {
+
+                if (path == "shop"){
+                    //If user is shopping the update the shop reference instead of subscription reference
+                    user.shopReference = nref.id
+                }else {
+                    user.subscriptionReference = nref.id
+                }
+                user.userReference = userReferenceCookie
+                updateUser(user)
+
+                setProceed(true);
+            });
         }
     }
 
@@ -138,7 +161,7 @@ function BannerComponent(){
 
                 <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center" style={{ marginTop: '5rem' }}>
                     <div className="">
-                        <h4 style={bannerTextStyle}> Subscribe and relax, fresh coffee every month! </h4>
+                        <h4 style={bannerTextStyle}> Subscribe and relax, fresh coffee every Saturday! </h4>
                     </div>
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Spartan', fontWeight: '500', marginTop: '3rems' }}> 

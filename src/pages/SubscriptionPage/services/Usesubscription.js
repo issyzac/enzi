@@ -4,10 +4,21 @@ import firebase from '../../../Firestore.js';
 
 const db = firebase.firestore()
 
-function pushToNode(user, subscription){
-    const userId = user.userReference;
-    const docRef = db.collection("users").doc(userId);
-    docRef.update({user, subscription});
+export default function pushToNode(user, subscription){
+    const userId = user.userReference
+    const subscriptionReference = user.subscriptionReference
+    const docRef = db.collection("users").doc(userId).collection("subscription").doc(subscriptionReference)
+    
+    // Push subscription node only
+    pushSubscription(docRef, subscription)
 }
 
-export default pushToNode
+function pushSubscription(ref, subscription){
+    ref.update({subscription})
+}
+
+export function pushUserInformation(user){
+    const userId = user.userReference
+    const documentReference = db.collection("users").doc(userId);
+    documentReference.update({user})
+}

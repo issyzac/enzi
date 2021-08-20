@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Button, Image } from 'react-bootstrap'
 import { Link, Redirect } from 'react-router-dom'
 import { enziButtonStyle } from '../../utils/CustomStyles'
-import { useSelectedCoffee, useUpdateCoffeeSelected } from '../../contexts/ShopContext'
+import { useSelectedCoffee, useUpdateCoffeeSelected, useDeliveryInformation } from '../../contexts/ShopContext'
+import { useUser } from '../../contexts/SubscriptionContext'
+import pushShoppedItem from './services/ShopService'
 
 import enziBlendMockup from '../../images/blends/blend-mokup-straight.jpeg'
 import enziLiteBlendMockup from '../../images/blends/blend-mokup-slant.jpeg'
@@ -38,9 +40,8 @@ function BuyCoffee({url}){
 
     const coffeeSelected = useSelectedCoffee()
     const updateSelectedCoffee = useUpdateCoffeeSelected()
-
-    console.log("bucks : ", coffeeSelected);
-    console.log("bucks", url)
+    const user = useUser()
+    const deliveryInformation = useDeliveryInformation()
 
     const saveSelectedCoffee = ({mGrind, mQuantity}) => {
 
@@ -51,8 +52,17 @@ function BuyCoffee({url}){
         coffeeSelected.quantity = quantity
         coffeeSelected.price = (quantity*10000)
 
+        //Combine selected coffee and deliver information into a single object
+        let coffeeOrder = {
+            coffeeSelected, 
+            deliveryInformation,
+            orderDate: new Date()
+        }
+
+        console.log("teamo", user)
+
         //Update the state of selected Coffee
-        updateSelectedCoffee(coffeeSelected)
+        pushShoppedItem(user, coffeeOrder)
 
         setToCheckout(true)
 

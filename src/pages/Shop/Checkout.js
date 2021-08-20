@@ -6,11 +6,10 @@ import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 import { useSelectedCoffee, useDeliveryInformation, useUpdateDeliveryInformation } from '../../contexts/ShopContext'
 import { useUser } from '../../contexts/SubscriptionContext'
 
-import firebase from '../../Firestore' 
+import pushShoppedItem from './services/ShopService';
 
 export default function CheckoutShop({url}){
 
-    const db = firebase.firestore()
 
     const [validated, setValidated] = useState(false)
     const [toDone, setToDone] = useState(false)
@@ -30,21 +29,17 @@ export default function CheckoutShop({url}){
             event.stopPropagation()
         }else{
 
-            const email = form[0].value
-            const phoneNumber = form[1].value
+            const phoneNumber = form[0].value
 
-            const fullName = form[2].value
-            const address = form[3].value
-            const city = form[4].value
+            const fullName = form[1].value
+            const address = form[2].value
+            const city = form[3].value
 
-            deliveryInformation.email = email
             deliveryInformation.phone = phoneNumber
             deliveryInformation.fullName = fullName
             deliveryInformation.address = address
             deliveryInformation.city = city
             deliveryInformation.userReference = user.userReference
-
-            console.log("bucks", deliveryInformation)
 
             updateDeliveryInformation(deliveryInformation)
 
@@ -55,17 +50,11 @@ export default function CheckoutShop({url}){
                 orderDate: new Date()
             }
 
-            submitOrderDetails()
+            pushShoppedItem(user, coffeeOrder)
 
             setToDone(true)
 
         }
-    }
-
-    function submitOrderDetails(){
-        //const userId = user.userReference
-        //const docRef = db.collection("users").doc(userId)
-        db.collection("coffee-orders").add({coffeeOrder})
     }
 
     useEffect(() => {
@@ -84,24 +73,13 @@ export default function CheckoutShop({url}){
         function ContactSection(){
             return(
                 <div>
-                    <Form.Group as={Row} controlId="formBasicEmail">
-                        <Form.Label column sm="3"> Email </Form.Label>
-                        <Col sm="9">
-                            <Form.Control
-                                placeholder="someone@email.com" 
-                                style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
-                        </Col>
-                        <Form.Control.Feedback type="invalid">
-                            Please provide an email to reach you.
-                        </Form.Control.Feedback>
-                    </Form.Group>
-
                     <Form.Group as={Row} controlId="formBasicPhone" style={{ marginBottom: '4rem' }}>
                         <Form.Label column sm="3"> Phone </Form.Label>
                         <Col sm="9">
                             <Form.Control 
                                 required 
                                 placeholder="255683321768" 
+                                name="Phone"
                                 style={{ paddingTop: '2rem', paddingBottom: '2rem' }} />
                         </Col>
                     </Form.Group>
@@ -126,6 +104,7 @@ export default function CheckoutShop({url}){
                             <Form.Control 
                                 type="text" 
                                 placeholder="Full Name" 
+                                name="Full name"
                                 style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                         </Col>
                     </Form.Group>
@@ -136,6 +115,7 @@ export default function CheckoutShop({url}){
                         <Col sm="9">
                             <Form.Control 
                                 type="text" 
+                                name="Address"
                                 placeholder="Address" 
                                 style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                         </Col>
@@ -147,6 +127,7 @@ export default function CheckoutShop({url}){
                         <Col sm="9">
                             <Form.Control 
                                 type="text" 
+                                name="City"
                                 placeholder="City" 
                                 style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                         </Col>
