@@ -31,6 +31,7 @@ export function SubscriptionProvider({ children }) {
  
     const usr = {
         userReference: '',
+        shopReference: '',
         subscriptionReference: '',
         fullName: '',
         email: '',
