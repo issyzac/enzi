@@ -6,7 +6,7 @@ import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
 import '../styles/SubStyle.css'
 import { useSubscription, useUser, useUserUpdate } from '../../../contexts/SubscriptionContext';
 
-import firebase from '../../../Firestore.js'; 
+import pushToNode from '../services/Usesubscription';
 
 function ContactInfo({url}){
 
@@ -17,8 +17,6 @@ function ContactInfo({url}){
 
     const user = useUser()
     const updateUser = useUserUpdate()
-
-    const db = firebase.firestore()
     
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -42,18 +40,11 @@ function ContactInfo({url}){
 
             updateUser(user)
 
-            submitUserDetails()
-
+            pushToNode(user, subscription)
 
             setToCheckout(true)
 
         }
-    }
-
-    function submitUserDetails(){
-        const userId = user.userReference;
-        const docRef = db.collection("users").doc(userId);
-        docRef.update({user, subscription});
     }
 
     return(
