@@ -6,10 +6,12 @@ import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
 import blendMockupImageSlant from '../../../images/blends/blend-mokup-slant.jpeg'
 
 import '../styles/SubStyle.css';
-import { useSubscription, useSubscriptionUpdate } from "../../../contexts/SubscriptionContext";
+import { useSubscription, useUser, useSubscriptionUpdate } from "../../../contexts/SubscriptionContext";
+import pushToNode from "../services/Usesubscription";
 
 function ChooseBlend({url}){
 
+    const user = useUser()
     const subscription = useSubscription()
     const updateSubscription = useSubscriptionUpdate()
 
@@ -22,6 +24,8 @@ function ChooseBlend({url}){
         //Update app state with the selected blend
         subscription.blend = blend
         updateSubscription(subscription)
+
+        pushToNode(user, subscription)
 
         //Proceed to the next screen
         setToAmount(true)
