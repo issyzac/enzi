@@ -13,13 +13,11 @@ import v60 from '../res/gadgets/pour-over.svg';
 import chemex from '../res/gadgets/chemex.svg';
 import esspressoMachine from '../res/gadgets/espresso-machine.svg';
 import { useUser, useUserUpdate, useSubscription, useSubscriptionUpdate } from "../../../contexts/SubscriptionContext";
-
-import firebase from '../../../Firestore.js'; 
+import pushToNode from "../services/Usesubscription";
 
 function ChooseGadgetComponent({url}){
 
     const user  = useUser()
-
     const subscription = useSubscription()
     const updateSubscription = useSubscriptionUpdate()
 
@@ -29,6 +27,8 @@ function ChooseGadgetComponent({url}){
 
         subscription.gadget = name
         updateSubscription(subscription)
+
+        pushToNode(user, subscription)
 
         setToTexture(true)
 
