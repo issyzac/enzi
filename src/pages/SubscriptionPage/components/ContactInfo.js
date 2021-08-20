@@ -6,7 +6,7 @@ import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
 import '../styles/SubStyle.css'
 import { useSubscription, useUser, useUserUpdate } from '../../../contexts/SubscriptionContext';
 
-import pushToNode from '../services/Usesubscription';
+import {pushToNode, pushUserInformation} from '../services/Usesubscription';
 
 function ContactInfo({url}){
 
@@ -36,7 +36,7 @@ function ContactInfo({url}){
 
             updateUser(user)
 
-            pushToNode(user, subscription)
+            pushUserInformation(user)
 
             setToCheckout(true)
 
