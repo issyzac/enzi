@@ -1,12 +1,14 @@
 import { Component, useState } from 'react';
 import { Button } from "react-bootstrap";
 import { Link, Redirect } from 'react-router-dom';
-import { useSubscription, useSubscriptionUpdate } from '../../../contexts/SubscriptionContext';
+import { useSubscription, useUser, useSubscriptionUpdate } from '../../../contexts/SubscriptionContext';
+import pushToNode from '../services/Usesubscription';
 
 import '../styles/SubStyle.css';
 
 function ChooseAmount ({url}) {
 
+    const user = useUser()
     const subscription = useSubscription()
     const updateSubscription = useSubscriptionUpdate()
 
@@ -19,6 +21,8 @@ function ChooseAmount ({url}) {
         //Update app state with selected amount 
         subscription.amount = amount
         updateSubscription(subscription)
+
+        pushToNode(user, subscription)
 
         //proceed to summary screen
         setToSummary(true)

@@ -10,6 +10,7 @@ import mixGroundAndWholeImage from '../res/answer-ground-and-whole-bean.svg';
 import { useSubscription, useSubscriptionUpdate, useUser } from '../../../contexts/SubscriptionContext';
 
 import firebase from '../../../Firestore.js'; 
+import pushToNode from '../services/Usesubscription';
 
 function ChooseTexture({url}){
 
@@ -24,6 +25,8 @@ function ChooseTexture({url}){
         // Update app state with the new amount
         subscription.texture = texture
         updateSubscription(subscription)
+
+        pushToNode(user, subscription)
 
         //Proceed to the next screen
         setToBlend(true)

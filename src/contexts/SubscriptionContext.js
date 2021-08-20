@@ -31,8 +31,7 @@ export function SubscriptionProvider({ children }) {
  
     const usr = {
         userReference: '',
-        firstName: '',
-        lastName: '',
+        fullName: '',
         email: '',
         phone: '',
         address: '',

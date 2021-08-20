@@ -14,7 +14,7 @@ import Cookies from 'js-cookie';
 
 import { UserReferenceCookieTag } from '../utils/constants.js';
 
-import { useUser, useUserUpdate } from '../contexts/SubscriptionContext';
+import { useUser, useSubscription, useUserUpdate } from '../contexts/SubscriptionContext';
 
 const bannerStyle = {
     paddingTop: '50px',
@@ -79,6 +79,7 @@ function BannerComponent(){
 
     const user = useUser()
     const updateUser = useUserUpdate()
+    const subscription = useSubscription()
 
     const subscribeButton = "subscribe"
     const buyBotton = "buy"
@@ -91,8 +92,6 @@ function BannerComponent(){
     const [nextScreen, setNextScreen] = useState("")
 
     const handleBannerAction = (e) => {
-
-        console.log("bucks", "Target : ", e.target.name);
 
         switch(e.target.name){
             case subscribeButton:
@@ -117,7 +116,7 @@ function BannerComponent(){
             });
         }else{
             const docRef = db.collection("users").doc(userReferenceCookie);
-            docRef.set({"hasRef": "True"});
+            docRef.set({"visited-before": true});
 
             //Update app state with the new user reference ID
             user.userReference = userReferenceCookie

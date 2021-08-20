@@ -6,7 +6,7 @@ import blendMockupImage from '../../../images/blends/blend-mokup-straight.jpeg'
 import '../styles/SubStyle.css'
 import { useSubscription, useUser, useUserUpdate } from '../../../contexts/SubscriptionContext';
 
-import firebase from '../../../Firestore.js'; 
+import pushToNode from '../services/Usesubscription';
 
 function ContactInfo({url}){
 
@@ -17,8 +17,6 @@ function ContactInfo({url}){
 
     const user = useUser()
     const updateUser = useUserUpdate()
-
-    const db = firebase.firestore()
     
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -26,34 +24,23 @@ function ContactInfo({url}){
         if (form.checkValidity() === false){    
             event.stopPropagation()
         }else{
-            const email = form[0].value
-            const phone = form[1].value
-            const firstName = form[2].value
-            const lastName = form[3].value
-            const address = form[4].value
-            const city = form[5].value
+            const phone = form[0].value
+            const fullname = form[1].value
+            const address = form[2].value
+            const city = form[3].value
 
-            user.email = email
-            user.firstName = firstName
-            user.lastName = lastName
+            user.fullName = fullname
             user.phone = phone
             user.address = address
             user.city = city
 
             updateUser(user)
 
-            submitUserDetails()
-
+            pushToNode(user, subscription)
 
             setToCheckout(true)
 
         }
-    }
-
-    function submitUserDetails(){
-        const userId = user.userReference;
-        const docRef = db.collection("users").doc(userId);
-        docRef.update({user, subscription});
     }
 
     return(
@@ -78,11 +65,12 @@ function ContactInfo({url}){
                                 fontWeight: '500',
                                 marginBottom: '2rem'
                             }}>
-                                Delivery Information
+                                Contact Information
                             </span>
 
                             <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ marginTop: '2rem', fontFamily: 'Spartan' }} >
-                                <Form.Group as={Row} controlId="formBasicEmail">
+                                
+                                {/* <Form.Group as={Row} controlId="formBasicEmail">
                                     <Form.Label column sm="3"> Email </Form.Label>
                                     <Col sm="9">
                                         <Form.Control
@@ -92,7 +80,7 @@ function ContactInfo({url}){
                                     <Form.Control.Feedback type="invalid">
                                         Please provide an email to reach you.
                                     </Form.Control.Feedback>
-                                </Form.Group>
+                                </Form.Group> */}
 
                                 <Form.Group as={Row} controlId="formBasicPhone">
                                     <Form.Label column sm="3"> Phone </Form.Label>
@@ -104,24 +92,25 @@ function ContactInfo({url}){
                                     </Col>
                                 </Form.Group>
 
+                                <h3 style={{ 
+                                    fontSize: '24px',
+                                    textAlign: 'start',
+                                    alignContent: 'start',
+                                    fontFamily: 'Spartan',
+                                    color: '#202a44',
+                                    fontWeight: '500',
+                                    marginTop: '3rem'
+                                }}>
+                                    Delivery Information (Optional)
+                                </h3>
                                 {/* First Name */}
-                                <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '3rem' }}>
-                                    <Form.Label column sm="3"> First Name </Form.Label>
+                                <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '2rem' }}>
+                                    <Form.Label column sm="3"> Full Name </Form.Label>
                                     <Col sm="9">
                                         <Form.Control 
                                             type="text" 
-                                            placeholder="First Name" 
-                                            style={{ paddingTop: '30px', paddingBottom: '30px' }} />
-                                    </Col>
-                                </Form.Group>
-
-                                {/* Last Name */}
-                                <Form.Group as={Row} controlId="formBasicPhone" style={{ marginTop: '1rem' }}>
-                                    <Form.Label column sm="3"> Last Name </Form.Label>
-                                    <Col sm="9">
-                                        <Form.Control 
-                                            type="text" 
-                                            placeholder="Last Name" 
+                                            name="Fullname"
+                                            placeholder="Full Name" 
                                             style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
                                 </Form.Group>
@@ -132,6 +121,7 @@ function ContactInfo({url}){
                                     <Col sm="9">
                                         <Form.Control 
                                             type="text" 
+                                            name="Address"
                                             placeholder="Address" 
                                             style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
@@ -143,6 +133,7 @@ function ContactInfo({url}){
                                     <Col sm="9">
                                         <Form.Control 
                                             type="text" 
+                                            name="City"
                                             placeholder="City" 
                                             style={{ paddingTop: '30px', paddingBottom: '30px' }} />
                                     </Col>
