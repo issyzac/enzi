@@ -93,7 +93,9 @@ function BannerComponent(){
 
     const handleBannerAction = (e) => {
 
-        switch(e.target.name){
+        let buttonClicked = e.target.name
+
+        switch(buttonClicked){
             case subscribeButton:
                 setNextScreen("subscribe")
                 break
@@ -102,27 +104,42 @@ function BannerComponent(){
                 break
         }
 
+        let path = buttonClicked == "buy" ? "shop" : "subscription"
+
         if (userReferenceCookie == undefined || userReferenceCookie == null){
             db.collection("users").add({}).then((ref) => {
                 
-                //Update app state with the new user reference ID
-                user.userReference = ref.id
-                updateUser(user)
+                console.log("teamo", "New")
 
-                // Persist the reference ID using cookie
-                Cookies.set(UserReferenceCookieTag, ref.id)
-                
-                setProceed(true);
+                const docRef = db.collection("users").doc(ref).collection(path);
+                const today = Date()
+                docRef.add({"visit-date": today}).then((subref) => {
+                    user.subscriptionReference = subref.id
+                    user.userReference = ref.id
+                    updateUser(user)
+
+                    // Persist the reference ID using cookie
+                    Cookies.set(UserReferenceCookieTag, ref.id)
+                    
+                    setProceed(true);
+                });
             });
         }else{
-            const docRef = db.collection("users").doc(userReferenceCookie);
-            docRef.set({"visited-before": true});
 
-            //Update app state with the new user reference ID
-            user.userReference = userReferenceCookie
-            updateUser(user)
+            console.log("teamo", "Existing")
+
+            const docRef = db.collection("users").doc(userReferenceCookie).collection(path);
+            const today = Date()
+            docRef.add({"visit-date": today}).then((ref) => {
+                user.subscriptionReference = ref.id
+                user.userReference = userReferenceCookie
+                updateUser(user)
             
-            setProceed(true);
+                console.log("teamo", "done")
+                console.log("teamo", user)
+
+                setProceed(true);
+            });
         }
     }
 
