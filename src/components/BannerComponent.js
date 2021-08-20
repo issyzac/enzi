@@ -116,7 +116,7 @@ function BannerComponent(){
             });
         }else{
             const docRef = db.collection("users").doc(userReferenceCookie);
-            docRef.set({"hasRef": "True"});
+            docRef.set({"visited-before": true});
 
             //Update app state with the new user reference ID
             user.userReference = userReferenceCookie
