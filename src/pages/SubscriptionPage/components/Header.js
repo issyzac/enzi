@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 import { useUser, useUserUpdate, useSubscription, useSubscriptionUpdate } from "../../../contexts/SubscriptionContext";
 
 import SubscriptionKeys from '../../../utils/constants'
+import pushToNode from "../services/Usesubscription";
 
 
 const enziButtonStyle = {
@@ -46,6 +47,8 @@ function HeaderComponent(){
         //Update subscription flow state
         subscription.startedSubscription = true
         updateSubscription(subscription)
+
+        pushToNode(user, subscription)
 
         setProceedToGadgets(true);
     }
