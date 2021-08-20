@@ -6,11 +6,10 @@ import blendMockupImage from '../../images/blends/blend-mokup-straight.jpeg'
 import { useSelectedCoffee, useDeliveryInformation, useUpdateDeliveryInformation } from '../../contexts/ShopContext'
 import { useUser } from '../../contexts/SubscriptionContext'
 
-import firebase from '../../Firestore' 
+import pushShoppedItem from './services/ShopService';
 
 export default function CheckoutShop({url}){
 
-    const db = firebase.firestore()
 
     const [validated, setValidated] = useState(false)
     const [toDone, setToDone] = useState(false)
@@ -44,8 +43,6 @@ export default function CheckoutShop({url}){
             deliveryInformation.city = city
             deliveryInformation.userReference = user.userReference
 
-            console.log("bucks", deliveryInformation)
-
             updateDeliveryInformation(deliveryInformation)
 
             //Combine selected coffee and deliver information into a single object
@@ -55,17 +52,11 @@ export default function CheckoutShop({url}){
                 orderDate: new Date()
             }
 
-            submitOrderDetails()
+            pushShoppedItem(user, coffeeOrder)
 
             setToDone(true)
 
         }
-    }
-
-    function submitOrderDetails(){
-        //const userId = user.userReference
-        //const docRef = db.collection("users").doc(userId)
-        db.collection("coffee-orders").add({coffeeOrder})
     }
 
     useEffect(() => {
