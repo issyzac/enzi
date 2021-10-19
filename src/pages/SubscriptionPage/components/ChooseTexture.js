@@ -43,11 +43,11 @@ function ChooseTexture({url}){
             <div className="col-md-6 col-sm-12"> 
                 <Link to={`${url}/blend`} id="enzi-link" onClick={amountSelected}>
                     <div className="sub-select-btn" style={{ alignContent: 'center' }}> 
-                        <div className="row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div className="col-md-3">
+                        <div className="row" style={{ display: 'flex', justifyContent: 'center', height: '5rem' }}>
+                            <div className="col-md-3 col-sm-12">
                                 <Image src={icon} fluid />
                             </div>
-                            <div className="col-md-9" style={{ textAlign: 'center', height: '100%' }}>
+                            <div className="col-md-9 col-sm-12" style={{ textAlign: 'center'}}>
                                 <span className="sub-select-btn-text"> {name} </span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ function ChooseTexture({url}){
         <div className="container-fluid" style={{ paddingTop: '7rem', paddingBottom: '5rem' }}>
             <div className="container">
                 <div style={{ marginBottom: '50px'}}>
-                    <p className="title" style={{ marginBottom: '3rem', fontFamily: 'Inter', fontWeight: '900', color: '#202a44', fontSize: '72px', textAlign: 'start', lineHeight: '5rem'}}> 
+                    <p className="title" style={{ marginBottom: '3rem', fontFamily: 'Inter', fontWeight: '900', color: '#202a44', fontSize: '4em', textAlign: 'start', lineHeight: '5rem'}}> 
                         Do you want ground coffee or whole beans?
                     </p>
                     <div className="row">
