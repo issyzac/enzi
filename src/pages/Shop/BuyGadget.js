@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Enziware from './components/Enziware'
 import { Image } from 'react-bootstrap'
 
@@ -19,6 +19,12 @@ const bannerStyle= {
   }
 
 export default function BuyGadget({url}){
+
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
+
     return(
        <div className="container">
            <div className="row" style={{ height: '300px', marginTop: '30px' }}>
