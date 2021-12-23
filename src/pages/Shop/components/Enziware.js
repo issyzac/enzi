@@ -21,7 +21,7 @@ export default function Enziware({name, price, image}){
     return (    
         <div className="container">
             <a href="#">
-                <div className="row gadget">
+                <div className="row gadget" style={{ margin: '0px' }}>
                     <Image src={ image } fluid className="gadget-image"/>
                     <div className="overlay"></div>
                 </div>
