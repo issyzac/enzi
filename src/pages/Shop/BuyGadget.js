@@ -18,8 +18,6 @@ const bannerStyle= {
     backgroundRepeat: 'no-repeat'
   }
 
-var bannerImage = 'https://firebasestorage.googleapis.com/v0/b/enzi-website.appspot.com/o/banners%2Fgadgets-shop-banner.jpeg?alt=media&token=d08ac88d-1282-4d42-a431-670ad09596ed';
-
 export default function BuyGadget({url}){
     return(
        <div className="container">
