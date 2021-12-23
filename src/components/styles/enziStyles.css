@@ -23,6 +23,10 @@
     font-size: '0.5rem' !important;
 }
 
+.enzi-button:hover {
+    background-color: #db7f3b;
+}
+
 .gadget {
     position: relative;
     width: 100%;
