@@ -91,7 +91,7 @@ function BlendsComponent(){
                             <h1 style={{ fontSize: '3rem', fontFamily: 'Poppins', color: '#ffffff', fontWeight: '700' }}>
                                 Good deals on gadgets at our coffeeware shop
                             </h1>
-                            <Button variant='outline-light' href="https://wa.me/255683321768" style={enziButtonStyle} > Shop Now </Button>
+                            <Button variant='outline-light' href="shop/gadgets" style={enziButtonStyle} > Shop Now </Button>
                         </div>
                     </div>
                 </div>
