@@ -25,7 +25,7 @@ function FooterComponent(){
                         </div>
                     </div>
                     <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                        <div className="footer__widget">
+                        <div className="footer__widget" style = {{ textAlign: 'left', fontFamily: 'Poppins', color: '#FFFFFF' }}>
                             <h6>Shop</h6>
                             <ul>
                                 <li><a href="#">Coffee</a></li>
@@ -35,22 +35,23 @@ function FooterComponent(){
                             </ul>
                         </div>
                     </div>
-                    <div className="col-lg-2 col-md-3 col-sm-6">
+                    <div className="col-lg-3 col-md-3 col-sm-6">
                         <div className="footer__widget">
-                            <h6>Just For you</h6>
-                            <ul>
-                                <li><a href=" #">Subscription Bundles</a></li>
-                                <li><a href=" #">Delivery</a></li>
-                                <li><a href=" #">Blog</a></li>
-                            </ul>
+                            <h6 style={{ textAlign: 'left' }}> Customise </h6>
+                            <p style={{ color: "#FFFFFF", fontFamily: "Poppins", textAlign: 'left' }}>
+                                Let us customise your order just as how you prefer 
+                                to make sure you enjoy your coffee everyday in your 
+                                own unique way. Subscribe and get the delivered exactly as 
+                                how you expect it every time!
+                            </p>
                         </div>
                     </div>
-                    <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div className="col-lg-2 col-md-6 col-sm-6">
                         <div className="footer__widget">
                             <h6>Contact</h6>
-                            <div className="footer__newslatter">
-                                <p><span>Phone</span> +255683321768 </p>
-                                <p><span>Email</span> enzicoffee@gmail.com </p>
+                            <div className="">
+                                <p style={{ color: '#FFFFFF', fontFamily: 'Poppins' }} >+255755 688 678 </p>
+                                <p style={{ color: '#FFFFFF', fontFamily: 'Poppins' }}>enzicoffee@gmail.com </p>
                             </div>
                         </div>
                     </div>
