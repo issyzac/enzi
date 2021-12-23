@@ -1,8 +1,6 @@
 
 import { Image } from "react-bootstrap";
 
-import enziBlendMockup from '../../../images/blends/blend-mokup-straight.jpeg'
-
 const textStyle  = {
     fontFamily: 'Poppins',
     fontWeight: '300',
