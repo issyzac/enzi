@@ -15,7 +15,8 @@ const bannerStyle= {
     backgroundImage: "url(" + "https://firebasestorage.googleapis.com/v0/b/enzi-website.appspot.com/o/banners%2Fgadgets-shop-banner.jpeg?alt=media&token=d08ac88d-1282-4d42-a431-670ad09596ed" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    height: '400px'
   }
 
 export default function BuyGadget({url}){
