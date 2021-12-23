@@ -34,7 +34,7 @@ export default function BuyGadget({url}){
                </div>   
                <div className="col-6" style={bannerStyle}></div>
            </div>
-            <div className="row" style={{ marginTop: '40px', marginBottom: '20px' }}> 
+            <div className="row" style={{ marginTop: '40px', marginBottom: '30px' }}> 
                 <div style={{ backgroundColor: '#000000', height: '1px', width: '100%', marginLeft: '50px', marginRight: '50px'}}></div>
             </div>
            <div className="row" style={{ height: '500px' }}>
