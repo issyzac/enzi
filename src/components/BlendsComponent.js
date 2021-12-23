@@ -2,6 +2,7 @@ import {Card, Button} from 'react-bootstrap'
 import './styles/enziStyles.css'
 
 import { Carousel } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 var moka = "https://firebasestorage.googleapis.com/v0/b/enzi-website.appspot.com/o/moka-pot-2.jpg?alt=media&token=cdd1d088-9ea6-4a77-b368-d5635cf40a4c"
@@ -20,6 +21,8 @@ const blendCardSyle = {
 const enziButtonStyle = {
     border: '2px solid #ffffff',
     // color: '#ffffff',
+    textDecoration: 'none',
+    color: '#ffffff',
     alignSelf: 'center',
     marginTop: '1rem',
     fontVariant: 'all-small-caps',
@@ -73,7 +76,7 @@ function BlendsComponent(){
                             <h1 style={{ fontSize: '3rem', fontFamily: 'Poppins', color: '#ffffff', fontWeight: '700' }}>
                                 Good deals on gadgets at our coffeeware shop
                             </h1>
-                            <Button variant='outline-light' href="shop/gadgets" style={enziButtonStyle} > Shop Now </Button>
+                            <Link className='button enzi-button' variant='outline-light' to="shop/gadgets" style={enziButtonStyle} > Shop Now </Link>
                         </div>
                     </div>
                 </div>
