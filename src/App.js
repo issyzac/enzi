@@ -20,7 +20,7 @@ function App() {
 
   return (
     <SubscriptionProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Switch>
             <Route exact path="/" component={Index} />  
