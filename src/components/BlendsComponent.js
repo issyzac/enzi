@@ -1,19 +1,12 @@
 import {Card, Button} from 'react-bootstrap'
-import Flags from 'country-flag-icons/react/3x2'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './styles/enziStyles.css'
-//Images
-import enziClassicBlendImg2 from '../images/blends/ec002-0.png'
-import blendPlaceHolder from '../images/blends/blend-mokup-straight.jpeg'
-import blendPlaceHolder2 from '../images/blends/blend-placeholder-two.png'
 
 import { Carousel } from 'react-bootstrap'
 
-import moka from '../images/gadgets/moka-pot.jpg'
-import grinder from '../images/gadgets/handgrinder.jpeg'
-import electricGrinder from '../images/gadgets/electric-grinder.jpg'
-import aeropress from '../images/gadgets/aeropress.jpg'
 
+var moka = "https://firebasestorage.googleapis.com/v0/b/enzi-website.appspot.com/o/moka-pot-2.jpg?alt=media&token=cdd1d088-9ea6-4a77-b368-d5635cf40a4c"
+var grinder  = "https://firebasestorage.googleapis.com/v0/b/enzi-website.appspot.com/o/grinder-2.jpg?alt=media&token=002c4fd6-2abf-41f5-a9de-cb056e2c6036"
+var aeropress = "https://firebasestorage.googleapis.com/v0/b/enzi-website.appspot.com/o/aeropress.jpg?alt=media&token=6460d4b6-0bed-420f-8020-7dfb3e6ab548"
 
 const blendStyle = {
     backgroundColor: '#202a44' //fff0e6 e8f5ff d6e6ff
@@ -22,17 +15,6 @@ const blendStyle = {
 const blendCardSyle = {
     marginTop: '5rem',
     marginBottom: '5rem',
-}
-
-const flagsStyle = {
-    height: '24px',
-    width: '24px',
-    marginLeft: '10px'
-}
-
-const subtitleStyle = {
-    color: '#202a44', //202a44 db7f3b  
-    fontWeight: '700'
 }
 
 const enziButtonStyle = {
