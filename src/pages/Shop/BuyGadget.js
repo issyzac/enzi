@@ -2,6 +2,8 @@ import React, {useEffect} from 'react'
 import Enziware from './components/Enziware'
 import { Image } from 'react-bootstrap'
 
+import ReactGa from 'react-ga4';
+
 const headerTextStyle  = {
     fontFamily: 'Poppins',
     fontWeight: '400',
@@ -23,7 +25,8 @@ export default function BuyGadget({url}){
 
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        ReactGa.send({ hitType: "pageview", page: {url} });
+        window.scrollTo(0,0);
     }, [])
 
     return(
