@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.387fe231.chunk.css",
-    "main.js": "/static/js/main.183bce5e.chunk.js",
-    "main.js.map": "/static/js/main.183bce5e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ecb49751.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ecb49751.js.map",
+    "main.js": "/static/js/main.bfca162d.chunk.js",
+    "main.js.map": "/static/js/main.bfca162d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cb62ed86.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cb62ed86.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.1c80f01a.chunk.js": "/static/js/2.1c80f01a.chunk.js",
-    "static/js/2.1c80f01a.chunk.js.map": "/static/js/2.1c80f01a.chunk.js.map",
-    "static/js/3.bb43c294.chunk.js": "/static/js/3.bb43c294.chunk.js",
-    "static/js/3.bb43c294.chunk.js.map": "/static/js/3.bb43c294.chunk.js.map",
+    "static/js/2.ee43e0ee.chunk.js": "/static/js/2.ee43e0ee.chunk.js",
+    "static/js/2.ee43e0ee.chunk.js.map": "/static/js/2.ee43e0ee.chunk.js.map",
+    "static/js/3.50679a38.chunk.js": "/static/js/3.50679a38.chunk.js",
+    "static/js/3.50679a38.chunk.js.map": "/static/js/3.50679a38.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.387fe231.chunk.css.map": "/static/css/main.387fe231.chunk.css.map",
-    "static/js/2.1c80f01a.chunk.js.LICENSE.txt": "/static/js/2.1c80f01a.chunk.js.LICENSE.txt",
+    "static/js/2.ee43e0ee.chunk.js.LICENSE.txt": "/static/js/2.ee43e0ee.chunk.js.LICENSE.txt",
     "static/media/aeropress.1dee68e7.svg": "/static/media/aeropress.1dee68e7.svg",
     "static/media/aeropress.e631d19f.jpg": "/static/media/aeropress.e631d19f.jpg",
     "static/media/answer-ground-and-whole-bean.a7f44f23.svg": "/static/media/answer-ground-and-whole-bean.a7f44f23.svg",
@@ -30,17 +30,16 @@
     "static/media/handgrinder.0026bc3f.jpeg": "/static/media/handgrinder.0026bc3f.jpeg",
     "static/media/logo-with-name.29170f61.png": "/static/media/logo-with-name.29170f61.png",
     "static/media/logo.2e77cbe7.png": "/static/media/logo.2e77cbe7.png",
-    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg",
     "static/media/moka-pot.3e15ecaf.svg": "/static/media/moka-pot.3e15ecaf.svg",
     "static/media/moka-pot.788cdd30.jpg": "/static/media/moka-pot.788cdd30.jpg",
     "static/media/mokart.40945781.png": "/static/media/mokart.40945781.png",
     "static/media/pour-over.310659c2.svg": "/static/media/pour-over.310659c2.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ecb49751.js",
+    "static/js/runtime-main.cb62ed86.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.1c80f01a.chunk.js",
+    "static/js/2.ee43e0ee.chunk.js",
     "static/css/main.387fe231.chunk.css",
-    "static/js/main.183bce5e.chunk.js"
+    "static/js/main.bfca162d.chunk.js"
   ]
 }
