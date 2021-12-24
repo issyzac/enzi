@@ -1,5 +1,7 @@
 
 import { Image } from "react-bootstrap";
+import { Link } from 'react-router-dom'
+import ReactGA from 'react-ga4';
 
 const textStyle  = {
     fontFamily: 'Poppins',
@@ -17,15 +19,30 @@ const priceStyle = {
     fontWeight: '400'
 }
 
+const selectedItem = (item) => {
+    ReactGA.event({
+        category: "Shop",
+        action: "Buy Gadget",
+        label: item, // optional
+        value: 1, // optional, must be a number
+      });
+}
+
+
 export default function Enziware({name, price, image}){
+
+    function handleItemSelection(e){
+        selectedItem(name)
+    }
+
     return (    
         <div className="container">
-            <a href="#">
+            <Link to="#" onClick={handleItemSelection}>
                 <div className="row gadget" style={{ margin: '0px' }}>
                     <Image src={ image } fluid className="gadget-image"/>
                     <div className="overlay"></div>
                 </div>
-            </a>
+            </Link>
             <div className="row d-flex justify-content-center" style={{ height: '30%', marginTop: '30px' }}>
                 <div className="d-flex justify-content-center">
                     <h3 style={textStyle}> {name} </h3>
