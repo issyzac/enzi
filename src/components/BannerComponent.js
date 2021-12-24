@@ -109,7 +109,7 @@ function BannerComponent(){
         if (userReferenceCookie == undefined || userReferenceCookie == null){
             db.collection("users").add({}).then((ref) => {
                 
-                const docRef = db.collection("users").doc(ref).collection(path);
+                const docRef = db.collection("users").doc(ref.id).collection(path);
                 const today = Date()
                 docRef.add({"visit-date": today}).then((nref) => {
 
