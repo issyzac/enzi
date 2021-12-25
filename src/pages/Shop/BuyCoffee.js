@@ -27,9 +27,9 @@ const enziButtonStyleSelected = {
     border: "3px solid 202a44"
 }
 
-const enziBlendDescription = "Rich chocolaty flavour and mix of balanced fruty aroma roasted just enough to give you the kick you need to start your day "
+const enziBlendDescription = "Classic blend will give you a fruity balanced calm flavor to enjoy your cup of coffee anytime of the day"
 
-const enziLiteBlendDescription = "Enzi Lite will give you a fruity balanced easy flavor to enjoy your cup of coffee anytime of the day"
+const enziLiteBlendDescription = "A darker blend rich in flavor thats not afraid to give you the kick you need to start your day"
 
 function BuyCoffee({url}){
 
@@ -95,7 +95,7 @@ function BuyCoffee({url}){
 
                 setBlendSelection(blendCode)
 
-                coffeeSelected.blend = blendCode === 0 ? "Enzi" : "Enzi Lite"
+                coffeeSelected.blend = blendCode === 0 ? "Classic" : "Dark"
                 updateSelectedCoffee(coffeeSelected)
             }
 
@@ -114,8 +114,8 @@ function BuyCoffee({url}){
             <div className="container-fluid" style={{ paddingLeft: '0px', marginTop: '1rem' }}> 
             <h3 style={{ textAlign: 'start', fontFamily: 'Poppins', fontSize: '16px', fontWeight: '200' }}> Blend </h3>
                 <div className="row" style={blendStyle}>
-                    <BlendItem blendCode={0} name="Enzi" />
-                    <BlendItem blendCode={1} name="Enzi Lite" />
+                    <BlendItem blendCode={0} name="Classic" />
+                    <BlendItem blendCode={1} name="Dark" />
                 </div>
             </div>
         )
@@ -155,9 +155,9 @@ function BuyCoffee({url}){
 
         return(
             <div className="container-fluid" style={{ paddingLeft: '0px', marginTop: '2rem' }}> 
-            <h3 style={{ textAlign: 'start', fontFamily: 'Poppins', fontSize: '16px', fontWeight: '200' }}> Grind </h3>
+            <h3 style={{ textAlign: 'start', fontFamily: 'Poppins', fontSize: '14px', fontWeight: '200' }}> Grind </h3>
                 <div className="row" style={blendStyle}>
-                    <GrindItem grindCode={0} name="Whole" />
+                    <GrindItem grindCode={0} name="Whole Beans" />
                     <GrindItem grindCode={1} name="Ground" />
                 </div>
             </div>
