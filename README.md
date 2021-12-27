@@ -2,4 +2,5 @@
 
 > Maintained and run by `@issyzac` 
 
-Visit https://enzicoffee.com is now https://enzi.coffee
+Available at:
+Old https://enzicoffee.com is now https://enzi.coffee
