@@ -62,7 +62,7 @@ function FooterComponent(){
                         <div className="footer__copyright__text">
                             <p> Copyright ©
                                 <script> document.write(new Date().getFullYear());</script>
-                                2021 All rights reserved | Enzi Coffee Roastery
+                                2022 All rights reserved | Enzi Coffee Roastery
                             </p>
                         </div>
                     </div>
