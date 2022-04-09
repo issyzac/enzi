@@ -17,15 +17,15 @@ import { UserReferenceCookieTag } from '../utils/constants.js';
 import { useUser, useSubscription, useUserUpdate } from '../contexts/SubscriptionContext';
 
 const bannerStyle = {
-    paddingTop: '50px',
-    paddingBottom: '120px',
+    paddingTop: '80px',
+    paddingBottom: '80px',
     backgroundColor: '#f7f7f7'
 }
 
 const bannerTextStyle ={
     fontFamily: 'Poppins',
     fontWeight: '700',
-    fontSize: '50px',
+    fontSize: '84px',
     color: '#202a44',
     textAlign: 'start'
 }
@@ -153,23 +153,23 @@ function BannerComponent(){
         // If 1 Redirect to subscription page
         proceed ? <Redirect to={nextScreen} /> :
         <div id="#home" className="container" style={bannerStyle}>
-            <div className="row">
+            <div className="row" style={{ alignItems: 'center' }}>
 
-                <div className="col-md-6 col-sm-12 d-md-none d-lg-none" style={{ marginBottom: "5rems" }}>
+                <div className="col-md-4 col-sm-12 d-md-none d-lg-none" style={{ marginBottom: "3rems" }}>
                     <Image src={blendMockupImage} fluid />
                 </div>
 
-                <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center" style={{ marginTop: '5rem' }}>
+                <div className="col-md-5 col-sm-12 d-flex flex-column justify-content-center">
                     <div className="">
-                        <h4 style={bannerTextStyle}> Subscribe and relax, fresh coffee every week! </h4>
+                        <h4 style={bannerTextStyle}> <b style={{ color: '#db7f3b', fontSize: '1em' }}>enzi</b> Premium Specialty Coffee </h4>
                     </div>
                     <div className="">
-                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Poppins', fontWeight: '200', marginTop: '3rems' }}> 
-                            Select your prefered coffee, tell us where to bring it and you never have to run out of coffee again! 
+                        <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Poppins', fontWeight: '300', marginTop: '4rems' }}> 
+                            Roasted at the origin, Delivered World Wide! 
                         </p>
                     </div>
 
-                    <div style={{ alignSelf: 'start' }}>
+                    <div style={{ alignSelf: 'start', marginTop: '2rem' }}>
                         
                         <Button id="sign-up-botton" name={subscribeButton} variant='outline-light' style={signupButtonStyle} onClick={handleBannerAction} > Subscribe </Button>
                         
@@ -177,17 +177,14 @@ function BannerComponent(){
                             <Button variant='outline-dark' name={buyBotton} style={enziButtonStyle} onClick={handleBannerAction} > Buy Coffee </Button>
                         </Link>
                     </div>
-                    {/* <div style={{ textAlign: 'start' }}> 
-                        <Flags.TZ title="Tanzania" style={flagsStyle}/>
-                        <Flags.UG title="Uganda" style={flagsStyle}/>
-                        <Flags.ET title="Ethiopia" style={flagsStyle}/>
-                        <Flags.KE title="Kenya" style={flagsStyle}/>
-                        <Flags.RW title="Rwanda" style={flagsStyle}/>
-                    </div> */}
                 </div>
                 <div className="d-md-none col-sm-12" style={{ height: '7rem'}}></div>
-                <div className="col-md-6 col-sm-12 d-md-block d-sm-none d-none" style={{ marginTop: "5rems" }}>
-                    <Image src={blendMockupImage} fluid />
+                <div className="col-md-7 col-sm-12 d-md-block d-sm-none d-none">
+                    <div className='row align-items-center'>
+                        <div className=''>
+                            <Image className='' src={blendMockupImage} style={{ backgroundColor: '#ff55ff' }} />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="row d-none" style={{ height: '120px' }}></div>
