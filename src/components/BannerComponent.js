@@ -106,12 +106,14 @@ function BannerComponent(){
 
         let path = buttonClicked == "buy" ? "shop" : "subscription"
 
+        const today = Date()
+
         if (userReferenceCookie == undefined || userReferenceCookie == null){
-            db.collection("users").add({}).then((ref) => {
+            db.collection("users").add({"last-visit-date" : today}).then((ref) => {
+                
                 
                 const docRef = db.collection("users").doc(ref.id).collection(path);
-                const today = Date()
-                docRef.add({"visit-date": today}).then((nref) => {
+                docRef.add({"date": today}).then((nref) => {
 
                     if (path == "shop"){
                         //If user is shopping the update the shop reference instead of subscription reference
@@ -119,6 +121,8 @@ function BannerComponent(){
                     }else {
                         user.subscriptionReference = nref.id
                     }
+
+                    console.log("Shujaa"+ docRef)
 
                     user.userReference = ref.id
                     updateUser(user)
@@ -130,22 +134,26 @@ function BannerComponent(){
                 });
             });
         }else{
-
-            const docRef = db.collection("users").doc(userReferenceCookie).collection(path);
             const today = Date()
-            docRef.add({"visit-date": today}).then((nref) => {
+            const docRef = db.collection("users").doc(userReferenceCookie).set({"last-visit-date": today}).then((afterdateReference) => {
+                
+                console.log("Shujaa"+ afterdateReference)
 
-                if (path == "shop"){
-                    //If user is shopping the update the shop reference instead of subscription reference
-                    user.shopReference = nref.id
-                }else {
-                    user.subscriptionReference = nref.id
-                }
-                user.userReference = userReferenceCookie
-                updateUser(user)
+                const _ref = db.collection("users").doc(userReferenceCookie).collection(path);
+                _ref.add({"date": today}).then((nref) => {
 
-                setProceed(true);
-            });
+                    if (path == "shop"){
+                        //If user is shopping the update the shop reference instead of subscription reference
+                        user.shopReference = nref.id
+                    }else {
+                        user.subscriptionReference = nref.id
+                    }
+                    user.userReference = userReferenceCookie
+                    updateUser(user)
+
+                    setProceed(true);
+                });  
+            })
         }
     }
 
