@@ -169,7 +169,7 @@ function BannerComponent(){
 
                 <div className="col-md-5 col-sm-12 d-flex flex-column justify-content-center">
                     <div className="">
-                        <h4 style={bannerTextStyle}> <b style={{ color: '#db7f3b', fontSize: '1em' }}>enzi</b> Premium Specialty Coffee </h4>
+                        <h4 style={bannerTextStyle}> <b style={{ color: '#db7f3b', fontSize: '1em' }}>enzi</b> Tanzanian Specialty Coffee </h4>
                     </div>
                     <div className="">
                         <p style={{ textAlign: 'start', fontSize: '24px', fontFamily: 'Poppins', fontWeight: '300', marginTop: '4rems' }}> 
