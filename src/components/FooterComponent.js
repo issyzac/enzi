@@ -49,9 +49,10 @@ function FooterComponent(){
                     <div className="col-lg-2 col-md-6 col-sm-6">
                         <div className="footer__widget">
                             <h6>Contact</h6>
-                            <div className="">
-                                <p style={{ color: '#FFFFFF', fontFamily: 'Poppins' }} >+255755 688 678 </p>
-                                <p style={{ color: '#FFFFFF', fontFamily: 'Poppins' }}>enzicoffee@gmail.com </p>
+                            <div className="" style={{ color: '#FFFFFF', fontFamily: 'Poppins', fontWeight: '500', fontSize: '1.1em' }}>
+                                +255755688678
+                                <br />
+                                iwant@enzi.coffee
                             </div>
                         </div>
                     </div>
@@ -61,7 +62,7 @@ function FooterComponent(){
                         <div className="footer__copyright__text">
                             <p> Copyright ©
                                 <script> document.write(new Date().getFullYear());</script>
-                                2021 All rights reserved | Enzi Coffee Roastery
+                                2022 All rights reserved | Enzi Coffee Roastery
                             </p>
                         </div>
                     </div>

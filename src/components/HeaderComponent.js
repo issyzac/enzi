@@ -12,8 +12,7 @@ const navbarstyle = {
     height: '80px',
     fontFamily: 'Nunito',
     fontWeight: '700',
-    borderBottom: "0.5px solid #202a44",
-
+    borderBottom: "0.5px solid #202a44"
 }
 
 const brandStyle = {
@@ -31,8 +30,8 @@ const logoStyle = {
 function SiteHeader() {
 
     return (
-        <Navbar fixed="top" bg="light" expand="lg" style={navbarstyle}>
-            <Navbar.Brand href="/" style={brandStyle} className="d-flex flex-column justify-content-center">
+        <Navbar fixed="top" bg="light" expand="lg" style={{...navbarstyle, backgroundColor: '#db7f3b !important'}}>
+            <Navbar.Brand href="/" style={{...brandStyle}} className="d-flex flex-column justify-content-center">
                 <div className="row">
                     <div className="col">
                         <Image src={logo} fluid style={logoStyle} />
@@ -45,7 +44,7 @@ function SiteHeader() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
+                <Nav className="">
                     <Link activeClass="active" to="#home" spy={true} smooth={true} duration={800}>
                         <Nav.Link href="#">Home</Nav.Link>
                     </Link>
@@ -54,6 +53,9 @@ function SiteHeader() {
                     </Link>
                     <Link activeClass="" to="connect" spy={true} smooth={true} duration={800}>
                         <Nav.Link href="#">Connect</Nav.Link>
+                    </Link>
+                    <Link activeClass="" to="shop/gadgets/">
+                        <Nav.Link to="/shop/gadgets" href="/shop/gadgets">Shop</Nav.Link>
                     </Link>
                 </Nav>
                 
